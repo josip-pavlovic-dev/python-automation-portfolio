@@ -1,0 +1,30 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.colorTheme": "Default Dark+",
+        "editor.formatOnSave": true,
+        "files.trimTrailingWhitespace": true,
+        "files.insertFinalNewline": true,
+        "python.defaultInterpreterPath": "${workspaceFolder}/projects/01-web-scraper/venv/bin/python",
+        "python.venvPath": "${workspaceFolder}/projects/01-web-scraper",
+        "python.analysis.typeCheckingMode": "basic",
+        "ruff.enable": true,
+        "ruff.fixOnSave": true,
+        "ruff.organizeImports": true,
+        "black-formatter.path": [
+            "${workspaceFolder}/projects/01-web-scraper/venv/bin/black"
+        ],
+        "python.formatting.provider": "black",
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "terminal.integrated.cwd": "${workspaceFolder}",
+        "testing.automaticallyOpenPeekView": "never",
+        "python.testing.pytestEnabled": true,
+        "python.testing.pytestArgs": [
+            "projects/01-web-scraper"
+        ]
+    }
+}

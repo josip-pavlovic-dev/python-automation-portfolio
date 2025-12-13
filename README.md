@@ -25,10 +25,10 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Use Cases:**
 
-- Product price monitoring
-- Competitor analysis
-- Job listing aggregation
-- Real estate data collection
+-   Product price monitoring
+-   Competitor analysis
+-   Job listing aggregation
+-   Real estate data collection
 
 [→ View Project](./projects/01-web-scraper/)
 
@@ -42,10 +42,10 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Use Cases:**
 
-- Monthly sales report generation
-- Multi-file data consolidation
-- Data cleaning and validation
-- Automated invoice processing
+-   Monthly sales report generation
+-   Multi-file data consolidation
+-   Data cleaning and validation
+-   Automated invoice processing
 
 [→ View Project](./projects/02-excel-automation/)
 
@@ -59,10 +59,10 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Use Cases:**
 
-- Invoice data extraction
-- Bank statement processing
-- Resume/CV parsing
-- Form data digitization
+-   Invoice data extraction
+-   Bank statement processing
+-   Resume/CV parsing
+-   Form data digitization
 
 [→ View Project](./projects/03-pdf-extractor/)
 
@@ -76,10 +76,10 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Use Cases:**
 
-- Automated report distribution
-- Data entry from email attachments
-- Scheduled data syncs
-- Alert systems
+-   Automated report distribution
+-   Data entry from email attachments
+-   Scheduled data syncs
+-   Alert systems
 
 [→ View Project](./projects/04-email-sheets-automation/)
 
@@ -89,33 +89,33 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 ### Web Scraping
 
-- Custom scrapers for any website
-- Data extraction and cleaning
-- Scheduled scraping (daily/weekly updates)
-- Anti-blocking strategies
-- **Starting at:** €200-500/project
+-   Custom scrapers for any website
+-   Data extraction and cleaning
+-   Scheduled scraping (daily/weekly updates)
+-   Anti-blocking strategies
+-   **Starting at:** €200-500/project
 
 ### Excel Automation
 
-- Batch file processing
-- Report generation
-- Data validation and cleaning
-- Formula automation
-- **Starting at:** €150-400/project
+-   Batch file processing
+-   Report generation
+-   Data validation and cleaning
+-   Formula automation
+-   **Starting at:** €150-400/project
 
 ### PDF Processing
 
-- Table extraction from PDFs
-- Bulk PDF data extraction
-- PDF to Excel/CSV conversion
-- **Starting at:** €150-350/project
+-   Table extraction from PDFs
+-   Bulk PDF data extraction
+-   PDF to Excel/CSV conversion
+-   **Starting at:** €150-350/project
 
 ### Custom Python Tools
 
-- Workflow automation
-- Data processing pipelines
-- Integration scripts
-- **Starting at:** €200-600/project
+-   Workflow automation
+-   Data processing pipelines
+-   Integration scripts
+-   **Starting at:** €200-600/project
 
 ---
 
@@ -125,26 +125,26 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Core Libraries:**
 
-- Data Processing: Pandas, NumPy, Polars
-- Web Scraping: Requests, BeautifulSoup, Scrapy, Selenium
-- Excel: OpenPyXL, XlsxWriter, Pandas
-- PDF: PyPDF2, Tabula, PDFPlumber
-- APIs: Google Sheets API, Gmail API, REST clients
+-   Data Processing: Pandas, NumPy, Polars
+-   Web Scraping: Requests, BeautifulSoup, Scrapy, Selenium
+-   Excel: OpenPyXL, XlsxWriter, Pandas
+-   PDF: PyPDF2, Tabula, PDFPlumber
+-   APIs: Google Sheets API, Gmail API, REST clients
 
 **Tools:**
 
-- Git/GitHub for version control
-- Virtual environments (venv, conda)
-- Testing with pytest
-- Documentation with Markdown
-- Linux/Ubuntu command line
+-   Git/GitHub for version control
+-   Virtual environments (venv, conda)
+-   Testing with pytest
+-   Documentation with Markdown
+-   Linux/Ubuntu command line
 
 **Best Practices:**
 
-- Clean, documented code
-- Error handling and logging
-- Automated testing
-- GitHub-ready projects
+-   Clean, documented code
+-   Error handling and logging
+-   Automated testing
+-   GitHub-ready projects
 
 ---
 
@@ -154,8 +154,8 @@ Jole Pavlović - Python automation specialist focused on delivering practical so
 
 **Freelance Profiles:**
 
-- Upwork: [Coming Soon - Jan 2026]
-- Fiverr: [Coming Soon - Jan 2026]
+-   Upwork: [Coming Soon - Jan 2026]
+-   Fiverr: [Coming Soon - Jan 2026]
 
 **GitHub:** [github.com/jole-pavlovic-dev](https://github.com/jole-pavlovic-dev)
 **Email:** [Your Email Here]
@@ -196,6 +196,62 @@ This portfolio is built as part of my professional transition into Python automa
 **Learning Path:** AI-mentored intensive (8-10 hours/day)
 **Start Date:** December 13, 2025
 **Focus:** Practical automation, freelance-ready skills, income generation
+
+---
+
+## 🧰 Workspace Setup / Podesavanje Radnog Okruženja
+
+**English**
+
+-   Open the workspace file: `python-automation-portfolio.code-workspace` in VS Code.
+-   Recommended extensions will be suggested automatically (Python, Pylance, Ruff, Black, GitLens, Error Lens).
+-   The project uses a per-project virtual environment in `projects/01-web-scraper/venv`.
+-   Common tasks are available via Command Palette → “Run Task”:
+    -   Setup venv (web-scraper): create venv and install dependencies
+    -   Install deps (web-scraper): reinstall dependencies
+    -   Lint (ruff): fast linting
+    -   Format (black): code formatting
+    -   Test (pytest): run unit tests
+-   Debug configurations (Run and Debug panel):
+    -   Run scraper.py: runs the scraper with default args
+    -   Pytest (web-scraper): runs tests inside the debugger
+
+Quick commands:
+
+```bash
+cd projects/01-web-scraper
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python -m pytest -q
+python scraper.py --format json --out output/scraped_quotes.json
+```
+
+**Srpski**
+
+-   Otvori `python-automation-portfolio.code-workspace` fajl u VS Code-u.
+-   Preporučene ekstenzije će biti predložene automatski (Python, Pylance, Ruff, Black, GitLens, Error Lens).
+-   Projekat koristi lokalni virtuelni Python env u `projects/01-web-scraper/venv`.
+-   Zajednički zadaci su dostupni kroz Command Palette → “Run Task”:
+    -   Setup venv (web-scraper): kreira venv i instalira zavisnosti
+    -   Install deps (web-scraper): ponovna instalacija zavisnosti
+    -   Lint (ruff): brzo proveravanje stila
+    -   Format (black): formatiranje koda
+    -   Test (pytest): pokretanje unit testova
+-   Debug konfiguracije (Run and Debug panel):
+    -   Run scraper.py: pokreće scraper sa podrazumevanim argumentima
+    -   Pytest (web-scraper): pokreće testove u debugger-u
+
+Brze komande:
+
+```bash
+cd projects/01-web-scraper
+python -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python -m pytest -q
+python scraper.py --format json --out output/scraped_quotes.json
+```
 
 ---
 
