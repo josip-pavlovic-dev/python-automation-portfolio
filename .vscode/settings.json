@@ -3,26 +3,14 @@
     "files.trimTrailingWhitespace": true,
     "files.insertFinalNewline": true,
     "python.defaultInterpreterPath": "${workspaceFolder}/projects/01-web-scraper/venv/bin/python",
-    "python.testing.pytestEnabled": true,
-    "python.testing.pytestArgs": [
-        "projects/01-web-scraper"
-    ],
-    "python.analysis.typeCheckingMode": "basic",
-    "ruff.enable": true,
-    "ruff.fixOnSave": true,
-    "ruff.organizeImports": true,
-    "python.formatting.provider": "black"
-}{
-    "python.defaultInterpreterPath": "${workspaceFolder}/projects/01-web-scraper/venv/bin/python",
     "python.terminal.activateEnvironment": true,
     "python.testing.pytestEnabled": true,
-    "python.testing.pytestArgs": [
-        "projects/01-web-scraper/tests"
-    ],
+    "python.testing.pytestArgs": ["projects/01-web-scraper/tests"],
     "python.testing.unittestEnabled": false,
-    "editor.formatOnSave": true,
+    "python.analysis.typeCheckingMode": "basic",
     "python.formatting.provider": "black",
     "ruff.enable": true,
     "ruff.lintOnSave": true,
-    "python.analysis.typeCheckingMode": "basic"
+    "ruff.fixOnSave": true,
+    "ruff.organizeImports": true
 }

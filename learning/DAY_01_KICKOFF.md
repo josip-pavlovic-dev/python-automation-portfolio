@@ -18,7 +18,7 @@
 5. ✅ Prvi commit na GitHub
 6. ✅ Python ritam uspostavljen - sećaš se sintakse!
 
-**Ovo NIJE teorija.** Danas ODMAH kodiš. Ako negde zaglaviš, AI je tu u VS Code-u!
+**Ovo NIJE teorija.** Danas ODMAH kodiraš. Ako negde zaglaviš, AI je tu u VS Code-u!
 
 ---
 
