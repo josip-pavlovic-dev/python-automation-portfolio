@@ -584,12 +584,12 @@ Flexible web scraping tool that extracts structured data from websites and expor
 
 ## 🚀 Features
 
-- ✅ Multiple URL scraping
-- ✅ Configurable headers (anti-blocking)
-- ✅ Rate limiting (respectful scraping)
-- ✅ Error handling & logging
-- ✅ CSV export with Pandas
-- ✅ Clean, documented code
+-   ✅ Multiple URL scraping
+-   ✅ Configurable headers (anti-blocking)
+-   ✅ Rate limiting (respectful scraping)
+-   ✅ Error handling & logging
+-   ✅ CSV export with Pandas
+-   ✅ Clean, documented code
 
 ---
 
@@ -723,10 +723,10 @@ def parse_jobs(html):
 
 ## ⚠️ Legal & Ethical Considerations
 
-- Always check `robots.txt` before scraping
-- Respect rate limits (don't overload servers)
-- Some websites prohibit scraping in Terms of Service
-- Use scraped data responsibly and legally
+-   Always check `robots.txt` before scraping
+-   Respect rate limits (don't overload servers)
+-   Some websites prohibit scraping in Terms of Service
+-   Use scraped data responsibly and legally
 
 **This tool is for educational and legitimate business purposes only.**
 
@@ -750,13 +750,13 @@ def parse_jobs(html):
 
 ## 🚀 Future Enhancements
 
-- [ ] Command-line arguments (argparse)
-- [ ] Selenium support for JavaScript-heavy sites
-- [ ] Proxy rotation
-- [ ] Database export (SQLite/PostgreSQL)
-- [ ] Scheduled scraping (cron jobs)
-- [ ] Email notifications on completion
-- [ ] Unit tests with pytest
+-   [ ] Command-line arguments (argparse)
+-   [ ] Selenium support for JavaScript-heavy sites
+-   [ ] Proxy rotation
+-   [ ] Database export (SQLite/PostgreSQL)
+-   [ ] Scheduled scraping (cron jobs)
+-   [ ] Email notifications on completion
+-   [ ] Unit tests with pytest
 
 ---
 
@@ -824,37 +824,37 @@ git push -u origin main
 
 ## ✅ Completed
 
-- [x] Repo kreiran i inicijalizovan
-- [x] Python environment setup (venv)
-- [x] Dependencies installed (requests, beautifulsoup4, pandas)
-- [x] Python syntax refresh (functions, loops, dicts, files)
-- [x] Requests library testing
-- [x] BeautifulSoup testing
-- [x] **PRVI PRAVI SCRAPER NAPISAN I TESTIRAN!** 🎉
-- [x] CSV export funkcioniše
-- [x] README dokumentacija
-- [x] Git commit + push na GitHub
+-   [x] Repo kreiran i inicijalizovan
+-   [x] Python environment setup (venv)
+-   [x] Dependencies installed (requests, beautifulsoup4, pandas)
+-   [x] Python syntax refresh (functions, loops, dicts, files)
+-   [x] Requests library testing
+-   [x] BeautifulSoup testing
+-   [x] **PRVI PRAVI SCRAPER NAPISAN I TESTIRAN!** 🎉
+-   [x] CSV export funkcioniše
+-   [x] README dokumentacija
+-   [x] Git commit + push na GitHub
 
 ## 📊 Stats
 
-- Lines of code written: ~300+
-- Files created: 8
-- Quotes scraped: 20
-- Commits: 1 (solid!)
+-   Lines of code written: ~300+
+-   Files created: 8
+-   Quotes scraped: 20
+-   Commits: 1 (solid!)
 
 ## 🧠 What I Learned
 
-- Kako funkcioniše requests.get() i response.status_code
-- BeautifulSoup parsing sa find() i find_all()
-- CSS selectors za preciznije selektovanje
-- Pandas DataFrame.to_csv() za export
-- Best practice: config.py za settings
-- Error handling sa try/except blokovima
+-   Kako funkcioniše requests.get() i response.status_code
+-   BeautifulSoup parsing sa find() i find_all()
+-   CSS selectors za preciznije selektovanje
+-   Pandas DataFrame.to_csv() za export
+-   Best practice: config.py za settings
+-   Error handling sa try/except blokovima
 
 ## 💪 Challenges
 
-- [Napiši šta ti je bilo teško]
-- [Gde si zapeo i kako si rešio]
+-   [Napiši šta ti je bilo teško]
+-   [Gde si zapeo i kako si rešio]
 
 ## 🎯 Tomorrow (Day 02)
 
@@ -866,9 +866,9 @@ git push -u origin main
 
 ## 🗣️ Notes
 
-- [Tvoje opservacije]
-- [Šta ti se sviđa u Python-u]
-- [Plan za sledeću nedelju]
+-   [Tvoje opservacije]
+-   [Šta ti se sviđa u Python-u]
+-   [Plan za sledeću nedelju]
 
 ---
 
@@ -879,7 +879,7 @@ git push -u origin main
 
 ---
 
-## 🎉 ČESTITAM!
+## 🎉 ČESTITAM
 
 Ako si došao ovde, završio si Day 01! Evo šta si postigao:
 
@@ -895,21 +895,21 @@ Ako si došao ovde, završio si Day 01! Evo šta si postigao:
 
 **Sutra (Day 02):**
 
-- Dodaj CLI argumente
-- Implementiraj logging
-- Refaktoruj u class-based strukturu
-- Osnovno unit testing
+-   Dodaj CLI argumente
+-   Implementiraj logging
+-   Refaktoruj u class-based strukturu
+-   Osnovno unit testing
 
 **Sledećih 7 dana:**
 
-- Week 1: Web Scraper projekt complete (advanced features)
-- Dec 21: Kreni na Project 2 - Excel Automation
+-   Week 1: Web Scraper projekt complete (advanced features)
+-   Dec 21: Kreni na Project 2 - Excel Automation
 
 **3-Month Goal:**
 
-- 4 portfolio projekta
-- Freelance profiles live (Upwork/Fiverr)
-- Prvi klijent do kraja januara 2026
+-   4 portfolio projekta
+-   Freelance profiles live (Upwork/Fiverr)
+-   Prvi klijent do kraja januara 2026
 
 ---
 

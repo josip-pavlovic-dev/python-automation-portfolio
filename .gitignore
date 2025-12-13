@@ -29,8 +29,7 @@ ENV/
 env/
 .venv
 
-# IDE
-.vscode/
+# IDE - keep .vscode/ for workspace settings
 .idea/
 *.swp
 *.swo

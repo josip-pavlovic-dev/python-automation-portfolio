@@ -1,0 +1,29 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Run scraper.py",
+            "type": "python",
+            "request": "launch",
+            "program": "${workspaceFolder}/projects/01-web-scraper/scraper.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--format",
+                "json",
+                "--out",
+                "output/scraped_quotes.json"
+            ],
+            "cwd": "${workspaceFolder}/projects/01-web-scraper"
+        },
+        {
+            "name": "Pytest (web-scraper)",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": [
+                "-q"
+            ],
+            "cwd": "${workspaceFolder}/projects/01-web-scraper"
+        }
+    ]
+}
