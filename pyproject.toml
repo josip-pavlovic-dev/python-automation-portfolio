@@ -1,0 +1,30 @@
+[tool.black]
+line-length = 88
+target-version = ["py310", "py311", "py312"]
+
+[tool.ruff]
+line-length = 88
+src = ["projects"]
+# Enable common linting rules (errors, flake8, isort, bugbear, pyupgrade, pandas)
+lint.select = ["E", "F", "I", "B", "UP", "PD", "ARG"]
+lint.ignore = ["E203"]  # Compatible with Black
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.pytest.ini_options]
+addopts = "-q --import-mode=importlib --cov=projects/01-web-scraper --cov-report=term-missing"
+testpaths = [
+  "projects/01-web-scraper/tests"
+]
+python_files = ["test_*.py"]
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.12"
+check_untyped_defs = true
+ignore_missing_imports = true
