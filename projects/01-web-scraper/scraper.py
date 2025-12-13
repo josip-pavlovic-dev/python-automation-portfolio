@@ -181,6 +181,12 @@ def build_arg_parser() -> argparse.ArgumentParser:
     )
     p.add_argument("--out", help="Write output to file (optional)")
     p.add_argument(
+        "--delay",
+        type=float,
+        default=None,
+        help="Delay in seconds between requests (overrides config)",
+    )
+    p.add_argument(
         "--log-level",
         default="INFO",
         choices=["DEBUG", "INFO", "WARNING", "ERROR", "CRITICAL"],
@@ -194,7 +200,8 @@ def main() -> None:
     level = getattr(logging, args.log_level.upper(), logging.INFO)
     logger = setup_logger(level=level)
     urls = [args.url] if args.url else list(DEFAULT_URLS)
-    scraper = Scraper(urls=urls, logger=logger)
+    delay = args.delay if args.delay is not None else DEFAULT_DELAY
+    scraper = Scraper(urls=urls, delay=delay, logger=logger)
 
     rows = scraper.run()
     _write_output(rows, args.format, args.out or scraper.output_path)

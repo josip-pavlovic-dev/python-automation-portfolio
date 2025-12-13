@@ -14,7 +14,7 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.pytest.ini_options]
-addopts = "-q --import-mode=importlib --cov=projects/01-web-scraper --cov-report=term-missing"
+addopts = "-q --import-mode=importlib --cov=. --cov-report=term-missing"
 testpaths = [
   "projects/01-web-scraper/tests"
 ]
