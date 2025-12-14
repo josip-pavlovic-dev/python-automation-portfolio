@@ -1,6 +1,18 @@
+---
+Title: DAY 01: Python Automation Kickoff 🚀
+Date: December 14, 2025
+Duration: 8-10 hours
+Slug: day-01-python-automation-kickoff
+Tags: day-01,python,automation,setup,environment,basics
+Summary: Danas postavljamo Python okruženje, osvežavamo sintaksu i pišemo prvi osnovni scraper kod.
+role: mentor
+user: Junior Python Developer
+motivation: high
+---
+
 # DAY 01: Python Automation Kickoff 🚀
 
-**Datum:** 13. decembar 2025.
+**Datum:** December 14, 2025
 **Fokus:** Python Refresh + Web Scraper Projekt -START
 **Vreme:** 8-10 sati intenzivnog rada
 **Energija:** SVE ILI NIŠTA! 💪
@@ -30,7 +42,7 @@
 
 ```bash
 # Proveri Python verziju
-python3 --version  # Očekujem 3.10+
+python3 --version  # Očekujem 3.12+
 
 # Kreiraj virtual environment za projekat
 cd ~/code/python-automation-lab/python-automation-portfolio/projects/01-web-scraper
@@ -61,7 +73,7 @@ Otvori novi fajl: `python_refresh.py`
 # 1. VARIABLES & TYPES (10min)
 # =========================
 name = "Jole"
-age = 30  # pretpostavljam :)
+age = 40
 is_motivated = True
 skills = ["Python", "automation", "problem-solving"]
 

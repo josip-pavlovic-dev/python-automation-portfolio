@@ -180,9 +180,9 @@ Help me plan this properly! 🗺️
 2. Otvori Copilot Chat (`Ctrl+L`)
 3. Copy-paste **Standard Daily Kickoff**
 4. Popuni:
-   - Current day number
-   - Today's goal (iz DAY_XX_KICKOFF.md)
-   - Task list
+    - Current day number
+    - Today's goal (iz DAY_XX_KICKOFF.md)
+    - Task list
 5. Hit Enter → AI je spreman!
 
 ### Mid-Day Check-In
@@ -224,16 +224,16 @@ Stats: [X] hours, [Y] commits, [Z] lines of code
 
 **DO:**
 
-- ✅ Pin fajlove sa `@file` (AI vidi kod)
-- ✅ Budi specifičan sa ciljevima
-- ✅ Napiši koliko vremena imaš danas
-- ✅ Pomeni gde si zapeo
+-   ✅ Pin fajlove sa `@file` (AI vidi kod)
+-   ✅ Budi specifičan sa ciljevima
+-   ✅ Napiši koliko vremena imaš danas
+-   ✅ Pomeni gde si zapeo
 
 **DON'T:**
 
-- ❌ Generic "help me code" - previše vague
-- ❌ Preskakati kontekst (AI ne zna tvoj projekat bez @file)
-- ❌ Očekivati AI da pogađa šta hoćeš
+-   ❌ Generic "help me code" - previše vague
+-   ❌ Preskakati kontekst (AI ne zna tvoj projekat bez @file)
+-   ❌ Očekivati AI da pogađa šta hoćeš
 
 ---
 

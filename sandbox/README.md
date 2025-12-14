@@ -73,9 +73,9 @@ cd sandbox/basics
 python 01_variables_types.py
 ```
 
-- Pokreni jednu od vežbi
-- Izmeni kod, eksperimentuj
-  -Ломи ствари намерно — vidi šta puca!
+-   Pokreni jednu od vežbi
+-   Izmeni kod, eksperimentuj
+-   Lomi kod da razbiješ led
 
 ### **2. Practice Specific Skill**
 
@@ -86,9 +86,9 @@ cd sandbox/web-scraping
 python 02_beautifulsoup.py
 ```
 
-- Radi kroz primere
-- Dodaj svoje varijacije
-- Beleži šta si naučio u comments
+-   Radi kroz primere
+-   Dodaj svoje varijacije
+-   Beleži šta si naučio u comments
 
 ### **3. Test Ideas Before Main Project**
 
@@ -99,9 +99,9 @@ cd sandbox/experiments
 python scratch.py
 ```
 
-- Testiraj novu biblioteku
-- Proba architecture pattern
-- Break things without fear!
+-   Testiraj novu biblioteku
+-   Proba architecture pattern
+-   Break things without fear!
 
 ### **4. Mini-Projects (1-2h vežbe)**
 
@@ -110,9 +110,9 @@ cd sandbox/mini-projects/calculator
 python calculator.py
 ```
 
-- Kompletan mali projekat
-- Practice full workflow (plan → code → test → refactor)
-- Add to portfolio ako je dobar!
+-   Kompletan mali projekat
+-   Practice full workflow (plan → code → test → refactor)
+-   Add to portfolio ako je dobar!
 
 ---
 
@@ -124,9 +124,9 @@ python calculator.py
 
 **Goals:**
 
-- [ ] Python syntax refresh (variables, functions, loops)
-- [ ] File I/O operations
-- [ ] Error handling basics
+-   [ ] Python syntax refresh (variables, functions, loops)
+-   [ ] File I/O operations
+-   [ ] Error handling basics
 
 **Time:** 2-3h total (30min/day)
 
@@ -138,10 +138,10 @@ python calculator.py
 
 **Goals:**
 
-- [ ] Requests library mastery
-- [ ] BeautifulSoup selectors
-- [ ] Pagination handling
-- [ ] Error handling & retries
+-   [ ] Requests library mastery
+-   [ ] BeautifulSoup selectors
+-   [ ] Pagination handling
+-   [ ] Error handling & retries
 
 **Time:** 5-6h total (1h/day)
 
@@ -153,10 +153,10 @@ python calculator.py
 
 **Goals:**
 
-- [ ] Pandas DataFrame operations
-- [ ] CSV read/write/merge
-- [ ] Data cleaning techniques
-- [ ] GroupBy & aggregations
+-   [ ] Pandas DataFrame operations
+-   [ ] CSV read/write/merge
+-   [ ] Data cleaning techniques
+-   [ ] GroupBy & aggregations
 
 **Time:** 4-5h total
 
@@ -168,10 +168,10 @@ python calculator.py
 
 **Goals:**
 
-- [ ] OpenPyXL basics
-- [ ] Excel formulas & formatting
-- [ ] PDF table extraction (Tabula)
-- [ ] Batch processing
+-   [ ] OpenPyXL basics
+-   [ ] Excel formulas & formatting
+-   [ ] PDF table extraction (Tabula)
+-   [ ] Batch processing
 
 **Time:** 4-5h total
 
@@ -183,10 +183,10 @@ python calculator.py
 
 **Goals:**
 
-- [ ] 1 algorithm challenge/day (15-30min)
-- [ ] String manipulation practice
-- [ ] List comprehensions
-- [ ] Dictionary operations
+-   [ ] 1 algorithm challenge/day (15-30min)
+-   [ ] String manipulation practice
+-   [ ] List comprehensions
+-   [ ] Dictionary operations
 
 **Time:** 15-30min daily
 
@@ -242,15 +242,15 @@ cd sandbox/mini-projects/[projekat]
 
 Sačuvano u: `sandbox/web-scraping/practice-sites.md`
 
-- https://quotes.toscrape.com/ (beginner-friendly)
-- https://books.toscrape.com/ (pagination practice)
-- https://httpbin.org/ (HTTP testing)
+-   <https://quotes.toscrape.com/> (beginner-friendly)
+-   <https://books.toscrape.com/> (pagination practice)
+-   <https://httpbin.org/> (HTTP testing)
 
 ### **Sample Data:**
 
-- `sandbox/data-processing/sample-data/` - CSV fajlovi za vežbu
-- `sandbox/excel-automation/sample-files/` - Excel fajlovi
-- `sandbox/pdf-processing/sample-pdfs/` - PDF fajlovi
+-   `sandbox/data-processing/sample-data/` - CSV fajlovi za vežbu
+-   `sandbox/excel-automation/sample-files/` - Excel fajlovi
+-   `sandbox/pdf-processing/sample-pdfs/` - PDF fajlovi
 
 ---
 
@@ -258,17 +258,17 @@ Sačuvano u: `sandbox/web-scraping/practice-sites.md`
 
 ### **Beginner → Intermediate:**
 
-- [ ] Can write scraper without looking at docs
-- [ ] Pandas operations feel natural
-- [ ] Error handling is automatic
-- [ ] Can debug in < 15 min
+-   [ ] Can write scraper without looking at docs
+-   [ ] Pandas operations feel natural
+-   [ ] Error handling is automatic
+-   [ ] Can debug in < 15 min
 
 ### **Intermediate → Advanced:**
 
-- [ ] Can refactor code for readability
-- [ ] Write tests without thinking
-- [ ] Optimize performance
-- [ ] Handle edge cases elegantly
+-   [ ] Can refactor code for readability
+-   [ ] Write tests without thinking
+-   [ ] Optimize performance
+-   [ ] Handle edge cases elegantly
 
 ---
 
@@ -281,14 +281,14 @@ Kreiraj `sandbox/PROGRESS.md`:
 
 ## Week 1 (Dec 13-20)
 
-- [x] basics/01-05 completed
-- [x] web-scraping/01-03 done
-- [ ] web-scraping/04-05 in progress
+-   [x] basics/01-05 completed
+-   [x] web-scraping/01-03 done
+-   [ ] web-scraping/04-05 in progress
 
 ## Week 2 (Dec 21-27)
 
-- [ ] data-processing started
-- [ ] mini-project: calculator
+-   [ ] data-processing started
+-   [ ] mini-project: calculator
 ```
 
 ---

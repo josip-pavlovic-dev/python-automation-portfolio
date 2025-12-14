@@ -12,9 +12,9 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Key Milestones:**
 
-- Week 4: Portfolio complete (4 projects)
-- Week 8: First paying client
-- Week 12: €500-1000/month income
+-   Week 4: Portfolio complete (4 projects)
+-   Week 8: First paying client
+-   Week 12: €500-1000/month income
 
 ---
 
@@ -26,23 +26,23 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Daily Breakdown:**
 
-- **Day 01 (Dec 13):** Setup + basic scraper ✅
-- **Day 02 (Dec 14):** CLI arguments + logging
-- **Day 03 (Dec 15):** Class-based refactor + error handling
-- **Day 04 (Dec 16):** Multiple sites support + config system
-- **Day 05 (Dec 17):** Advanced selectors + pagination
-- **Day 06 (Dec 18):** Testing + documentation
-- **Day 07 (Dec 19-20):** Final polish + GitHub README
+-   **Day 01 (Dec 13):** Setup + basic scraper ✅
+-   **Day 02 (Dec 14):** CLI arguments + logging
+-   **Day 03 (Dec 15):** Class-based refactor + error handling
+-   **Day 04 (Dec 16):** Multiple sites support + config system
+-   **Day 05 (Dec 17):** Advanced selectors + pagination
+-   **Day 06 (Dec 18):** Testing + documentation
+-   **Day 07 (Dec 19-20):** Final polish + GitHub README
 
 **Deliverable:** Production-ready web scraper tool
 
 **Skills Learned:**
 
-- Requests library
-- BeautifulSoup parsing
-- CSV export with Pandas
-- Error handling
-- Git workflow
+-   Requests library
+-   BeautifulSoup parsing
+-   CSV export with Pandas
+-   Error handling
+-   Git workflow
 
 ---
 
@@ -54,26 +54,26 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Features:**
 
-- Read multiple Excel files from folder
-- Merge data (vlookup-style)
-- Clean & validate data
-- Generate summary reports
-- Export to new Excel file
+-   Read multiple Excel files from folder
+-   Merge data (vlookup-style)
+-   Clean & validate data
+-   Generate summary reports
+-   Export to new Excel file
 
 **Daily Tasks:**
 
-- Day 08-09: File reading + basic merge
-- Day 10-11: Data cleaning logic
-- Day 12-13: Report generation + charts
-- Day 14: Testing + README
+-   Day 08-09: File reading + basic merge
+-   Day 10-11: Data cleaning logic
+-   Day 12-13: Report generation + charts
+-   Day 14: Testing + README
 
 **Deliverable:** Excel automation tool for businesses
 
 **Skills Learned:**
 
-- Pandas advanced (merge, groupby, pivot)
-- OpenPyXL for Excel formatting
-- Data validation techniques
+-   Pandas advanced (merge, groupby, pivot)
+-   OpenPyXL for Excel formatting
+-   Data validation techniques
 
 ---
 
@@ -85,23 +85,23 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 1. **Portfolio Website (Dec 28-30)**
 
-   - Simple HTML/CSS site (use Day 09 CSS knowledge!)
-   - Project showcase sections
-   - GitHub Pages deployment
-   - Contact form
+    - Simple HTML/CSS site (use Day 09 CSS knowledge!)
+    - Project showcase sections
+    - GitHub Pages deployment
+    - Contact form
 
 2. **Freelance Profiles (Dec 31 - Jan 2)**
 
-   - Upwork profile complete
-   - Fiverr profile complete
-   - Profile photos professional
-   - Service descriptions optimized
-   - Pricing strategy defined
+    - Upwork profile complete
+    - Fiverr profile complete
+    - Profile photos professional
+    - Service descriptions optimized
+    - Pricing strategy defined
 
 3. **Proposal Templates (Jan 3)**
-   - Web scraping template
-   - Excel automation template
-   - PDF processing template
+    - Web scraping template
+    - Excel automation template
+    - PDF processing template
 
 **Deliverable:** Online presence + ready to apply for jobs
 
@@ -115,26 +115,26 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Features:**
 
-- Extract tables from PDFs (Tabula)
-- Extract text with formatting
-- Handle multiple PDFs batch
-- Export to CSV/Excel
-- Clean extracted data
+-   Extract tables from PDFs (Tabula)
+-   Extract text with formatting
+-   Handle multiple PDFs batch
+-   Export to CSV/Excel
+-   Clean extracted data
 
 **Daily Tasks:**
 
-- Day 15-16: PyPDF2 basics + table detection
-- Day 17-18: Tabula integration + data cleaning
-- Day 19-20: Batch processing + error handling
-- Day 21: Testing + documentation
+-   Day 15-16: PyPDF2 basics + table detection
+-   Day 17-18: Tabula integration + data cleaning
+-   Day 19-20: Batch processing + error handling
+-   Day 21: Testing + documentation
 
 **Deliverable:** PDF processing tool
 
 **Skills Learned:**
 
-- PyPDF2 library
-- Tabula-py for tables
-- Text extraction techniques
+-   PyPDF2 library
+-   Tabula-py for tables
+-   Text extraction techniques
 
 ---
 
@@ -148,18 +148,18 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Features:**
 
-- Read emails via Gmail API
-- Extract attachments (Excel, PDF)
-- Process data
-- Update Google Sheets
-- Send notification emails
+-   Read emails via Gmail API
+-   Extract attachments (Excel, PDF)
+-   Process data
+-   Update Google Sheets
+-   Send notification emails
 
 **Freelance Activity:**
 
-- Send 5 proposals/day on Upwork
-- Send 5 proposals/day on Fiverr
-- Target: Simple projects (€100-300)
-- Focus: Web scraping + Excel jobs
+-   Send 5 proposals/day on Upwork
+-   Send 5 proposals/day on Fiverr
+-   Target: Simple projects (€100-300)
+-   Focus: Web scraping + Excel jobs
 
 **Goal:** First client response this week!
 
@@ -189,16 +189,16 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Strategy:**
 
-- Underpromise, overdeliver
-- Daily communication with client
-- Ask for testimonial after completion
-- Request review on platform
+-   Underpromise, overdeliver
+-   Daily communication with client
+-   Ask for testimonial after completion
+-   Request review on platform
 
 **Parallel Activity:**
 
-- Continue sending proposals
-- Target more clients
-- Build pipeline
+-   Continue sending proposals
+-   Target more clients
+-   Build pipeline
 
 **Goal:** €100-300 earned + positive review
 
@@ -214,10 +214,10 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Strategy:**
 
-- Accept projects you can deliver in 1 week
-- Focus on repeat customers
-- Build testimonials
-- Increase rates slightly (€150-400/project)
+-   Accept projects you can deliver in 1 week
+-   Focus on repeat customers
+-   Build testimonials
+-   Increase rates slightly (€150-400/project)
 
 **Income Target:** €300-500 for February
 
@@ -231,17 +231,17 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Metrics:**
 
-- 5+ completed projects
-- 4-5 star rating on platforms
-- 3+ testimonials
-- Repeat clients
-- Strong portfolio
+-   5+ completed projects
+-   4-5 star rating on platforms
+-   3+ testimonials
+-   Repeat clients
+-   Strong portfolio
 
 **Next Steps Decision:**
 
-- Continue freelancing (scale up)
-- Apply for junior Python jobs
-- Hybrid (freelance + part-time job)
+-   Continue freelancing (scale up)
+-   Apply for junior Python jobs
+-   Hybrid (freelance + part-time job)
 
 ---
 
@@ -261,27 +261,27 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 ### Month 1: Core Automation
 
-- Web scraping (requests, BeautifulSoup, Selenium)
-- Excel automation (Pandas, OpenPyXL)
-- PDF processing (PyPDF2, Tabula)
-- API integration (Gmail, Google Sheets)
-- Git/GitHub workflow
+-   Web scraping (requests, BeautifulSoup, Selenium)
+-   Excel automation (Pandas, OpenPyXL)
+-   PDF processing (PyPDF2, Tabula)
+-   API integration (Gmail, Google Sheets)
+-   Git/GitHub workflow
 
 ### Month 2: Professional Skills
 
-- Client communication
-- Proposal writing
-- Project scoping
-- Time estimation
-- Freelance platforms mastery
+-   Client communication
+-   Proposal writing
+-   Project scoping
+-   Time estimation
+-   Freelance platforms mastery
 
 ### Month 3: Business Skills
 
-- Pricing strategies
-- Upselling techniques
-- Repeat customer retention
-- Profile optimization
-- Competition analysis
+-   Pricing strategies
+-   Upselling techniques
+-   Repeat customer retention
+-   Profile optimization
+-   Competition analysis
 
 ---
 
@@ -289,26 +289,26 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 ### Portfolio Metrics (End of Month 1)
 
-- [ ] 4 completed projects on GitHub
-- [ ] Each project has detailed README
-- [ ] All code documented
-- [ ] Portfolio website live
-- [ ] Upwork + Fiverr profiles active
+-   [ ] 4 completed projects on GitHub
+-   [ ] Each project has detailed README
+-   [ ] All code documented
+-   [ ] Portfolio website live
+-   [ ] Upwork + Fiverr profiles active
 
 ### Client Metrics (End of Month 2)
 
-- [ ] 1-2 completed client projects
-- [ ] 1+ positive review
-- [ ] 1+ testimonial
-- [ ] €100-300 earned
+-   [ ] 1-2 completed client projects
+-   [ ] 1+ positive review
+-   [ ] 1+ testimonial
+-   [ ] €100-300 earned
 
 ### Income Metrics (End of Month 3)
 
-- [ ] €500-1000 monthly income
-- [ ] 5+ completed projects
-- [ ] 3+ testimonials
-- [ ] Repeat clients secured
-- [ ] Decision made: scale or apply for jobs
+-   [ ] €500-1000 monthly income
+-   [ ] 5+ completed projects
+-   [ ] 3+ testimonials
+-   [ ] Repeat clients secured
+-   [ ] Decision made: scale or apply for jobs
 
 ---
 
@@ -359,22 +359,22 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **AI Mentor (VS Code):**
 
-- Real-time code review
-- Debugging help
-- Architecture advice
-- Freelance strategy
+-   Real-time code review
+-   Debugging help
+-   Architecture advice
+-   Freelance strategy
 
 **Community (Optional):**
 
-- Python Discord servers
-- Upwork forums
-- Fiverr community
+-   Python Discord servers
+-   Upwork forums
+-   Fiverr community
 
 **Family:**
 
-- Communicate progress weekly
-- Manage expectations
-- Celebrate small wins
+-   Communicate progress weekly
+-   Manage expectations
+-   Celebrate small wins
 
 ---
 
@@ -382,18 +382,18 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 **Remember WHY you're doing this:**
 
-- Family needs income
-- Engineering degree background (math/physics strong!)
-- Python is RIGHT fit for your brain
-- Automation = practical, immediate value
-- Freelance = flexible, scalable income
+-   Family needs income
+-   Engineering degree background (math/physics strong!)
+-   Python is RIGHT fit for your brain
+-   Automation = practical, immediate value
+-   Freelance = flexible, scalable income
 
 **You have:**
 
-- 8-10 hours/day
-- AI mentor with VS Code access
-- Strong problem-solving skills
-- All-or-nothing mindset
+-   8-10 hours/day
+-   AI mentor with VS Code access
+-   Strong problem-solving skills
+-   All-or-nothing mindset
 
 **This WILL work!** 💪
 

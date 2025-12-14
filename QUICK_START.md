@@ -13,6 +13,8 @@ cd ~/code/python-automation-lab/python-automation-portfolio
 code .
 ```
 
+---
+
 ### 2. Aktiviraj Virtual Environment
 
 ```bash
@@ -22,12 +24,16 @@ source venv/bin/activate
 
 **Znaš da je aktiviran kad vidiš:** `(venv)` u terminalu!
 
+---
+
 ### 3. Proveri Python Setup
 
 ```bash
 python --version  # Treba 3.10+
 pip list  # Vidi instalirane pakete
 ```
+
+---
 
 ### 4. Pokreni Scraper (Test)
 
@@ -75,7 +81,7 @@ python-automation-portfolio/
 
 ---
 
-## 💻 Česti Komandi
+## 💻 Česte Komande
 
 ### Git Workflow
 
@@ -87,6 +93,8 @@ git push                          # Push na GitHub
 git log --oneline -5              # Poslednjih 5 commitova
 ```
 
+---
+
 ### Python
 
 ```bash
@@ -95,6 +103,8 @@ python -m pytest                  # Pokreni testove (kad budu)
 pip install <paket>               # Instaliraj novi paket
 pip freeze > requirements.txt     # Sačuvaj dependencies
 ```
+
+---
 
 ### Virtual Environment
 
@@ -114,12 +124,16 @@ deactivate                        # Deaktiviraj
 pip install -r requirements.txt
 ```
 
+---
+
 ### "Permission denied"
 
 ```bash
 # Proveri da li je venv aktiviran
 source venv/bin/activate
 ```
+
+---
 
 ### "Scraper ne vraća podatke"
 
@@ -128,6 +142,8 @@ source venv/bin/activate
 # Proveri internet konekciju
 # Vidi da li je sajt dostupan u browseru
 ```
+
+---
 
 ### Ako Zaglaviš 15+ Minuta
 
@@ -180,11 +196,11 @@ source venv/bin/activate
 
 Pre nego što ugasiš VS Code:
 
-- [ ] Kod testiran i radi?
-- [ ] Promena commitovana?
-- [ ] Summary fajl popunjen?
-- [ ] Plan za sutra jasan?
-- [ ] Virtual environment deaktiviran?
+-   [ ] Kod testiran i radi?
+-   [ ] Promena commitovana?
+-   [ ] Summary fajl popunjen?
+-   [ ] Plan za sutra jasan?
+-   [ ] Virtual environment deaktiviran?
 
 ---
 

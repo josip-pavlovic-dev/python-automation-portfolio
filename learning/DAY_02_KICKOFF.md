@@ -1,31 +1,41 @@
+---
+Title: DAY 02: CLI + Logging + Tests 🚀
+Date: December 15, 2025
+Duration: 8-10 hours
+Slug: day-02-cli-logging-tests
+Tags: day-02,cli,logging,tests,argparse,pytest
+Summary: Danas dodajemo argparse za CLI, logging sa rotirajućim fajlovima, refaktorisanje u klasu i osnovne pytest testove.
+role: mentor
+user: Junior Python Developer
+motivation: high
+---
+
 # DAY 02: CLI + Logging + Tests 🚀
 
-Datum: 14. decembar 2025
-Fokus: Argparse (CLI), Logging (file + rotating), Pytest (osnovno)
-Vreme: 8–10 sati fokusiranog rada
-Energia: Idemo dalje – sistematizacija koda i kvaliteta! 💪
-
----
+**Datum:** December 15, 2025
+**Trajanje:** 8-10 sati
+**Projekat:** Web Scraper Tool (Project 1/4)
+**Glavni Cilj Dana:** Dodati argparse za CLI, logging sa rotirajućim fajlovima, refaktorisanje u klasu i osnovne pytest testove.
 
 ## 🎯 Ciljevi Dana
 
 Do kraja dana:
 
-- ✅ Dodati CLI podršku sa `argparse` (ulazi: URL-ovi, output putanja, delay)
-- ✅ Uvesti `logging` (console + file, rotating handler, nivo INFO/ERROR)
-- ✅ Refaktorisati scraper u klasu `Scraper`
-- ✅ Napisati osnovne testove sa `pytest` za parser
-- ✅ Ažurirati README (usage sa CLI i logging)
-- ✅ Commit + lokalni push (ako želiš)
+-   ✅ Dodati CLI podršku sa `argparse` (ulazi: URL-ovi, output putanja, delay)
+-   ✅ Uvesti `logging` (console + file, rotating handler, nivo INFO/ERROR)
+-   ✅ Refaktorisati scraper u klasu `Scraper`
+-   ✅ Napisati osnovne testove sa `pytest` za parser
+-   ✅ Ažurirati README (usage sa CLI i logging)
+-   ✅ Commit + lokalni push (ako želiš)
 
 ---
 
 ## 🗂️ Kontekst Fajlovi
 
-- projects/01-web-scraper/scraper.py
-- projects/01-web-scraper/config.py
-- projects/01-web-scraper/tests/test_scraper.py (novi)
-- learning/DAILY_KICKOFF_PROMPT.md
+-   projects/01-web-scraper/scraper.py
+-   projects/01-web-scraper/config.py
+-   projects/01-web-scraper/tests/test_scraper.py (novi)
+-   learning/DAILY_KICKOFF_PROMPT.md
 
 ---
 
@@ -233,9 +243,9 @@ addopts = -q
 
 1. README dopune:
 
-- Usage primer sa CLI argumentima
-- Logging sekcija (gde se logovi čuvaju)
-- Tests sekcija (kako pokrenuti)
+-   Usage primer sa CLI argumentima
+-   Logging sekcija (gde se logovi čuvaju)
+-   Tests sekcija (kako pokrenuti)
 
 2. Git workflow:
 
@@ -248,43 +258,43 @@ git commit -m "feat(day02): add argparse CLI, logging, class-based refactor, and
 
 ## 🧩 Zadaci – Checklista
 
-- [ ] Implement `argparse` parser i validacija
-- [ ] Napraviti `setup_logger()` sa rotating file handlerom
-- [ ] Refaktorisati u `Scraper` klasu (fetch, parse, run)
-- [ ] Dodati osnovne `pytest` testove
-- [ ] Dopuniti README – usage + logging + tests
-- [ ] Commit promene
+-   [ ] Implement `argparse` parser i validacija
+-   [ ] Napraviti `setup_logger()` sa rotating file handlerom
+-   [ ] Refaktorisati u `Scraper` klasu (fetch, parse, run)
+-   [ ] Dodati osnovne `pytest` testove
+-   [ ] Dopuniti README – usage + logging + tests
+-   [ ] Commit promene
 
 ---
 
 ## 🐛 Troubleshooting
 
-- Problem: "ImportError: cannot import Scraper"
+-   Problem: "ImportError: cannot import Scraper"
 
-  - Rešenje: Proveri PYTHONPATH ili koristi relativne import puteve; pokreći iz root-a.
+    -   Rešenje: Proveri PYTHONPATH ili koristi relativne import puteve; pokreći iz root-a.
 
-- Problem: "FileNotFoundError: logs/scraper.log"
+-   Problem: "FileNotFoundError: logs/scraper.log"
 
-  - Rešenje: `os.makedirs(os.path.dirname(log_file), exist_ok=True)` u logger setup-u.
+    -   Rešenje: `os.makedirs(os.path.dirname(log_file), exist_ok=True)` u logger setup-u.
 
-- Problem: "pytest cannot find tests"
-  - Rešenje: Uveri se da je folder `tests/` u projektu i da fajl počinje sa `test_`.
+-   Problem: "pytest cannot find tests"
+    -   Rešenje: Uveri se da je folder `tests/` u projektu i da fajl počinje sa `test_`.
 
 ---
 
 ## 📚 Šta Vežbati Danas
 
-- Napiši 3 varijante CLI-ja: (a) sve preko `config.py`, (b) sve preko argumenata, (c) mešovito.
-- Dodaj `--proxy` i `--user-agent` argumente, demonstriraj promenu headera.
-- Napravi `--max-pages` argument i implementiraj paginaciju.
+-   Napiši 3 varijante CLI-ja: (a) sve preko `config.py`, (b) sve preko argumenata, (c) mešovito.
+-   Dodaj `--proxy` i `--user-agent` argumente, demonstriraj promenu headera.
+-   Napravi `--max-pages` argument i implementiraj paginaciju.
 
 ---
 
 ## 🧠 Mentalni Model
 
-- CLI → reproducibilno pokretanje, lakša integracija.
-- Logging → vidljivost, dijagnostika, profesionalno.
-- Tests → sigurnost promene, poverenje u refactor.
-- Klasa → enkapsulacija i čitljivost.
+-   CLI → reproducibilno pokretanje, lakša integracija.
+-   Logging → vidljivost, dijagnostika, profesionalno.
+-   Tests → sigurnost promene, poverenje u refactor.
+-   Klasa → enkapsulacija i čitljivost.
 
 Idemo jako — kvalitet + brzina! 🚀
