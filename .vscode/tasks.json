@@ -1,129 +1,51 @@
 {
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Setup venv (web-scraper)",
-      "type": "shell",
-      "command": "python -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
-      "options": {
-        "cwd": "${workspaceFolder}/projects/01-web-scraper"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Install deps (web-scraper)",
-      "type": "shell",
-      "command": "source venv/bin/activate && pip install -r requirements.txt",
-      "options": {
-        "cwd": "${workspaceFolder}/projects/01-web-scraper"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Lint (ruff)",
-      "type": "shell",
-      "command": "ruff check .",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": [
-        "$ruff"
-      ]
-    },
-    {
-      "label": "Format (black)",
-      "type": "shell",
-      "command": "black projects/01-web-scraper",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": []
-    },
-    {
-      "label": "Test (pytest)",
-      "type": "shell",
-      "command": "source venv/bin/activate && python -m pytest",
-      "options": {
-        "cwd": "${workspaceFolder}/projects/01-web-scraper"
-      },
-      "group": "test",
-      "problemMatcher": [
-        "$pytest"
-      ]
-    }
-  ]
-}{
-  "version": "2.0.0",
-  "tasks": [
-    {
-      "label": "Setup venv",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "venv"
-      ],
-      "group": "build"
-    },
-    {
-      "label": "Install deps",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "install"
-      ],
-      "group": "build"
-    },
-    {
-      "label": "Install dev deps",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "dev"
-      ],
-      "group": "build"
-    },
-    {
-      "label": "Lint (ruff)",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "lint"
-      ],
-      "group": "build"
-    },
-    {
-      "label": "Format (black)",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "format"
-      ]
-    },
-    {
-      "label": "Test (pytest)",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "test"
-      ],
-      "group": "test"
-    },
-    {
-      "label": "Coverage",
-      "type": "shell",
-      "command": "make",
-      "args": [
-        "cov"
-      ]
-    },
-    {
-      "label": "Dev Check (lint+test)",
-      "type": "shell",
-      "dependsOrder": "sequence",
-      "dependsOn": [
-        "Lint (ruff)",
-        "Test (pytest)"
-      ]
-    }
-  ]
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Setup venv (web-scraper)",
+            "type": "shell",
+            "command": "python -m venv venv && source venv/bin/activate && pip install -r requirements.txt",
+            "options": {
+                "cwd": "${workspaceFolder}/projects/01-web-scraper"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Install deps (web-scraper)",
+            "type": "shell",
+            "command": "source venv/bin/activate && pip install -r requirements.txt",
+            "options": {
+                "cwd": "${workspaceFolder}/projects/01-web-scraper"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Lint (ruff)",
+            "type": "shell",
+            "command": "ruff check .",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": ["$python"]
+        },
+        {
+            "label": "Format (black)",
+            "type": "shell",
+            "command": "black projects/01-web-scraper",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Test (pytest)",
+            "type": "shell",
+            "command": "source venv/bin/activate && python -m pytest",
+            "options": {
+                "cwd": "${workspaceFolder}/projects/01-web-scraper"
+            },
+            "group": "test",
+            "problemMatcher": ["$python"]
+        }
+    ]
 }

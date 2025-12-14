@@ -87,7 +87,7 @@ python-automation-portfolio/
 
 ```bash
 git status                        # Proveri šta je promenjeno
-git add .                         # Dodaj sve fajlove
+git add .                         # Stage sve izmene (Dodaj sve fajlove)
 git commit -m "opis promene"      # Commit
 git push                          # Push na GitHub
 git log --oneline -5              # Poslednjih 5 commitova

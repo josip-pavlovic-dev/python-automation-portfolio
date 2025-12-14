@@ -3,26 +3,19 @@
     "configurations": [
         {
             "name": "Run scraper.py",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/projects/01-web-scraper/scraper.py",
             "console": "integratedTerminal",
-            "args": [
-                "--format",
-                "json",
-                "--out",
-                "output/scraped_quotes.json"
-            ],
+            "args": ["--format", "json", "--out", "output/scraped_quotes.json"],
             "cwd": "${workspaceFolder}/projects/01-web-scraper"
         },
         {
             "name": "Pytest (web-scraper)",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "module": "pytest",
-            "args": [
-                "-q"
-            ],
+            "args": ["-q"],
             "cwd": "${workspaceFolder}/projects/01-web-scraper"
         }
     ]
