@@ -4,7 +4,7 @@ Date: December 14, 2025
 Duration: 8-10 hours
 Slug: day-01-python-automation-kickoff
 Tags: day-01,python,automation,setup,environment,basics
-Summary: Danas postavljamo Python okruženje, osvežavamo sintaksu i pišemo prvi osnovni scraper kod.
+Summary: Danas postavljamo okruženje, radimo CSV osnove u REPL-u, pravimo mini CSV Cleaner i pokrećemo web scraper primer.
 role: mentor
 user: Junior Python Developer
 motivation: high
@@ -13,7 +13,7 @@ motivation: high
 # DAY 01: Python Automation Kickoff 🚀
 
 **Datum:** December 14, 2025
-**Fokus:** Python Refresh + Web Scraper Projekt -START
+**Fokus:** CSV osnove u REPL-u + Python Refresh + Web Scraper primer
 **Vreme:** 8-10 sati intenzivnog rada
 **Energija:** SVE ILI NIŠTA! 💪
 
@@ -23,379 +23,68 @@ motivation: high
 
 **Do kraja danas:**
 
-1. ✅ Repo kreiran i inicijalizovan
-2. ✅ Python okruženje konfigurisano
-3. ✅ Prvi scraper kod napisan (basic verzija)
-4. ✅ Prvo testiranje u terminalu - radi!
-5. ✅ Prvi commit na GitHub
-6. ✅ Python ritam uspostavljen - sećaš se sintakse!
+1. ✅ Repo i venv spremni
+2. ✅ CSV osnove savladane (reader/dict, delimiter, encoding, newline)
+3. ✅ Mini CSV Cleaner v0 napravljen
+4. ✅ Web scraper primer pokrenut (quotes.toscrape)
+5. ✅ README + commit na GitHub
+6. ✅ Python ritam uspostavljen (REPL → skripta → git)
 
 **Ovo NIJE teorija.** Danas ODMAH kodiraš. Ako negde zaglaviš, AI je tu u VS Code-u!
 
----
-
 ## 📋 Struktura Dana (10h verzija)
 
-### BLOK 1: Setup + Python Refresh (09:00-11:00) - 2h
-
-**Zadatak 1.1: Python Environment Setup (30min)**
-
-```bash
-# Proveri Python verziju
-python3 --version  # Očekujem 3.12+
-
-# Kreiraj virtual environment za projekat
-cd ~/code/python-automation-lab/python-automation-portfolio/projects/01-web-scraper
-python3 -m venv venv
-
-# Aktiviraj okruženje
-source venv/bin/activate
-
-# Upgrade pip
-pip install --upgrade pip
-```
-
-**Zadatak 1.2: Instaliraj Dependencies (10min)**
-
-```bash
-# Osnovne biblioteke za web scraping
-pip install requests beautifulsoup4 pandas lxml
-
-# Snimi requirements
-pip freeze > requirements.txt
-```
-
-**Zadatak 1.3: Python Syntax Refresh - Hands-On! (1h 20min)**
-
-Otvori novi fajl: `python_refresh.py`
-
-```python
-# 1. VARIABLES & TYPES (10min)
-# =========================
-name = "Jole"
-age = 40
-is_motivated = True
-skills = ["Python", "automation", "problem-solving"]
-
-print(f"Ime: {name}, Godina: {age}")
-print(f"Skills: {', '.join(skills)}")
-
-# 2. FUNCTIONS (15min)
-# ====================
-def greet(name):
-    """Pozdravlja korisnika."""
-    return f"Hello, {name}! Ready to scrape! 🕷️"
-
-def calculate_discount(price, discount_percent):
-    """Računa cenu sa popustom."""
-    discount = price * (discount_percent / 100)
-    return price - discount
-
-# Testiranje
-print(greet("Jole"))
-print(f"Cena sa popustom: {calculate_discount(100, 20)} EUR")
-
-# 3. LISTS & LOOPS (20min)
-# =========================
-urls = [
-    "https://example.com/page1",
-    "https://example.com/page2",
-    "https://example.com/page3"
-]
-
-# For petlja
-for url in urls:
-    print(f"Scraping: {url}")
-
-# List comprehension (Python način!)
-urls_upper = [url.upper() for url in urls]
-print(urls_upper)
-
-# 4. DICTIONARIES (20min)
-# =======================
-product = {
-    "name": "Laptop",
-    "price": 1200,
-    "brand": "Dell",
-    "in_stock": True
-}
-
-# Pristup vrednostima
-print(f"Proizvod: {product['name']}, Cena: {product['price']} EUR")
-
-# Iteracija kroz dictionary
-for key, value in product.items():
-    print(f"{key}: {value}")
-
-# Lista dictionaries (tipičan scraping output!)
-products = [
-    {"name": "Laptop", "price": 1200},
-    {"name": "Mouse", "price": 25},
-    {"name": "Keyboard", "price": 75}
-]
-
-for product in products:
-    print(f"{product['name']}: €{product['price']}")
-
-# 5. FILE OPERATIONS (15min)
-# ===========================
-# Pisanje u fajl
-with open("test_output.txt", "w") as f:
-    f.write("Hello from Python!\n")
-    f.write("Web scraping is awesome!\n")
-
-# Čitanje iz fajla
-with open("test_output.txt", "r") as f:
-    content = f.read()
-    print(content)
-
-# CSV operacije (biće ti jako potrebno!)
-import csv
-
-data = [
-    ["Name", "Price", "Brand"],
-    ["Laptop", "1200", "Dell"],
-    ["Mouse", "25", "Logitech"]
-]
-
-with open("test_products.csv", "w", newline="") as f:
-    writer = csv.writer(f)
-    writer.writerows(data)
-
-print("CSV fajl kreiran!")
-```
-
-**ZADATAK:** Otvori `python_refresh.py`, pokreni kod sekciju po sekciju. Promeni vrednosti, eksperimentuši!
-
-```bash
-python python_refresh.py
-```
-
----
-
-### BLOK 2: Web Scraping Basics (11:15-13:15) - 2h
-
-**Zadatak 2.1: Requests Biblioteka (30min)**
-
-Kreiraj novi fajl: `test_requests.py`
-
-```python
-import requests
-
-# 1. Osnovni GET request
-url = "https://httpbin.org/get"
-response = requests.get(url)
-
-print(f"Status Code: {response.status_code}")
-print(f"Content Type: {response.headers['Content-Type']}")
-print(f"Response Text:\n{response.text[:200]}...")  # Prva 200 karaktera
-
-# 2. Provera da li je request uspešan
-if response.status_code == 200:
-    print("✅ Request successful!")
-else:
-    print(f"❌ Request failed with code {response.status_code}")
-
-# 3. JSON response
-url_json = "https://jsonplaceholder.typicode.com/users/1"
-response_json = requests.get(url_json)
-data = response_json.json()  # Parsiraj JSON
-
-print(f"\nUser Name: {data['name']}")
-print(f"Email: {data['email']}")
-print(f"City: {data['address']['city']}")
-
-# 4. Custom headers (važno za scraping!)
-headers = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
-}
-response_with_headers = requests.get("https://httpbin.org/headers", headers=headers)
-print(f"\nResponse with custom headers:\n{response_with_headers.text[:300]}...")
-```
-
-**Pokreni i vidi kako funkcioniše:**
-
-```bash
-python test_requests.py
-```
-
-**Zadatak 2.2: BeautifulSoup Parsing (1h)**
-
-Kreiraj: `test_beautifulsoup.py`
-
-```python
-import requests
-from bs4 import BeautifulSoup
-
-# 1. Učitaj HTML stranicu
-url = "https://quotes.toscrape.com/"  # Odličan sajt za vežbanje!
-response = requests.get(url)
-html = response.text
-
-# 2. Parsiraj HTML sa BeautifulSoup
-soup = BeautifulSoup(html, 'lxml')
-
-# 3. Izvuci naslov stranice
-title = soup.find('title')
-print(f"Page Title: {title.text}")
-
-# 4. Nađi sve quote tekstove
-quotes = soup.find_all('span', class_='text')
-print(f"\n📖 Ukupno citata: {len(quotes)}\n")
-
-for i, quote in enumerate(quotes[:5], 1):  # Prvih 5
-    print(f"{i}. {quote.text}")
-
-# 5. Izvuci autore
-authors = soup.find_all('small', class_='author')
-print(f"\n✍️ Autori:\n")
-
-for i, author in enumerate(authors[:5], 1):
-    print(f"{i}. {author.text}")
-
-# 6. Struktuirani podaci - PRAVI NAČIN!
-quotes_data = []
-
-# Svaki quote je u <div class="quote">
-quote_divs = soup.find_all('div', class_='quote')
-
-for quote_div in quote_divs:
-    # Izvuci text, author, i tags
-    text = quote_div.find('span', class_='text').text
-    author = quote_div.find('small', class_='author').text
-    tags = [tag.text for tag in quote_div.find_all('a', class_='tag')]
-
-    quotes_data.append({
-        'text': text,
-        'author': author,
-        'tags': ', '.join(tags)
-    })
-
-# Prikaži strukturirane podatke
-print("\n📊 Strukturirani podaci:\n")
-for i, quote in enumerate(quotes_data[:3], 1):
-    print(f"{i}.")
-    print(f"   Text: {quote['text']}")
-    print(f"   Author: {quote['author']}")
-    print(f"   Tags: {quote['tags']}\n")
-
-# 7. Export u CSV koristeći pandas
-import pandas as pd
-
-df = pd.DataFrame(quotes_data)
-df.to_csv('quotes_scraped.csv', index=False, encoding='utf-8')
-print("✅ CSV fajl kreiran: quotes_scraped.csv")
-```
-
-**Pokreni:**
-
-```bash
-python test_beautifulsoup.py
-```
-
-**PROVERITE CSV:**
-
-```bash
-cat quotes_scraped.csv  # Ili otvori u Excel-u!
-```
-
-**Zadatak 2.3: CSS Selectors Deep Dive (30min)**
-
-Dodaj na kraj `test_beautifulsoup.py`:
-
-```python
-# CSS SELECTORS - moćniji način!
-print("\n🎯 CSS SELECTORS:\n")
-
-# 1. Selektuj po klasi
-quotes_css = soup.select('span.text')
-print(f"Quotes via CSS selector: {len(quotes_css)}")
-
-# 2. Selektuj po ID (ako postoji)
-# container = soup.select_one('#content')  # Primer
-
-# 3. Nested selectors
-authors_css = soup.select('div.quote small.author')
-print(f"Authors via nested selector: {len(authors_css)}")
-
-# 4. Kombinovani selektori
-tags_css = soup.select('div.quote a.tag')
-print(f"Tags via selector: {len(tags_css)}")
-
-# 5. Atributi
-links = soup.select('a[href]')  # Svi linkovi sa href
-print(f"Total links: {len(links)}")
-```
-
----
-
-### 🍔 PAUZA ZA RUČAK (13:15-14:15) - 1h
-
-**NE PRESKAČI!** Mozak treba odmor. Jedi, prošetaj, resetuj se.
-
----
-
-### BLOK 3: Prvi Pravi Scraper (14:15-17:15) - 3h
-
-**SADA PRAVIŠ PRAVI PROJEKAT!**
-
-**Zadatak 3.1: Projekat Setup (15min)**
-
-Organizuj foldere:
-
-```bash
-cd ~/code/python-automation-lab/python-automation-portfolio/projects/01-web-scraper
-
-# Folder struktura:
-# 01-web-scraper/
-#   ├── scraper.py (glavni kod)
-#   ├── config.py (konfiguracija)
-#   ├── requirements.txt
-#   ├── README.md
-#   ├── tests/ (kasnije)
-#   └── output/ (gde se čuva CSV)
-
-mkdir -p output tests
-```
-
-**Zadatak 3.2: config.py - Best Practice! (10min)**
-
-Kreiraj `config.py`:
-
-```python
-"""
-Configuration file for web scraper.
-"""
-
-# Target websites
-URLS = [
-    "https://quotes.toscrape.com/page/1/",
-    "https://quotes.toscrape.com/page/2/",
-]
-
-# Request headers (simuliraj browser)
-HEADERS = {
-    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36"
-}
-
-# Output settings
-OUTPUT_DIR = "output"
-OUTPUT_FILE = "scraped_quotes.csv"
-
-# Request settings
-REQUEST_TIMEOUT = 10  # sekunde
-DELAY_BETWEEN_REQUESTS = 1  # sekunda (budi pristojan prema serveru!)
-```
-
-**Zadatak 3.3: scraper.py - Glavni Kod! (2h 15min)**
-
-Kreiraj `scraper.py`:
-
-```python
-"""
-Web Scraper Tool - Quotes Scraper
-Scrapes quotes from quotes.toscrape.com and saves to CSV.
-"""
+### BLOK 1: Setup + CSV REPL Warm-up (09:00-10:30) - 1h 30min
+
+-   Aktiviraj venv u projects/01-web-scraper (već postoji). Ako fali, pokreni task "Setup venv (web-scraper)".
+-   U root-u projekta koristi REPL sa relativnim putanjama.
+-   Prođi kroz [scratch/repl_sessions/csv_repl_plan.md](scratch/repl_sessions/csv_repl_plan.md) + [scratch/repl_sessions/csv_repl_exercises.md](scratch/repl_sessions/csv_repl_exercises.md):
+    -   `csv.reader`, `csv.DictReader/DictWriter`, `newline=""`, `delimiter`, `encoding` error.
+    -   Napravi fajlove: sample.csv, out.csv, people.csv.
+-   Čekiraj [scratch/repl_sessions/csv_repl_checklist_20_09_2025.md](scratch/repl_sessions/csv_repl_checklist_20_09_2025.md) dok radiš.
+
+### BLOK 2: Mini helper funkcije (10:30-11:30) - 1h
+
+-   Otvori [sandbox/basics/python_refresh.py](sandbox/basics/python_refresh.py).
+-   Dodaj funkcije (neka budu kratke, sa Path):
+    -   `load_csv(path: Path) -> list[dict[str, str]]` (koristi `DictReader`).
+    -   `write_csv(path: Path, rows: list[dict[str, str]], headers: list[str]) -> None` (koristi `DictWriter`).
+-   Testiraj ih na fajlovima iz BLOK 1.
+-   Kratak eksperimenat: pogrešan delimiter i encoding error.
+
+### BLOK 3: CSV Cleaner v0 (11:45-13:00) - 1h 15min
+
+-   Napravi novi fajl u sandbox/basics (npr. csv_cleaner.py).
+-   Sample input (ručno napravi): par ispravnih redova + par sa whitespace, drugačijim delimiterom i praznim vrednostima.
+-   Logika:
+    -   Učitavanje u listu dict-ova.
+    -   Normalizuj delimiter na `,`, trimuj whitespace, odbaci prazne redove.
+    -   Sačuvaj u clean.csv.
+    -   Ispiši statistiku: redova ulaz/izlaz/skiplovano.
+-   (Po želji) jednostavan test: assert dužina izlaza + basic field check.
+
+### 🍔 Pauza (13:00-14:00)
+
+### BLOK 4: Web Scraper Primer (14:00-16:00) - 2h
+
+-   Lokacija: projects/01-web-scraper.
+-   Ako nije instalirano: pokreni task "Install deps (web-scraper)".
+-   Pregledaj [projects/01-web-scraper/config.py](projects/01-web-scraper/config.py) i [projects/01-web-scraper/scraper.py](projects/01-web-scraper/scraper.py).
+-   Pokreni scraper: `source venv/bin/activate && python scraper.py` (ili VS Code task Test/Run).
+-   Proveri output/scraped_quotes.csv (prvih 5 redova).
+-   Mini refaktor (ako stigneš): ubaci Path za output, dodaj `timeout` i `headers` proveru.
+
+### BLOK 5: README + Git Commit (16:00-17:00) - 1h
+
+-   README dopuni kratkim paragrafom o CSV Cleaner v0 (šta radi, gde se nalazi) i kako pokrenuti scraper.
+-   `git status` → `git add .` → `git commit -m "chore: day01 csv foundations and scraper primer"` (ili slična poruka).
+-   Ako je repo vezan za GitHub: `git push`.
+
+### BLOK 6: Reflection + Plan Tomorrow (17:00-17:30) - 30min
+
+-   Kratke beleške: šta je bilo jasno, gde je konfuzija (delimiter, newline, encoding, Path?).
+-   Upis u DAY_01_SUMMARY.md (može u learning/ ili scratch/notes).
+-   Postavi 3 cilja za Day 02 (npr. argparse za scraper, logging u fajl, jednostavni pytest za CSV Cleaner).
 
 import requests
 from bs4 import BeautifulSoup
@@ -404,10 +93,9 @@ import time
 import os
 from config import URLS, HEADERS, OUTPUT_DIR, OUTPUT_FILE, REQUEST_TIMEOUT, DELAY_BETWEEN_REQUESTS
 
-
 def fetch_page(url):
-    """
-    Fetches HTML content from URL.
+"""
+Fetches HTML content from URL.
 
     Args:
         url (str): Target URL
@@ -430,10 +118,9 @@ def fetch_page(url):
         print(f"❌ Error fetching {url}: {e}")
         return None
 
-
 def parse_quotes(html):
-    """
-    Parses quotes from HTML content.
+"""
+Parses quotes from HTML content.
 
     Args:
         html (str): HTML content
@@ -464,10 +151,9 @@ def parse_quotes(html):
 
     return quotes_data
 
-
 def save_to_csv(data, output_path):
-    """
-    Saves scraped data to CSV file.
+"""
+Saves scraped data to CSV file.
 
     Args:
         data (list): List of dictionaries
@@ -477,14 +163,13 @@ def save_to_csv(data, output_path):
     df.to_csv(output_path, index=False, encoding='utf-8')
     print(f"💾 Saved {len(data)} quotes to {output_path}")
 
-
 def main():
-    """
-    Main scraper logic.
-    """
-    print("🚀 Starting Web Scraper...")
-    print(f"📋 Target URLs: {len(URLS)}")
-    print("=" * 60)
+"""
+Main scraper logic.
+"""
+print("🚀 Starting Web Scraper...")
+print(f"📋 Target URLs: {len(URLS)}")
+print("=" \* 60)
 
     all_quotes = []
 
@@ -521,10 +206,10 @@ def main():
     else:
         print("❌ No data scraped!")
 
+if **name** == "**main**":
+main()
 
-if __name__ == "__main__":
-    main()
-```
+````
 
 **Zadatak 3.4: Testiranje! (20min)**
 
@@ -534,7 +219,7 @@ source venv/bin/activate
 
 # Pokreni scraper!
 python scraper.py
-```
+````
 
 **Očekivani output:**
 
@@ -783,85 +468,56 @@ Available for freelance work starting January 2026
 ---
 
 **License:** MIT
-**Last Updated:** December 13, 2025
+**Last Updated:** December 14, 2025
 
-````
+```
 
-**Zadatak 4.2: Git Commit! (30min)**
+```
+
+**Git koraci (kratko podsetnik)**
 
 ```bash
-# Proveri status
 git status
-
-# Dodaj sve fajlove
 git add .
-
-# Commit sa opisnom porukom
-git commit -m "feat: initialize Python automation portfolio with web scraper MVP
-
-- Add comprehensive README for portfolio
-- Implement quotes scraper (requests + BeautifulSoup + pandas)
-- Add config.py for easy customization
-- Include detailed project README with usage examples
-- Setup .gitignore for Python projects
-- Create folder structure (projects/, learning/, docs/)
-
-Day 01 complete: scraper tested and working!"
-
-# Vidi commit
-git log --oneline -1
-````
-
-**Zadatak 4.3: GitHub Push (15min)**
-
-```bash
-# Kreiraj novi repo na GitHub (via web ili gh CLI)
-# Zatim:
-
-git remote add origin https://github.com/jole-pavlovic-dev/python-automation-portfolio.git
-git branch -M main
-git push -u origin main
+git commit -m "chore: day01 csv foundations and scraper primer"
+# ako je povezan remote
+git push
 ```
 
 ---
 
-### BLOK 5: Reflection + Plan Tomorrow (19:00-19:30) - 30min
+### BLOK 6: Reflection + Plan Tomorrow (17:00-17:30) - 30min
 
 **Zadatak 5.1: Napravi DAY_01_SUMMARY.md**
 
 ```markdown
 # Day 01 Summary
 
-**Date:** 13. decembar 2025.
+**Date:** 14. decembar 2025.
 
 ## ✅ Completed
 
--   [x] Repo kreiran i inicijalizovan
--   [x] Python environment setup (venv)
--   [x] Dependencies installed (requests, beautifulsoup4, pandas)
--   [x] Python syntax refresh (functions, loops, dicts, files)
--   [x] Requests library testing
--   [x] BeautifulSoup testing
--   [x] **PRVI PRAVI SCRAPER NAPISAN I TESTIRAN!** 🎉
--   [x] CSV export funkcioniše
--   [x] README dokumentacija
--   [x] Git commit + push na GitHub
+-   [x] Venv aktiviran i deps instalirani
+-   [x] CSV REPL warm-up (reader/dict, delimiter, encoding, newline)
+-   [x] Helper funkcije za CSV read/write (Path + DictReader/DictWriter)
+-   [x] CSV Cleaner v0 (trim, delimiter normalize, drop prazne)
+-   [x] Web scraper primer pokrenut (quotes.toscrape → CSV)
+-   [x] README dopuna + git commit/push
 
 ## 📊 Stats
 
--   Lines of code written: ~300+
--   Files created: 8
--   Quotes scraped: 20
--   Commits: 1 (solid!)
+-   Lines of code written: [popuni]
+-   Files created/edited: [popuni]
+-   Quotes scraped: [popuni]
+-   Commits: [popuni]
 
 ## 🧠 What I Learned
 
--   Kako funkcioniše requests.get() i response.status_code
--   BeautifulSoup parsing sa find() i find_all()
--   CSS selectors za preciznije selektovanje
--   Pandas DataFrame.to_csv() za export
--   Best practice: config.py za settings
--   Error handling sa try/except blokovima
+-   Razlika `csv.reader` vs `DictReader`, važnost `newline=""`
+-   Delimiter/encoding greške i kako ih rešiti
+-   Path za portabilne putanje
+-   Jednostavna ETL logika (učitaj → očisti → upiši)
+-   Kako scraper hvata HTML i eksportuje u CSV
 
 ## 💪 Challenges
 
@@ -870,11 +526,11 @@ git push -u origin main
 
 ## 🎯 Tomorrow (Day 02)
 
-1. Dodaj command-line arguments (argparse)
-2. Implementiraj error logging u fajl
-3. Refaktoruj kod - napravi scraper class
-4. Unit tests sa pytest (osnovni)
-5. Selenium setup za JS-heavy sites (optional)
+1. Dodaj argparse za scraper (izbor output fajla, broj strana)
+2. Logging u fajl i bolji error handling (requests timeout/retry)
+3. Pytest za CSV Cleaner (bar 2 testa: trim + skip praznih)
+4. (Optional) Refaktor scraper u klasu
+5. (Optional) Rainbow CSV / VS Code upotreba za verifikaciju
 
 ## 🗣️ Notes
 
@@ -896,6 +552,7 @@ git push -u origin main
 Ako si došao ovde, završio si Day 01! Evo šta si postigao:
 
 ✅ **Repo kreiran** - python-automation-portfolio na GitHub-u
+✅ **CSV Cleaner v0** - osnovni ETL (čitanje → čišćenje → upis)
 ✅ **Prvi projekat** - Web Scraper Tool (funkcioniše!)
 ✅ **Python sintaksa** - osvežena i testirana
 ✅ **Real code written** - 300+ linija production-ready koda
