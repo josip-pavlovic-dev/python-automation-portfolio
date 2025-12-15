@@ -74,7 +74,7 @@ python 01_variables_types.py
 ```
 
 -   Pokreni jednu od vežbi
--   Izmeni kod, eksperimentuj
+-   Izmeni kod, eksperimentiši
 -   Lomi kod da razbiješ led
 
 ### **2. Practice Specific Skill**

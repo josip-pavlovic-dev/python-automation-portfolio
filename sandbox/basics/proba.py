@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import csv
 from pathlib import Path
-from typing import Any
+from typing import Any, TypedDict
 
 # ============================================================================
 # TEORIJA 1: TIPOVI PODATAKA U PYTHONU
@@ -59,8 +59,20 @@ from typing import Any
 # - extrasaction='ignore' → Šta raditi sa viškom ključeva u DictWriter
 
 # Putanje su stabilne bez obzira odakle pokrećeš skriptu
-DATA_DIR = Path(__file__).parent / "data"
+SCRIPT_DIR = Path(__file__).parent if "__file__" in globals() else Path.cwd()
+DATA_DIR = SCRIPT_DIR / "data"
 CSV_FILE = DATA_DIR / "sample.csv"
+
+
+class Person(TypedDict):
+    ime: str
+    godine: int
+
+
+class PersonStatus(TypedDict):
+    ime: str
+    godine: int
+    status: str
 
 # Starter podaci da REPL primeri uvek rade
 SAMPLE_ROWS: list[list[str]] = [
@@ -190,6 +202,350 @@ def read_first_n_rows(n: int = 3) -> list[list[str]]:
 # nova = {x * 2 for x in stara}
 #
 # KORISTI SE ZA: filter, map, transform u JEDNOJ LINIJI!
+
+
+# ============================================================================
+# TEORIJA 4 - PROŠIRENJE: COMPREHENSION DETALJI
+# ============================================================================
+# COMPREHENSIONS = Kompaktni način kreiranja lista/rečnika/skupova u 1 liniji!
+#
+# OSNOVNA SINTAKSA:
+# [izraz for element in iterabilni if uslov]
+#  ↑      ↑               ↑           ↑
+#  šta    petlja          odakle      filter (opciono)
+#
+# PREDNOSTI:
+# ✅ Kraći kod - 4 linije petlje → 1 linija comprehension
+# ✅ Brži - 15-20% brži od klasične for petlje
+# ✅ Čitljiviji - odmah vidiš NAMERU (filter/map/transform)
+# ✅ Pythonic - "pravi" Python stil
+#
+# MANE:
+# ❌ Teže za debug (nemaš gde staviti print())
+# ❌ Može biti nečitljiv ako je previše složen
+# ❌ Ne koristiti za > 2 nivoa ugnježdavanja
+#
+# KADA KORISTITI:
+# - Transformacija: [x * 2 for x in lista]
+# - Filtriranje: [x for x in lista if x > 10]
+# - Kombinacija: [x * 2 for x in lista if x > 10]
+# - Ekstakcija: [row["ime"] for row in csv_data]
+#
+# KADA NE KORISTITI:
+# - Previše kompleksna logika (koristiti for loop)
+# - Treba ti print() za debug (koristiti for loop)
+# - Više if/elif/else grana (koristiti for loop)
+
+
+def comprehension_basics_demo() -> None:
+    """
+    OSNOVNI PRIMERI - Comprehension vs. For Loop.
+
+    Pokazuje kako se ISTA LOGIKA može napisati na 2 načina:
+    1. Klasična for petlja (dugačko, ali jasno)
+    2. Comprehension (kompaktno, brže)
+    """
+    brojevi = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+    # ===== PRIMER 1: LIST COMPREHENSION - Dupliraj sve =====
+    # KLASIČNO (4 linije):
+    rezultat: list[int] = []
+    for x in brojevi:
+        rezultat.append(x * 2)
+    print("For loop:", rezultat)
+
+    # COMPREHENSION (1 linija):
+    rezultat = [x * 2 for x in brojevi]
+    print("Comprehension:", rezultat)
+    # Output: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20]
+
+    # ===== PRIMER 2: FILTER - Samo parni =====
+    # KLASIČNO:
+    parni: list[int] = []
+    for x in brojevi:
+        if x % 2 == 0:
+            parni.append(x)
+    print("For loop parni:", parni)
+
+    # COMPREHENSION:
+    parni = [x for x in brojevi if x % 2 == 0]
+    print("Comprehension parni:", parni)
+    # Output: [2, 4, 6, 8, 10]
+
+    # ===== PRIMER 3: FILTER + TRANSFORM =====
+    # KLASIČNO:
+    duplo_parni: list[int] = []
+    for x in brojevi:
+        if x % 2 == 0:
+            duplo_parni.append(x * 2)
+    print("For loop duplo parni:", duplo_parni)
+
+    # COMPREHENSION:
+    duplo_parni = [x * 2 for x in brojevi if x % 2 == 0]
+    print("Comprehension duplo parni:", duplo_parni)
+    # Output: [4, 8, 12, 16, 20]
+
+
+def comprehension_conditional_demo() -> None:
+    """
+    IF/ELSE UNUTAR COMPREHENSION.
+
+    SINTAKSA: [izraz_if_true if uslov else izraz_if_false for element in lista]
+    PAZI: Ovo je DRUGAČIJE od filtera!
+
+    FILTER: [x for x in lista if uslov]  ← zadržava samo neke elemente
+    IF/ELSE: [a if uslov else b for x in lista]  ← menja SVE elemente
+    """
+    godine = [15, 25, 35, 45, 55]
+
+    # PRIMER 1: Kategorija (mlad/star)
+    kategorija = ["mlad" if god < 30 else "star" for god in godine]
+    print("Kategorija:", kategorija)
+    # Output: ['mlad', 'mlad', 'star', 'star', 'star']
+
+    # PRIMER 2: Zameni negativne sa 0
+    brojevi = [5, -3, 8, -1, 12, -7]
+    pozitivni = [x if x > 0 else 0 for x in brojevi]
+    print("Pozitivni:", pozitivni)
+    # Output: [5, 0, 8, 0, 12, 0]
+
+    # PRIMER 3: Status na osnovu godina (sa CSV podacima)
+    csv_data: list[Person] = [
+        {"ime": "Ana", "godine": 25},
+        {"ime": "Marko", "godine": 45},
+        {"ime": "Jole", "godine": 40},
+    ]
+    sa_statusom: list[PersonStatus] = [
+        {
+            "ime": row["ime"],
+            "godine": row["godine"],
+            "status": "senior" if row["godine"] > 35 else "junior",
+        }
+        for row in csv_data
+    ]
+    print("Sa statusom:", sa_statusom)
+    # Output: [{'ime': 'Ana', 'godine': 25, 'status': 'junior'},
+    #          {'ime': 'Marko', 'godine': 45, 'status': 'senior'},
+    #          {'ime': 'Jole', 'godine': 40, 'status': 'senior'}]
+
+
+def comprehension_dict_demo() -> None:
+    """
+    DICT COMPREHENSION - Pravljenje rečnika.
+
+    SINTAKSA: {key: value for element in iterabilni if uslov}
+    """
+    # PRIMER 1: Invertuj rečnik (swap key-value)
+    original = {"ime": "Jole", "grad": "Novi Sad", "godine": "40"}
+    inverted = {v: k for k, v in original.items()}
+    print("Inverted:", inverted)
+    # Output: {'Jole': 'ime', 'Novi Sad': 'grad', '40': 'godine'}
+
+    # PRIMER 2: Filter rečnik (samo vrednosti > 30)
+    podaci = {"Jovana": 41, "Jole": 40, "Bojan": 11}
+    stariji = {ime: godine for ime, godine in podaci.items() if godine > 30}
+    print("Stariji:", stariji)
+    # Output: {'Jovana': 41, 'Jole': 40}
+
+    # PRIMER 3: Transformiši vrednosti (sve u string)
+    brojevi_dict = {"a": 1, "b": 2, "c": 3}
+    stringovi = {k: str(v) for k, v in brojevi_dict.items()}
+    print("Stringovi:", stringovi)
+    # Output: {'a': '1', 'b': '2', 'c': '3'}
+
+    # PRIMER 4: Kreira lookup dict iz CSV
+    csv_data = [
+        {"ime": "Ana", "grad": "Beograd"},
+        {"ime": "Marko", "grad": "Novi Sad"},
+        {"ime": "Jole", "grad": "Novi Sad"},
+    ]
+    ime_grad = {row["ime"]: row["grad"] for row in csv_data}
+    print("Ime -> Grad:", ime_grad)
+    # Output: {'Ana': 'Beograd', 'Marko': 'Novi Sad', 'Jole': 'Novi Sad'}
+
+
+def comprehension_set_demo() -> None:
+    """
+    SET COMPREHENSION - Pravljenje skupova (bez duplikata).
+
+    SINTAKSA: {izraz for element in iterabilni if uslov}
+    RAZLIKA: {} umesto [] → automatski uklanja duplikate!
+    """
+    # PRIMER 1: Jedinstveni gradovi
+    csv_data = [
+        {"ime": "Ana", "grad": "Beograd"},
+        {"ime": "Marko", "grad": "Novi Sad"},
+        {"ime": "Jole", "grad": "Novi Sad"},  # duplikat!
+        {"ime": "Bojan", "grad": "Beograd"},  # duplikat!
+    ]
+    gradovi = {row["grad"] for row in csv_data}
+    print("Jedinstveni gradovi:", gradovi)
+    # Output: {'Beograd', 'Novi Sad'}  ← duplikati uklonjeni!
+
+    # PRIMER 2: Prva slova imena
+    imena = ["Ana", "Anđela", "Marko", "Milan", "Bojan"]
+    slova = {ime[0] for ime in imena}
+    print("Prva slova:", slova)
+    # Output: {'A', 'M', 'B'}
+
+    # PRIMER 3: Parni brojevi (bez duplikata)
+    brojevi = [1, 2, 2, 3, 4, 4, 5, 6, 6, 8, 8]
+    parni = {x for x in brojevi if x % 2 == 0}
+    print("Parni (unique):", parni)
+    # Output: {2, 4, 6, 8}
+
+
+def comprehension_nested_demo() -> None:
+    """
+    NESTED COMPREHENSION - Petlja unutar petlje.
+
+    SINTAKSA: [izraz for x in lista1 for y in lista2]
+    EKVIVALENT:
+        for x in lista1:
+            for y in lista2:
+                rezultat.append(izraz)
+
+    PAZI: Čitljivost opada sa svakim nivoom - max 2 nivoa!
+    """
+    # PRIMER 1: Flatten 2D lista (matrica → ravna lista)
+    matrica = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+    # KLASIČNO:
+    ravna: list[int] = []
+    for red in matrica:
+        for broj in red:
+            ravna.append(broj)
+    print("For loop flatten:", ravna)
+
+    # COMPREHENSION:
+    ravna = [broj for red in matrica for broj in red]
+    print("Comprehension flatten:", ravna)
+    # Output: [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    # PRIMER 2: Cartesian product (sve kombinacije)
+    boje = ["crvena", "plava"]
+    velicine = ["S", "M", "L"]
+    proizvodi = [(boja, velicina) for boja in boje for velicina in velicine]
+    print("Proizvodi:", proizvodi)
+    # Output: [('crvena', 'S'), ('crvena', 'M'), ('crvena', 'L'),
+    #          ('plava', 'S'), ('plava', 'M'), ('plava', 'L')]
+
+    # PRIMER 3: Parni iz 2D liste
+    parni = [broj for red in matrica for broj in red if broj % 2 == 0]
+    print("Parni iz matrice:", parni)
+    # Output: [2, 4, 6, 8]
+
+
+def comprehension_csv_patterns() -> None:
+    """
+    CSV-SPECIFIC PATTERNS - Najčešći obrasci sa CSV podacima.
+
+    Ovo su real-world primeri koji ćeš koristiti svaki dan!
+    """
+    csv_data = [
+        {"ime": "Jovana", "prezime": "Zelenković", "godine": "41", "grad": "Novi Sad"},
+        {"ime": "Jole", "prezime": "Pavlović", "godine": "40", "grad": "Novi Sad"},
+        {
+            "ime": "Bojan",
+            "prezime": "Stambolija",
+            "godine": "11",
+            "grad": "Sremska Mitrovica",
+        },
+    ]
+
+    # OBRAZAC 1: Ekstraktuj jednu kolonu (map)
+    imena = [row["ime"] for row in csv_data]
+    print("Imena:", imena)
+    # Output: ['Jovana', 'Jole', 'Bojan']
+
+    # OBRAZAC 2: Filtriraj redove po uslovu
+    stariji_30 = [row for row in csv_data if int(row["godine"]) > 30]
+    print("Stariji od 30:", stariji_30)
+
+    # OBRAZAC 3: Ekstraktuj kolonu iz filtriranih redova
+    gradovi_starijih = [row["grad"] for row in csv_data if int(row["godine"]) > 30]
+    print("Gradovi starijih:", gradovi_starijih)
+    # Output: ['Novi Sad', 'Novi Sad']
+
+    # OBRAZAC 4: Transformiši kolonu (string → int)
+    godine_int = [int(row["godine"]) for row in csv_data]
+    print("Godine (int):", godine_int)
+    # Output: [41, 40, 11]
+
+    # OBRAZAC 5: Update kolonu (dodaj +10 godinama)
+    sa_plus_10 = [
+        {**row, "godine": str(int(row["godine"]) + 10)}
+        for row in csv_data
+    ]
+    print("Godine +10:", sa_plus_10)
+
+    # OBRAZAC 6: Dodaj novu kolonu (computed column)
+    sa_statusom = [
+        {**row, "status": "senior" if int(row["godine"]) > 35 else "junior"}
+        for row in csv_data
+    ]
+    print("Sa statusom:", sa_statusom)
+
+    # OBRAZAC 7: Kreira lookup dict (ime → grad)
+    ime_grad = {row["ime"]: row["grad"] for row in csv_data}
+    print("Ime -> Grad:", ime_grad)
+    # Output: {'Jovana': 'Novi Sad', 'Jole': 'Novi Sad', 'Bojan': 'Sremska Mitrovica'}
+
+    # OBRAZAC 8: Unique vrednosti iz kolone
+    gradovi_unique = {row["grad"] for row in csv_data}
+    print("Gradovi (unique):", gradovi_unique)
+    # Output: {'Novi Sad', 'Sremska Mitrovica'}
+
+    # OBRAZAC 9: Multi-kolona ekstakcija (tuple)
+    ime_godine = [(row["ime"], int(row["godine"])) for row in csv_data]
+    print("Ime + Godine:", ime_godine)
+    # Output: [('Jovana', 41), ('Jole', 40), ('Bojan', 11)]
+
+    # OBRAZAC 10: Čisti podatke (strip + capitalize)
+    imena_clean = [row["ime"].strip().capitalize() for row in csv_data]
+    print("Imena (clean):", imena_clean)
+
+
+def comprehension_vs_generator() -> None:
+    """
+    COMPREHENSION vs. GENERATOR EXPRESSION.
+
+    COMPREHENSION: [x for x in lista]  ← sve odmah u memoriju
+    GENERATOR: (x for x in lista)      ← jedan po jedan (lazy)
+
+    KADA KORISTITI:
+    - LIST: Treba ti cela lista odmah (len, sort, index)
+    - GENERATOR: Velika količina podataka, iteriraj samo jednom
+    """
+    import sys
+
+    # LIST COMPREHENSION - sve u RAM
+    lista = [x * 2 for x in range(1000)]
+    print(f"List size: {sys.getsizeof(lista)} bytes")  # ~9KB
+
+    # GENERATOR EXPRESSION - lazy (jedan po jedan)
+    generator = (x * 2 for x in range(1000))
+    print(f"Generator size: {sys.getsizeof(generator)} bytes")  # ~200 bytes!
+
+    # PRIMER: Suma velikog broja brojeva (bez punjenja RAM-a)
+    suma_lista = sum([x for x in range(1_000_000)])  # 8MB  RAM!
+    suma_gen = sum(x for x in range(1_000_000))      # 88 bytes RAM!
+    print(f"Suma (obe): {suma_lista} == {suma_gen}")
+
+    # KADA KORISTITI GENERATOR:
+    # ✅ Veliki CSV fajlovi (GB podataka)
+    # ✅ Stream processing (jedan red po red)
+    # ✅ Beskonačne sekvence
+    # ✅ sum(), max(), min() - ne treba cela lista
+
+    # KADA KORISTITI LIST:
+    # ✅ Treba ti len(), sort(), index()
+    # ✅ Moraš više puta da iteriraš
+    # ✅ Mala količina podataka (< 10k elemenata)
+
 
 def filter_by_age(min_age: int = 30) -> list[dict[str, str]]:
     """

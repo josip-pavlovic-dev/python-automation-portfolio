@@ -1,6 +1,6 @@
 # 3-Month Roadmap: Python Automation to Freelance Income
 
-**Start Date:** December 13, 2025
+**Start Date:** December 14, 2025
 **Goal:** €500-1000/month by March 2026
 **Strategy:** Portfolio Projects → Freelance Profiles → Client Acquisition
 
@@ -18,21 +18,21 @@ This roadmap takes you from **beginner Python automation** to **paid freelance w
 
 ---
 
-## 📅 Month 1: Portfolio Building (Dec 13 - Jan 12)
+## 📅 Month 1: Portfolio Building (Dec 14 - Jan 13)
 
-### Week 1 (Dec 13-20): Project 1 - Web Scraper
+### Week 1 (Dec 14-21): Project 1 - Web Scraper
 
 **Status:** 🚧 In Progress
 
 **Daily Breakdown:**
 
--   **Day 01 (Dec 13):** Setup + basic scraper ✅
--   **Day 02 (Dec 14):** CLI arguments + logging
--   **Day 03 (Dec 15):** Class-based refactor + error handling
--   **Day 04 (Dec 16):** Multiple sites support + config system
--   **Day 05 (Dec 17):** Advanced selectors + pagination
--   **Day 06 (Dec 18):** Testing + documentation
--   **Day 07 (Dec 19-20):** Final polish + GitHub README
+-   **Day 01 (Dec 14):** Setup + basic scraper ✅
+-   **Day 02 (Dec 15):** CLI arguments + logging
+-   **Day 03 (Dec 16):** Class-based refactor + error handling
+-   **Day 04 (Dec 17):** Multiple sites support + config system
+-   **Day 05 (Dec 18):** Advanced selectors + pagination
+-   **Day 06 (Dec 19):** Testing + documentation
+-   **Day 07 (Dec 20-21):** Final polish + GitHub README
 
 **Deliverable:** Production-ready web scraper tool
 

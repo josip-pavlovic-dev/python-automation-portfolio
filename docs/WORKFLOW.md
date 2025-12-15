@@ -1,12 +1,12 @@
 # 🧭 WORKFLOW.md — Radni Tok za Python Automation Portfolio
 
-## 🎯 Cilj fajla
+## 🎯 File purpose | Svrha Fajla
 
 Ovaj dokument opisuje kako radim svakodnevno na svom Python automation portfoliju koristeći VS Code + GitHub Copilot Pro i Copilot za Windows u Edge-u.
 
 ---
 
-## 🛠️ Okruženje
+## 🛠️ Environment | Okruženje
 
 -   **Editor:** VS Code (WSL2 + Ubuntu 24.04)
 -   **AI Mentori:**
@@ -17,7 +17,7 @@ Ovaj dokument opisuje kako radim svakodnevno na svom Python automation portfolij
 
 ---
 
-## 📁 Struktura Projekta
+## 📁 Project Structure | Struktura Projekta
 
 ```
 
@@ -57,7 +57,7 @@ python-automation-portfolio/
 
 ---
 
-## 🚀 Dnevna Rutina
+## 🚀 Daily Routine | Dnevna Rutina
 
 **09:00-10:00** Kickoff + planiranje
 **10:00-13:00** Deep work session 1
@@ -80,7 +80,7 @@ python-automation-portfolio/
 -   Pokretanje testova i debugging
 -   Workspace context za pitanja o codebase-u
 
-### Copilot za Windows (Edge)
+### Copilot Windows (Edge)
 
 -   Planiranje i retrospektive
 -   Debugging sesije (kada zaglavim)
@@ -89,7 +89,7 @@ python-automation-portfolio/
 
 ---
 
-## 📅 Dnevni Kickoff
+## 📅 Daily Kickoff | Dnevni Kickoff
 
 Koristim `DAILY_KICKOFF_PROMPT.md` template:
 
@@ -107,7 +107,7 @@ Hi! I'm Jole Pavlović, Python automation developer...
 
 ---
 
-## 🧪 Testiranje i Debugging
+## 🧪 Testing and Debugging | Testiranje i Debugging
 
 -   Pokreni testove: `python -m pytest`
 -   Ako scraper ne radi:
@@ -117,7 +117,7 @@ Hi! I'm Jole Pavlović, Python automation developer...
 
 ---
 
-## 📈 Praćenje Napretka
+## 📈 Progress Tracking | Praćenje Napretka
 
 -   Svaki dan commitujem sa jasnim porukama
 -   Popunjavam `summary.md` na kraju dana
@@ -126,7 +126,7 @@ Hi! I'm Jole Pavlović, Python automation developer...
 
 ---
 
-## 🆘 Ako zaglavim
+## 🆘 If I Get Stuck | Ako zaglavim
 
 -   Ako ne rešim problem za 15+ min:
     -   Pokrećem debugging sesiju u Edge Copilotu
@@ -135,7 +135,7 @@ Hi! I'm Jole Pavlović, Python automation developer...
 
 ---
 
-## 🧠 Motivacija
+## 🧠 Motivation | Motivacija
 
 -   Cilj: prvi klijent do 31.01.2026
 -   Fokus: praktični alati za realne probleme
@@ -144,13 +144,8 @@ Hi! I'm Jole Pavlović, Python automation developer...
 
 ---
 
-```
-
----
-
 ## 🔍 Predlog za pretragu u Edge Copilotu
 
 Pošto si u Edge sidebaru, koristi **Technology** kao odeljak za pretragu. Tu se nalaze sve relevantne stranice o VS Code, Copilot, workspace context i AI integraciji.
 
 ---
-```
