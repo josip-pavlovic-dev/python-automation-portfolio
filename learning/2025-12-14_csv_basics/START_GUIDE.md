@@ -33,7 +33,7 @@
 
 1. Otvori terminal u root-u projekta
 2. Pokreni Python REPL: `python`
-3. Radi korak po korak prema `scratch/repl_sessions/csv_repl_plan.md`
+3. Radi korak po korak prema [`scratch/repl_sessions/csv_repl_plan.md`](scratch/repl_sessions/csv_repl_plan.md)
 
 **Konkretni koraci:**
 
