@@ -7,11 +7,13 @@ import os
 import time
 from collections.abc import Sequence
 from logging.handlers import RotatingFileHandler
+from types import ModuleType
 from typing import Any
 
 import requests
 from bs4 import BeautifulSoup
 
+cfg: ModuleType | None
 try:
     import config as cfg
 except ImportError:  # Fallbacks when config is missing

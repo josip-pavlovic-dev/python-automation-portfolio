@@ -60,7 +60,7 @@ print(urls_upper)
 # =======================
 # 4. DICTIONARIES (20min)
 # =======================
-product: dict[str, ] = {
+product: dict[str, str | int | bool] = {
     "name": "Laptop",
     "price": 1200,
     "brand": "Dell",
@@ -100,14 +100,23 @@ with open("test_output.txt") as f:
 # ===========================
 # 6. EXCEPTION HANDLING (10min)
 # ===========================
-def divide(a: float, b : float) -> float | str:
-    """Deli dva broja sa rukovanjem greškama."""
+def divide(a: float, b: float | int | None | str) -> float | str:
+    """Deli dva broja sa rukovanjem greškama.
+
+    Prihvata `b` kao int/float, `None`, ili neku drugu vrednost.
+    Ako `b` nije broj, vraća jasnu poruku umesto podizanja greške.
+    """
+    if b is None:
+        return "Error: Divisor cannot be None!"
+
+    # Validiraj tip pre izvođenja deljenja — statički checker (Pylance) ovo razume.
+    if not isinstance(b, (int, float)):
+        return "Error: Please provide numbers only!"
+
     try:
-        result: float | str = a / b
+        result: float = a / b
     except ZeroDivisionError:
         return "Error: Division by zero is not allowed!"
-    except TypeError:
-        return "Error: Please provide numbers only!"
     else:
         return result
 
