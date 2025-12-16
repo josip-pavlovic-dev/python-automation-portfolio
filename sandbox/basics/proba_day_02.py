@@ -3,10 +3,10 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from collections.abc import Iterable, Sequence
 from logging.handlers import RotatingFileHandler
 from pathlib import Path
 from time import sleep
-from typing import Iterable, List, Sequence
 
 # =============================================================================
 # DAY 02 MINI-LAB: CLI + LOGGING + TESTABILNOST
@@ -115,7 +115,7 @@ def fake_fetch(url: str, timeout: int, delay: float, logger: logging.Logger) -> 
 def parse_quotes_from_html(html: str) -> list[dict[str, str]]:
     # Minimalna pars logika (string based) da izbegnemo dodatne zavisnosti.
     # Tražimo substring "Quote from <URL>".
-    markers = []
+    markers: list[str] = []
     start_token = "Quote from "
     remaining = html
     while start_token in remaining:
@@ -131,7 +131,8 @@ def parse_quotes_from_html(html: str) -> list[dict[str, str]]:
 def persist_results(output_path: Path, rows: Iterable[dict[str, str]]) -> None:
     output_path.parent.mkdir(parents=True, exist_ok=True)
     data = list(rows)
-    output_path.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    output_path.write_text(json.dumps(data, ensure_ascii=False, indent=2),
+                            encoding="utf-8")
 
 
 # -----------------------------------------------------------------------------

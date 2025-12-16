@@ -59,22 +59,42 @@ from typing import Any, TypedDict
 # - extrasaction='ignore' → Šta raditi sa viškom ključeva u DictWriter
 
 # Putanje su stabilne bez obzira odakle pokrećeš skriptu
+# globals() je ugrađena funkcija koja vraća globalni namespace kao rečnik. Primer:
+# globals()['neka_varijabla'] = 42
+# print(neka_varijabla)  # Ispisuje: 42
+# globalni namespace sadrži sve globalne varijable, funkcije, klase definisane u modulu.
+# Ovaj pristup omogućava dinamičko kreiranje i pristupanje globalnim varijablama.
+# Ovde ga koristimo da proverimo da li je __file__ definisan.
+# globals()['__file__'] je prisutan samo kad se fajl izvršava kao skripta a ne u REPL-u.
+# Ako nije prisutan, koristi trenutni radni direktorijum (Path.cwd()) kao fallback.
+# Ako zeliš da vidiš šta je u globals(), možeš otkomentarisati sledeću liniju:
+# print(globals().keys()) # Ispisuje sve globalne varijable i funkcije
 SCRIPT_DIR = Path(__file__).parent if "__file__" in globals() else Path.cwd()
 DATA_DIR = SCRIPT_DIR / "data"
 CSV_FILE = DATA_DIR / "sample.csv"
 
-
+# Definisanje tipova za TypedDict primere. TypedDict omogućava strožu kontrolu nad
+# strukturama rečnika koje koristimo. Preporučuje se za rad sa CSV podacima gde su
+# ključevi poznati i fiksni.
+# Primeri:
+# TypedDict za osobu sa imenom i godinama (umesto običnog dict[str, Any] koji je
+# manje striktan). Ovo pomaže alatima za statičku analizu koda da bolje razumeju
+# strukturu podataka. Primer korišćenja je u comprehension primerima dole.
 class Person(TypedDict):
     ime: str
     godine: int
 
-
+# TypedDict za osobu sa statusom (junior/senior) na osnovu godina. Koristi se u
+# primerima comprehension-a gde dodajemo novi ključ "status" u postojeću strukturu.
+# Ovo pokazuje kako možemo proširiti postojeći tip podataka sa dodatnim informacijama.
+# Primer korišćenja je u comprehension_conditional_demo funkciji.
 class PersonStatus(TypedDict):
     ime: str
     godine: int
     status: str
 
 # Starter podaci da REPL primeri uvek rade
+# Sample CSV sadržaj:
 SAMPLE_ROWS: list[list[str]] = [
     ["ime", "prezime", "godine", "grad"],
     ["Jovana", "Zelenković", "41", "Novi Sad"],
@@ -82,10 +102,14 @@ SAMPLE_ROWS: list[list[str]] = [
     ["Bojan", "Stambolija", "11", "Sremska Mitrovica"],
 ]
 
-
+# Funkcija koja kreira sample data fajl ako ne postoji. Idempotentna je,
+# što znači da se može pozvati više puta bez neželjenih efekata.
+# Ne vraća ništa, samo osigurava da su data/ direktorijum i sample.csv fajl
+# prisutni. Ako fajl već postoji, ništa se ne menja. Ako ne postoji, kreira se sa
+# starter podacima definisanim u SAMPLE_ROWS.
 def ensure_sample_data() -> None:
     """Kreiraj data/ i sample.csv ako ne postoje (idempotentno)."""
-    DATA_DIR.mkdir(exist_ok=True)
+    DATA_DIR.mkdir(exist_ok=True) # exist_ok=True sprečava grešku ako već postoji
     if not CSV_FILE.exists():
         with CSV_FILE.open("w", newline="", encoding="utf-8") as f:
             writer = csv.writer(f)
@@ -118,12 +142,15 @@ def ensure_sample_data() -> None:
 
 # ---------- READ PRIMERI ----------
 
+# ČITAJ KAO LISTU LISTI
+# Koristi csv.reader da pročita ceo CSV kao listu listi.
+# Obratiti pažnju na to da su sve vrednosti STRINGOVI!
 def read_as_lists() -> list[list[str]]:
     """
     Čita ceo CSV u listu listi (najlakše za debug).
 
     Vraća: [['ime', 'prezime', 'godine', 'grad'],
-            ['Jovana', 'Jovic', '41', 'Novi Sad'], ...]
+            ['Jovana', 'Zelenković', '41', 'Novi Sad'], ...]
 
     Svaki red je LISTA STRINGOVA!
     """
@@ -131,7 +158,13 @@ def read_as_lists() -> list[list[str]]:
         reader = csv.reader(f)
         return list(reader)
 
-
+# ČITAJ KAO LISTU REČNIKA
+# Koristi csv.DictReader da pročita ceo CSV kao listu rečnika.
+# Obratiti pažnju na restval parametar koji popunjava None vrednosti.
+# Na primer, ako neki red nema vrednost za "grad", biće popunjen sa "".
+# Ovo je korisno za izbegavanje None vrednosti u rezultatima.
+# Svaki red je REČNIK sa ključevima iz headera i vrednostima iz reda.
+# Primer vraćene strukture je data u docstring-u.
 def read_as_dicts(fill_missing: str = "") -> list[dict[str, str]]:
     """
     Čita CSV kao listu rečnika; None vrednosti se pune fill_missing.
@@ -148,7 +181,7 @@ def read_as_dicts(fill_missing: str = "") -> list[dict[str, str]]:
     with CSV_FILE.open(newline="", encoding="utf-8") as f:
         reader: csv.DictReader[str] = csv.DictReader(f)
         reader.restval = fill_missing  # Šta staviti kad fali vrednost
-        rows: list[dict[str, str]] = []
+        rows: list[dict[str, str]] = [] # Priprema prazne liste za rezultate
         for row in reader:
             # Comprehension: {key: value for key, value in dict.items()}
             # Ovde čistimo None vrednosti i menjamo ih sa fill_missing

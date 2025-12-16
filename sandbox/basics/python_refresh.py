@@ -27,11 +27,11 @@ print(f"Skills: {', '.join(skills)}")
 # ====================
 # 2. FUNCTIONS (15min)
 # ====================
-def greet(name):
+def greet(name : str) -> str:
     """Pozdravlja korisnika."""
     return f"Hello, {name}! Ready to scrape! 🕷️"
 
-def calculate_discount(price, discount_percent):
+def calculate_discount(price: float, discount_percent: float) -> float:
     """Računa cenu sa popustom."""
     discount = price * (discount_percent / 100)
     return price - discount
@@ -60,7 +60,7 @@ print(urls_upper)
 # =======================
 # 4. DICTIONARIES (20min)
 # =======================
-product = {
+product: dict[str, ] = {
     "name": "Laptop",
     "price": 1200,
     "brand": "Dell",
@@ -75,7 +75,7 @@ for key, value in product.items():
     print(f"{key}: {value}")
 
 # Lista dictionaries (tipičan scraping output!)
-products = [
+products: list[dict[str, str | int]] = [
     {"name": "Laptop", "price": 1200},
     {"name": "Mouse", "price": 25},
     {"name": "Keyboard", "price": 75}
@@ -100,10 +100,10 @@ with open("test_output.txt") as f:
 # ===========================
 # 6. EXCEPTION HANDLING (10min)
 # ===========================
-def divide(a, b):
+def divide(a: float, b : float) -> float | str:
     """Deli dva broja sa rukovanjem greškama."""
     try:
-        result = a / b
+        result: float | str = a / b
     except ZeroDivisionError:
         return "Error: Division by zero is not allowed!"
     except TypeError:

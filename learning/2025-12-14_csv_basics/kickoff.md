@@ -41,9 +41,23 @@ environment: wsl2+vscode
 ## 📎 Linked Files | Povezani Fajlove
 
 -   learning/DAY_01_KICKOFF.md | plan za dan
--   sandbox/basics/python_refresh.py | helper funkcije
--   sandbox/basics/csv_cleaner.py | novi mini alat
--   projects/01-web-scraper/scraper.py | primer scraper
--   scratch/repl_sessions/csv_repl_plan.md | REPL vežbe
--   scratch/repl_sessions/csv_repl_exercises.md | REPL vežbe
--   scratch/repl_sessions/csv_repl_checklist_20_09_2025.md | checklist
+-   [sandbox/basics/python_refresh.py](../../sandbox/basics/python_refresh.py) | helper funkcije
+-   [sandbox/basics/csv_cleaner.py](../../sandbox/basics/csv_cleaner.py) | novi mini alat
+-   [projects/01-web-scraper/scraper.py](../../projects/01-web-scraper/scraper.py) | primer scraper
+-   [scratch/repl_sessions/csv_repl_plan.md](../../scratch/repl_sessions/csv_repl_plan.md) | REPL vežbe
+-   [scratch/repl_sessions/csv_repl_exercises.md](../../scratch/repl_sessions/csv_repl_exercises.md) | REPL vežbe
+-   [scratch/repl_sessions/csv_repl_checklist_20_09_2025.md](../../scratch/repl_sessions/csv_repl_checklist_20_09_2025.md) | checklist
+
+---
+
+## ⏱ Suggested Time Allocation | Predložena Raspodela Vremena
+
+-   REPL Warm-up: 1.5h
+-   Helper Functions: 2h
+-   Mini CSV Cleaner v0: 2.5h
+-   Web Scraper Review: 1h
+-   README + Commit: 1h
+-   Buffer: 1h
+-   Total: 9h
+
+---
