@@ -185,6 +185,8 @@ Help me plan this properly! 🗺️
     - Task list
 5. Hit Enter → AI je spreman!
 
+---
+
 ### Mid-Day Check-In
 
 Ako treba pomoć ili si zaglavljen:
@@ -195,6 +197,8 @@ Working on [task]. Spent [X min].
 [Kratak opis problema]
 Need suggestion!
 ```
+
+---
 
 ### End-of-Day Review
 

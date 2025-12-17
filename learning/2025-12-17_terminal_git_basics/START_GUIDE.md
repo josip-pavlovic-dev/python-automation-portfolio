@@ -278,7 +278,8 @@ git log --oneline                    # Istorija
 
 ```
 [ ] Pokreni terminal_repl_exercises.md FAZA 1
-[ ] Vežbaj sve komandi
+[ ] Vežbaj sve komande
+[ ] Ponavljaj dok ne ide bez gledanja
 [ ] Eksperimentiši
 ```
 

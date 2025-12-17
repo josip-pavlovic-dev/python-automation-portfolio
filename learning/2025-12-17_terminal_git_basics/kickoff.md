@@ -399,7 +399,7 @@ git commit -m "Ensure venv in gitignore"
 
 ---
 
-# ✅ Checklist
+## ✅ Checklist
 
 **Dan 1:**
 
@@ -421,7 +421,7 @@ git commit -m "Ensure venv in gitignore"
 
 ---
 
-# 🚀 Sutra Ujutro
+## 🚀 Sutra Ujutru
 
 1. Otvori terminal
 2. `pwd` — Proveri gde si
@@ -431,3 +431,5 @@ git commit -m "Ensure venv in gitignore"
 ---
 
 **Spreman? Kreni sutra! 🚀**
+
+---

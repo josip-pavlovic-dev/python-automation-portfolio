@@ -5,9 +5,9 @@
 
 ---
 
-# 🎯 FAZA 1: NAVIGATION & FILE OPERATIONS (2h)
+## 🎯 FAZA 1: NAVIGATION & FILE OPERATIONS (2h)
 
-## Setup
+### Setup
 
 ```bash
 # 1. Kreiraj test folder
@@ -16,7 +16,9 @@ cd ~/terminal_practice
 pwd
 ```
 
-## 1.1 Navigation — Understanding Paths
+---
+
+### 1.1 Navigation — Understanding Paths
 
 ```bash
 # Vidim gde sam
@@ -46,7 +48,9 @@ cd ~/terminal_practice
 pwd
 ```
 
-## 1.2 Creating Files & Folders
+---
+
+### 1.2 Creating Files & Folders
 
 ```bash
 # Kreiraj folder
@@ -55,7 +59,7 @@ cd project_files
 
 # Kreiraj fajlove
 touch file1.txt file2.txt file3.txt
-ls -la
+ls -la # Provera sadržaja
 
 # Kreiraj sa sadržajem
 echo "Hello World" > greeting.txt
@@ -71,7 +75,9 @@ EOF
 cat poem.txt
 ```
 
-## 1.3 Reading Files
+---
+
+### 1.3 Reading Files
 
 ```bash
 # Kreiraj test fajl sa 20 linija
@@ -101,7 +107,9 @@ wc -w numbers.txt
 wc -c numbers.txt
 ```
 
-## 1.4 Copying & Moving
+---
+
+### 1.4 Copying & Moving
 
 ```bash
 # Kopiraj fajl
@@ -122,7 +130,9 @@ ls -la
 ls project_files/
 ```
 
-## 1.5 Deleting
+---
+
+### 1.5 Deleting
 
 ```bash
 # Obriši fajl
@@ -139,7 +149,9 @@ ls -la
 # rm -rf ~/*  # NIKAD!
 ```
 
-## 1.6 Permissions
+---
+
+### 1.6 Permissions
 
 ```bash
 # Vidim permissions
@@ -162,9 +174,9 @@ chmod o-r file3.txt
 
 ---
 
-# 🎯 FAZA 2: SEARCHING, PIPES & REDIRECTS (3h)
+## 🎯 FAZA 2: SEARCHING, PIPES & REDIRECTS (3h)
 
-## 2.1 Searching Files
+### 2.1 Searching Files
 
 ```bash
 # Kreiraj test data
@@ -192,6 +204,8 @@ grep -c "apple" data.txt
 # Invert - sve osim
 grep -v "apple" data.txt
 ```
+
+---
 
 ## 2.2 Finding Files
 
@@ -225,7 +239,9 @@ find project -size +1M
 find project -mtime -7
 ```
 
-## 2.3 Pipes — Kombinovanje
+---
+
+### 2.3 Pipes — Kombinovanje
 
 ```bash
 # Kreiraj test data
@@ -259,7 +275,9 @@ cat names.txt | sort | uniq -c | sort -rn
 cat names.txt | grep -i "a" | sort | uniq -c | sort -rn
 ```
 
-## 2.4 Redirects — Čuvanje
+---
+
+### 2.4 Redirects — Čuvanje
 
 ```bash
 # Kreiraj test fajl
@@ -289,7 +307,9 @@ cat errors.txt
 ls project nonexistent 2>&1 > all.txt
 ```
 
-## 2.5 Advanced Searching
+---
+
+### 2.5 Advanced Searching
 
 ```bash
 # Kreiraj program file
@@ -318,7 +338,9 @@ grep -v "INFO" program.log | wc -l
 grep -E "ERROR|WARNING" program.log
 ```
 
-## 2.6 Text Manipulation
+---
+
+### 2.6 Text Manipulation
 
 ```bash
 # Kreiraj CSV data
@@ -347,9 +369,9 @@ awk -F',' '{print $1}' data.csv
 
 ---
 
-# 🎯 FAZA 3: ADVANCED COMBINATIONS (3h)
+## 🎯 FAZA 3: ADVANCED COMBINATIONS (3h)
 
-## 3.1 Complex Pipelines
+### 3.1 Complex Pipelines
 
 ```bash
 # Kreiraj большой test file
@@ -367,7 +389,9 @@ cat activity.log | grep "User1:" | wc -l
 grep "ERROR" *.txt 2>/dev/null > all_errors.log || echo "No errors found"
 ```
 
-## 3.2 Real-World Scenarios
+---
+
+### 3.2 Real-World Scenarios
 
 ```bash
 # Scenario 1: Analyze Python file sizes
@@ -386,7 +410,9 @@ ls -lh | grep "^-" | awk '{print $9, $5}' > file_list.txt
 find . -type f -size +10M -exec ls -lh {} \;
 ```
 
-## 3.3 Script-Like Usage
+---
+
+### 3.3 Script-Like Usage
 
 ```bash
 # Čuvaj kao commands.sh
@@ -412,7 +438,9 @@ chmod +x commands.sh
 ./commands.sh
 ```
 
-## 3.4 Self-Test — Bez Tutorial-a
+---
+
+### 3.4 Self-Test — Bez Tutorial-a
 
 ```bash
 # Kreiraj folder "test_exercise"
@@ -446,9 +474,9 @@ sort combined.txt > sorted.txt
 
 ---
 
-# 📊 OČEKIVANI REZULTATI
+## 📊 OČEKIVANI REZULTATI
 
-## Posle FAZE 1
+### Posle FAZE 1
 
 ```
 ✅ Navigiram sa cd, ls, pwd
@@ -457,7 +485,9 @@ sort combined.txt > sorted.txt
 ✅ Razumem permissions
 ```
 
-## Posle FAZE 2
+---
+
+### Posle FAZE 2
 
 ```
 ✅ Pronalazim sa grep, find
@@ -466,7 +496,9 @@ sort combined.txt > sorted.txt
 ✅ Manipuliram tekst (sort, uniq)
 ```
 
-## Posle FAZE 3
+---
+
+### Posle FAZE 3
 
 ```
 ✅ Rad sa complex pipelines
@@ -478,3 +510,5 @@ sort combined.txt > sorted.txt
 ---
 
 **Kreni sada! 🚀**
+
+---
