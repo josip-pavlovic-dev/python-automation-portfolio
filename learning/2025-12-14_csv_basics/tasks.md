@@ -1,9 +1,9 @@
 ---
 type: tasklist
-linked_to: python-automation-portfolio
+linked_to: 2025-12-14_csv_basics
 status: in_progress
 date: 2025-12-14
-topic: csv_basics_day01
+topic: CSV BASICS
 ---
 
 # 📋 Task List — 2025-12-14

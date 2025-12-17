@@ -1,8 +1,12 @@
 import csv
 from pathlib import Path
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from csv import Dialect
 
 
-def detect_dialect(csv_path: Path) -> csv.Dialect:
+def detect_dialect(csv_path: Path) -> type["Dialect"]:
     """Try to sniff delimiter/quote settings; fall back to default comma."""
     sample = csv_path.read_text(encoding="utf-8", errors="ignore")[:2048]
     try:
