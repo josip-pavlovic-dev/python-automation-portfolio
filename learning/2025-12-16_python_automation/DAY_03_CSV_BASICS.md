@@ -17,18 +17,22 @@
 
 # 🚀 FAZA 1: Setup (30 min)
 
-## 1.1 Naviguiraj do `sandbox/basics/`
+## 1.1 Navigacija do `sandbox/basics/`
 
 ```bash
 cd /home/jole-pavlovic-dev/code/python-automation-lab/python-automation-portfolio/sandbox/basics
 pwd  # Proverite gde ste
 ```
 
+---
+
 ## 1.2 Kreiraj `data/` folder i test CSV fajlove
 
 ```bash
 mkdir -p data
 ```
+
+---
 
 ## 1.3 Pokreni Python terminal
 
@@ -37,6 +41,8 @@ python3
 # ili
 python
 ```
+
+---
 
 ## 1.4 Kopirati PRVI kod iz `csv_repl_exercises.md` - DEO 1.2
 
@@ -86,6 +92,8 @@ Fajlovi u data/:
   - format_semicolon.csv
   - format_tabs.csv
 ```
+
+---
 
 ## 1.5 Provera: Pročitaj fajlove sa `cat`
 
@@ -145,11 +153,13 @@ with open("data/format_semicolon.csv", newline="") as f:
 ============================================================
 
 ✅ ISPRAVAN PRIMER (sa delimiter=';'):
-  Red: ['name', 'age', 'city']  ← RAZDELENO!
+  Red: ['name', 'age', 'city']  ← PODELJENO U 3 KOLONE (3 stringa) !
   Kolone: 3                      ← TAČNO!
 ```
 
 **Lekcija:** Ako ne znaš Dialect, Python će ti dati POGREŠNE podatke bez greške! ⚠️
+
+---
 
 ## 2.2 Rešenje 1: csv.excel Dialect
 
@@ -188,6 +198,8 @@ Atributi csv.excel Dialect-a:
   ['Ana', '25', 'Beograd']
   ['Marko', '30', 'Novi Sad']
 ```
+
+---
 
 ## 2.3 Rešenje 2: csv.Sniffer - Automatska detekcija
 
@@ -350,12 +362,12 @@ EDGE CASE: Šta ako Sniffer ne uspe?
 
 # 🎯 Checklist za Dan 3
 
--   [ ] **FAZA 1:** Kreiraj test CSV fajlove u `data/` folder
--   [ ] **FAZA 2:** Razumem razliku između pogrešnog i ispravljenog readera
--   [ ] **FAZA 2:** Razumem šta su atributi csv.excel (delimiter, quotechar, lineterminator)
--   [ ] **FAZA 2:** Vidim kako Sniffer automatski detektuje 3 različita formata
--   [ ] **FAZA 3:** Napisao sam `detect_dialect()` funkciju i testirao je
--   [ ] **FAZA 3:** Razumem fallback mehanizam (Sniffer → csv.excel)
+-   [x] **FAZA 1:** Kreiraj test CSV fajlove u `data/` folder
+-   [x] **FAZA 2:** Razumem razliku između pogrešnog i ispravljenog readera
+-   [x] **FAZA 2:** Razumem šta su atributi csv.excel (delimiter, quotechar, lineterminator)
+-   [x] **FAZA 2:** Vidim kako Sniffer automatski detektuje 3 različita formata
+-   [x] **FAZA 3:** Napisao sam `detect_dialect()` funkciju i testirao je
+-   [x] **FAZA 3:** Razumem fallback mehanizam (Sniffer → csv.excel)
 
 ---
 
@@ -395,7 +407,7 @@ Sutra ćeš:
 
 # 💡 Ako se zaglaviš
 
-**Pitanja koja si možda postavio:**
+**Pitanja koja bi trebalo sebi da postaviš:**
 
 **P: Zašto `encoding="utf-8, errors="ignore"`?**
 O: UTF-8 čita sve znakove (€, ć, š). `errors="ignore"` zamenjuje nečitljive znakove sa ''
@@ -422,3 +434,5 @@ python3
 ```
 
 **Kreni! 🚀**
+
+---

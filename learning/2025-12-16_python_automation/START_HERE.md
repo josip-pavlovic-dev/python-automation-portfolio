@@ -8,7 +8,7 @@ Dobro jutro! Evo kompletnog pregleda **5 dokumenata** koji su kreirani za tebe d
 
 ```
 learning/
-├── 📌 SUMMARY_DAN_03.md           ← POČETNA TAČKA (čitaj prvo!)
+├── 📌 SUMMARY_DAN_03.md            ← POČETNA TAČKA (čitaj prvo!)
 ├── 🚀 DAY_03_CSV_BASICS.md         ← SUTRA RADIŠ OVO
 ├── 📚 FOUNDATION_14_DAYS.md        ← Master plan (pregled)
 ├── 🎓 BAZA_POTREBNA.md             ← Odgovor na glavno pitanje
