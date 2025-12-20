@@ -49,7 +49,7 @@ source: human-ai pair programming
 
 ## 🔧 Technical notes
 
-### Kreirani Materijali:
+### Kreirani Materijali
 
 ```bash
 📌 MAIN:
@@ -71,7 +71,7 @@ scratch/chatlog/
 └── chatlog_file_types_annotations_2025_12_20.md (ovaj fajl)
 ```
 
-### FAZE u `file_types_annotation_complete_exercises.md`:
+### FAZE u `file_types_annotation_complete_exercises.md`
 
 ```
 FAZA 1 (1.5h): Osnove Type Annotations
@@ -115,7 +115,7 @@ FAZA 7-8 (1h): Best Practices + Vežbe
 └─ Praktični zadaci za vežbanje
 ```
 
-### Model Rešenja Uključena:
+### Model Rešenja Uključena
 
 ```python
 # basic_cli_typed.py
@@ -158,7 +158,7 @@ class ExportArgs(Protocol): ...
 
 ## 🎯 Session Takeaways
 
-### Za Tebe:
+### Za Tebe
 
 1. **Tvoja "nelagoda" oko tipova će biti gone do kraja Dana 5** — Kroz FAZA 1-3, to će biti očigledno.
 2. **Sve je integrisano sa tvojim stvarnim projektima** — Nema "abstract" primere, samo tvoj kod.
@@ -166,7 +166,7 @@ class ExportArgs(Protocol): ...
 4. **Plan je sekvencijalan** — Dan 5 → 6-7 → 8+ Web Scraper je prirodan redosled.
 5. **Spreman si sa 5 dana za Web Scraper u Dan 8!**
 
-### Za AI Mentora (Sutra):
+### Za AI Mentora (Sutra)
 
 1. Biti spreman za Q&A tijekom Dana 5
 2. Assist sa mypy greškama

@@ -152,7 +152,7 @@ def test_scrape():
 
 ## 💪 Štagaa Sada Mogao da Uradiš?
 
-### ✅ Mogu da:
+### ✅ Mogu da
 
 1. **Tipizujem svoje funkcije** bez stresa
 2. **Koristim mypy** da pronađem greške PRE nego što pokrenem kod
@@ -163,7 +163,7 @@ def test_scrape():
 7. **Prebacim se sa os.path na Path**
 8. **Napravim self-documenting kod** samo sa anotacijama
 
-### ❌ Még nije potrebno:
+### ❌ Még nije potrebno
 
 -   Async/await
 -   Decorators (kan čekaj nedelju-dve)
