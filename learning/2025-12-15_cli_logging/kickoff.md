@@ -24,7 +24,7 @@ estimated_time: 48 hours (6 dana × 8h)
 -   [ ] Razumevanje hijerarhije: Logger → Handler → Formatter
 -   [ ] Nivoi logovanja: DEBUG (10), INFO (20), WARNING (30), ERROR (40), CRITICAL (50)
 
-**Isход:**
+**Ishod:**
 
 -   Razumeš zašto je logging bolji od `print()`
 -   Znaš kada koristiti koji nivo

@@ -26,6 +26,8 @@ Ovaj modul pokriva **ključne build blocks** za svaki automation projekat:
 -   Izbegavanje duplikata handlera
 -   Logger propagation i kontrola toka poruka
 
+---
+
 ### 2. **CLI sa argparse** (profesionalni command-line interfejsi)
 
 -   Pozicioni i opcioni argumenti
@@ -36,6 +38,8 @@ Ovaj modul pokriva **ključne build blocks** za svaki automation projekat:
 -   Exit kodovi (0 = uspeh, 1+ = greška)
 -   Auto-generisan `--help`
 
+---
+
 ### 3. **JSON & CSV** (sinhronizacija podataka)
 
 -   `json.load/dump` sa Unicode podrškom (`ensure_ascii=False`)
@@ -45,6 +49,8 @@ Ovaj modul pokriva **ključne build blocks** za svaki automation projekat:
 -   Validacija strukture podataka
 -   Streaming za velike fajlove
 
+---
+
 ### 4. **Pytest** (unit testovi)
 
 -   Osnovna struktura testova
@@ -52,6 +58,8 @@ Ovaj modul pokriva **ključne build blocks** za svaki automation projekat:
 -   `caplog` fixture za testiranje logovanja
 -   Testiranje CLI parsing-a
 -   Parametrizovani testovi
+
+---
 
 ### 5. **Pathlib** (Bonus — moderni rad sa putanjama)
 
@@ -100,6 +108,8 @@ learning/2025-12-15_cli_logging/
 -   Duplicate handlers problem
 -   Logger propagation
 
+---
+
 ### **Dan 2 (8h) — Argparse CLI**
 
 -   Basic parser
@@ -109,6 +119,8 @@ learning/2025-12-15_cli_logging/
 -   Subparsers (git-style)
 -   Exit kodovi
 
+---
+
 ### **Dan 3 (8h) — JSON i CSV**
 
 -   JSON čitanje/pisanje
@@ -117,10 +129,14 @@ learning/2025-12-15_cli_logging/
 -   CSV ↔ JSON konverzija
 -   Validacija
 
+---
+
 ### **Dan 4 (8h) — Integrisani Projekat**
 
 -   `data_converter.py` CLI alat (CLI + Logging + JSON/CSV)
 -   Refaktorisanje `projects/01-web-scraper/scraper.py`
+
+---
 
 ### **Dan 5 (8h) — Pytest**
 
@@ -128,6 +144,8 @@ learning/2025-12-15_cli_logging/
 -   Unit testovi za JSON/CSV funkcije
 -   Testiranje CLI parsing-a
 -   Testiranje logging-a sa `caplog`
+
+---
 
 ### **Dan 6 (8h) — Bonus + Praksa**
 
@@ -153,6 +171,8 @@ cat scratch/theory/published/L11_cli_sa_argparse_argumenti,_flagovi,_validacija,
 # Teorija JSON/CSV
 cat scratch/theory/published/L13_json_i_csv_čitanje_pisanje,_validacija,_rad_sa_većim_fajlovima.md
 ```
+
+---
 
 ### 2. Setup Practice Environment
 
@@ -200,13 +220,19 @@ Otvori `cli_logging_complete_exercises.md` i kreni od **FAZA 1.1** (BasicConfig)
 -   [L13_json_i_csv](../../scratch/theory/published/L13_json_i_csv_čitanje_pisanje,_validacija,_rad_sa_većim_fajlovima.md)
 -   [L14_pytest_osnove](../../scratch/theory/published/L14_pytest_osnove_struktura_testova,_fixture,_parametrize,_caplog.md)
 
+---
+
 ### Praktične Vežbe
 
 -   [cli_logging_complete_exercises.md](cli_logging_complete_exercises.md) — 2000+ linija copy-paste ready koda
 
+---
+
 ### Brze Reference
 
 -   [cheatsheet.md](cheatsheet.md) — Kada brzo trebaš sintaksu
+
+---
 
 ### Detaljan Plan
 

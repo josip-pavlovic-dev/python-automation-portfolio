@@ -123,8 +123,8 @@ logging.basicConfig(
     datefmt="%Y-%m-%d %H:%M:%S"
 )
 
-logger = logging.getLogger("my_app")
-logger.debug("Startovanje aplikacije")
+logger = logging.getLogger("my_app") # Kreiraj named logger
+logger.debug("Startovanje aplikacije") # Koristi logger
 logger.info("Korisnik se ulogovao")
 logger.warning("Disk je pun 80%")
 logger.error("Fajl nije pronađen")
@@ -178,7 +178,7 @@ console_handler.setFormatter(formatter)
 
 # 4. FileHandler (fajl)
 file_handler = logging.FileHandler(log_dir / "app.log", encoding="utf-8")
-file_handler.setLevel(logging.DEBUG)  # Sve poruke u fajl
+file_handler.setLevel(logging.DEBUG)  # Sve poruke u fajlu sa DEBUG i iznad
 file_handler.setFormatter(formatter)
 
 # 5. Dodaj handlere (JEDNOM!)
@@ -309,6 +309,8 @@ grandchild.info("Grandchild poruka")
 # [app.module1] Child1 poruka
 # [app.module2] Child2 poruka
 # [app.module1.submodule] Grandchild poruka
+
+# Zaključak: Svi logger-i nasleđuju postavke od root logger-a, i propagate poruke gore u hijerarhiji.
 ```
 
 **Propagation OFF:**
@@ -319,7 +321,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG, format="[%(name)s] %(message)s")
 
 child = logging.getLogger("app.secret")
-child.propagate = False  # Ne šalji parent logger-u
+child.propagate = False  # Ne prosljeđuj poruke parent logger-u
 
 handler = logging.StreamHandler()
 handler.setFormatter(logging.Formatter("SECRET: %(message)s"))
@@ -327,6 +329,11 @@ child.addHandler(handler)
 child.setLevel(logging.DEBUG)
 
 child.info("Ovo ne ide parent logger-u")
+# Output:
+# SECRET: Ovo ne ide parent logger-u
+# Nema output iz parent logger-a
+
+# Zaključak: Isključi propagation ako želiš da child logger ima sopstveni tok logova. Ova praksa se često koristi za specijalizovane loggere sa sopstvenim handler-ima.
 ```
 
 ---
@@ -353,8 +360,8 @@ logger.setLevel(logging.DEBUG)
 # backupCount: Broj backup fajlova (app.log.1, app.log.2, itd.)
 handler = RotatingFileHandler(
     log_dir / "rotating.log",
-    maxBytes=1_000,  # 1KB za demo
-    backupCount=3,
+    maxBytes=1_000,  # 1KB za demo svrhe
+    backupCount=3, # Čuva poslednja 3 fajla
     encoding="utf-8"
 )
 
@@ -369,6 +376,8 @@ for i in range(100):
     logger.info(f"Log poruka broj {i} sa dodatnim tekstom da bi povećali veličinu fajla")
 
 print("✅ Proveri logs/ folder — trebalo bi da ima rotating.log, rotating.log.1, rotating.log.2, rotating.log.3")
+
+# Zaključak: RotatingFileHandler je odličan za produkciju gde log fajlovi mogu brzo rasti. Podesi maxBytes i backupCount prema potrebama tvoje aplikacije.
 ```
 
 Pokreni:
@@ -404,8 +413,8 @@ def main():
     )
 
     # 2. Dodaj argumente
-    parser.add_argument("name", help="Tvoje ime")
-    parser.add_argument("age", type=int, help="Tvoje godine")
+    parser.add_argument("name", help="Vaše ime")
+    parser.add_argument("age", type=int, help="Vaše godine")
 
     # 3. Parsuj
     args = parser.parse_args()

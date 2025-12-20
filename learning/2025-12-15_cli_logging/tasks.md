@@ -15,10 +15,10 @@ status: active
 
 ## 🔧 PRIPREMA (Pre Početka)
 
--   [ ] Pročitao `README.md` — razumeo pregled modula
--   [ ] Pročitao `START_GUIDE.md` — razumeo 48h plan
--   [ ] Pročitao `kickoff.md` — razumeo hourly schedule
--   [ ] Setup practice environment:
+-   [x] Pročitao `README.md` — razumeo pregled modula
+-   [x] Pročitao `START_GUIDE.md` — razumeo 48h plan
+-   [x] Pročitao `kickoff.md` — razumeo hourly schedule
+-   [x] Setup practice environment:
     ```bash
     cd ~/code/python-automation-lab/python-automation-portfolio/sandbox/basics
     mkdir -p cli_logging_practice/{scripts,data,logs,tests}
@@ -32,9 +32,11 @@ status: active
 
 ### Teorija
 
--   [ ] Pročitao [L08_logging_osnove](../../scratch/theory/published/L08_logging_osnove_logger_handler_formatter,_nivoi,_izbegavanje_duplih_handlera.md)
--   [ ] Razumeo hijerarhiju: Logger → Handler → Formatter
--   [ ] Razumeo nivoe: DEBUG (10), INFO (20), WARNING (30), ERROR (40), CRITICAL (50)
+-   [x] Pročitao [L08_logging_osnove](../../scratch/theory/published/L08_logging_osnove_logger_handler_formatter,_nivoi,_izbegavanje_duplih_handlera.md)
+-   [x] Razumeo hijerarhiju: Logger → Handler → Formatter
+-   [x] Razumeo nivoe: DEBUG (10), INFO (20), WARNING (30), ERROR (40), CRITICAL (50)
+
+---
 
 ### FAZA 1.1-1.2: BasicConfig + Custom Format
 
@@ -42,6 +44,8 @@ status: active
 -   [ ] Testirao `logging.basicConfig()` sa različitim nivoima
 -   [ ] Kreirao custom format sa `%(asctime)s`, `%(levelname)s`, `%(name)s`
 -   [ ] Razumeo format stringove
+
+---
 
 ### FAZA 1.3: Logovanje u Fajl + Console
 
@@ -51,12 +55,16 @@ status: active
 -   [ ] Testirao: `python3 scripts/log_to_file.py`
 -   [ ] Provera: `cat logs/app.log` — vidiš DEBUG logove
 
+---
+
 ### FAZA 1.4-1.5: Duplicate Handlers + Propagation
 
 -   [ ] Kreirao `scripts/duplicate_problem.py` — video problem duplikata
 -   [ ] Kreirao fixed verziju sa `if not logger.handlers:`
 -   [ ] Eksperimentisao sa parent/child logger-ima
 -   [ ] Testirao `logger.propagate = False`
+
+---
 
 ### FAZA 1.6: RotatingFileHandler
 
@@ -65,11 +73,15 @@ status: active
 -   [ ] Generisao 100+ logova
 -   [ ] Provera: `ls -lh logs/` — vidiš rotating.log, rotating.log.1, rotating.log.2, rotating.log.3
 
+---
+
 ### Praksa
 
 -   [ ] Kreirao `sandbox/basics/my_logger.py`
 -   [ ] Implementirao `setup_logger(name, level, log_dir)` funkciju
 -   [ ] Testirao import u drugim skriptama
+
+---
 
 ### Dan 1 Wrap-Up
 

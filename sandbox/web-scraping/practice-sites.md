@@ -8,58 +8,58 @@
 
 ### 1. Quotes to Scrape
 
-**URL:** https://quotes.toscrape.com/
+**URL:** `https://quotes.toscrape.com/`
 
 **What to practice:**
 
-- Basic HTML parsing
-- CSS selectors
-- Pagination
-- Multiple pages scraping
+-   Basic HTML parsing
+-   CSS selectors
+-   Pagination
+-   Multiple pages scraping
 
 **Difficulty:** ⭐☆☆☆☆ (Beginner)
 
 **Sample data:**
 
-- Quotes text
-- Authors
-- Tags
+-   Quotes text
+-   Authors
+-   Tags
 
 ---
 
 ### 2. Books to Scrape
 
-**URL:** https://books.toscrape.com/
+**URL:** `https://books.toscrape.com/`
 
 **What to practice:**
 
-- Product listings
-- Price extraction
-- Star ratings
-- Category filtering
-- Multi-page navigation
+-   Product listings
+-   Price extraction
+-   Star ratings
+-   Category filtering
+-   Multi-page navigation
 
 **Difficulty:** ⭐⭐☆☆☆ (Easy)
 
 **Sample data:**
 
-- Book titles
-- Prices
-- Ratings
-- Availability
+-   Book titles
+-   Prices
+-   Ratings
+-   Availability
 
 ---
 
 ### 3. Scrapethissite.com
 
-**URL:** https://www.scrapethissite.com/
+**URL:** `https://www.scrapethissite.com/`
 
 **What to practice:**
 
-- Multiple challenge pages
-- Real-world scenarios
-- Form submissions
-- AJAX content
+-   Multiple challenge pages
+-   Real-world scenarios
+-   Form submissions
+-   AJAX content
 
 **Difficulty:** ⭐⭐⭐☆☆ (Intermediate)
 
@@ -69,15 +69,15 @@
 
 ### HTTPBin
 
-**URL:** https://httpbin.org/
+**URL:** `https://httpbin.org/`
 
 **What to practice:**
 
-- HTTP methods (GET, POST, PUT, DELETE)
-- Headers inspection
-- Response formats (JSON, HTML, XML)
-- Status codes
-- Authentication
+-   HTTP methods (GET, POST, PUT, DELETE)
+-   Headers inspection
+-   Response formats (JSON, HTML, XML)
+-   Status codes
+-   Authentication
 
 **Difficulty:** ⭐☆☆☆☆ (Testing only)
 
