@@ -49,7 +49,7 @@ milestone: type_safety_mastery
 ## 1.1 | Šta Je Type Annotation?
 
 **Teorija (SRB, 2-3 rečenice):**
-Type annotation je "napomena" za type checker (Pylance) — Python je ne koristi pri izvršavanju. Pisaš `x: int = 5` i time kažeš: "x je tipa int". Type checker ti hvatá greške pre nego što pokreneš kod — ako kasnije napravišš `x = "string"` ili `x + y` gde `y` nije int, upozoriće te.
+Type annotation je "napomena" za type checker (Pylance) — Python je ne koristi pri izvršavanju. Pisaš `x: int = 5` i time kažeš: "x je tipa int". Type checker ti hvata greške pre nego što pokreneš kod — ako kasnije napraviš `x = "string"` ili `x + y` gde `y` nije int, upozoriće te.
 
 **REPL vežba:**
 
@@ -81,7 +81,7 @@ print(type(x))  # <class 'str'> — Python je tretira kao string!
 
 ## 1.2 | Osnove Type Hints
 
-Kreiraj fajl `sandbox/basics/type_annotations_intro.py`:
+Kreiraj fajl `sandbox/basics/cli_logging_practice/scripts/type_annotations_intro.py`:
 
 ```python
 """
@@ -136,7 +136,7 @@ unique_cities: set[str] = {"Beograd", "Novi Sad", "Niš"}
 Pokreni:
 
 ```bash
-python3 sandbox/basics/type_annotations_intro.py
+python3 sandbox/basics/cli_logging_practice/scripts/type_annotations_intro.py
 # Output: sve prosledi (8 bez greške)
 ```
 
@@ -147,7 +147,7 @@ Sada uključi type checking:
 pip install mypy
 
 # Proveri tipove
-mypy sandbox/basics/type_annotations_intro.py
+mypy sandbox/basics/cli_logging_practice/scripts/type_annotations_intro.py
 # Output: Success: no issues found in 1 source file
 ```
 
@@ -155,7 +155,7 @@ mypy sandbox/basics/type_annotations_intro.py
 
 ## 1.3 | Greške koje Type Checker Hvata
 
-Kreiraj `sandbox/basics/type_errors_demo.py`:
+Kreiraj `sandbox/basics/cli_logging_practice/scripts/type_errors_demo.py`:
 
 ```python
 """

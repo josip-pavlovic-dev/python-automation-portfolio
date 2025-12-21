@@ -70,3 +70,6 @@ Thumbs.db
 temp/
 tmp/
 scratch/
+
+# Learning files
+type_errors_demo.py

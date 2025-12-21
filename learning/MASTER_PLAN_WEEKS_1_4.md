@@ -68,9 +68,10 @@ NEDELJA 3-4 (Dan 15-30):
 
 1. **Type Annotations Osnove**
 
-    - Šta je type hint
+    - Šta je type hinting?
+    - Primitivni tipovi:
     - `int`, `str`, `list[T]`, `dict[K, V]`, `tuple`, `set`
-    - Funkcije sa tipima: `def func(x: int) -> str:`
+    - Funkcije sa tipovima: `def func(x: int) -> str:`
 
 2. **TypedDict za CSV/JSON**
 
@@ -100,7 +101,7 @@ NEDELJA 3-4 (Dan 15-30):
     mypy script.py
     ```
 
-**Rezultat:** Tvoj kod će biti type-safe + linter će biti tiho!
+**Rezultat:** Tvoj kod će biti type-safe + linter će biti tih!
 
 ---
 
@@ -211,8 +212,8 @@ learning/
 sandbox/basics/
 ├── cli_logging_practice/
 │   └── scripts/
-│       ├── basic_cli.py ← Refaktorisaj sa tipima!
-│       ├── subcommands_cli.py ← Refaktorisaj sa tipima!
+│       ├── basic_cli.py ← Refaktorisi sa tipovima!
+│       ├── subcommands_cli.py ← Refaktorisi sa tipovima!
 │       └── basic_cli_typed.py ← Model rešenja
 ├── type_annotations_intro.py
 ├── csv_with_types.py
@@ -232,7 +233,7 @@ scratch/docs/
 
 ---
 
-## 🧠 KLJUČNI KONCEPTI — SVE NEDELJE
+## 🧠 KLJUČNI KONCEPTI — SVE 4 NEDELJE
 
 ### TIER 1: MUST-KNOW (Svaki Dan)
 
@@ -268,11 +269,12 @@ scratch/docs/
 Zaokruži DA/NE:
 
 1. Mogu da koristim mypy bez greške
-2. Znám razliku između TypedDict i Protocol
+2. Znam razliku između TypedDict i Protocol
 3. Mogu da tipizujem CSV redove
 4. Mogu da tipizujem argparse args
 5. Razumem `from __future__ import annotations`
-6. Mogu da refaktorisem `basic_cli.py` sa tipima
+6. Mogu da refaktorišem `basic_cli.py` sa tipovima
+7. Razumem moderni Python tipove (`list[T]`, `X | None`)
 ```
 
 **Min. 5/6 DA → Spreman za Dan 6!**
