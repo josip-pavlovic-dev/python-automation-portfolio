@@ -447,7 +447,7 @@ class ProcessArgs(Protocol):
     verbose: bool
     limit: int
 
-# 2. Handler funkcije sa tipizacijom
+# 2. Handler funkcija sa tipizacijom
 def cmd_process(args: ProcessArgs) -> None:
     """Process komanda"""
     input_path = Path(args.input_file)
@@ -476,7 +476,7 @@ def main() -> None:
 
     args = parser.parse_args()
 
-    # Type cast ako trebá (Python to radi automatski pri argparse)
+    # Type cast ako treba (Python to radi automatski pri argparse)
     typed_args: ProcessArgs = args  # type: ignore  # Ili koristi cast()
 
     cmd_process(typed_args)
