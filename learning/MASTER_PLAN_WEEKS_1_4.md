@@ -351,7 +351,7 @@ if __name__ == "__main__":
 -   [x] CSV read/write
 -   [x] CLI sa argparse
 -   [x] Logging system
--   [ ] **Type Annotations (DAN 5 — TODAY)**
+-   [x] **Type Annotations (DAN 5 — TODAY)**
 -   [ ] Pathlib (Dan 6)
 -   [ ] Pytest (Dan 7)
 

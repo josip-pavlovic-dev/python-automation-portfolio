@@ -91,6 +91,8 @@ POSLE Dan 5:
 -   Runtime vs type-check time razlika
 -   How Pylance/mypy hvata greške
 
+---
+
 ### Tipske Strukture
 
 -   `TypedDict` za strukturirane podatke
@@ -99,12 +101,16 @@ POSLE Dan 5:
 -   `Literal` za enumeracije
 -   Generic tipovi sa `TypeVar`
 
+---
+
 ### Modern Python
 
 -   `from __future__ import annotations` — forward references
 -   `collections.abc` umesto `typing` za apstraktne tipove
 -   Built-in generici: `list[T]`, `dict[K, V]`, itd.
 -   `X | None` umesto `Optional[X]`
+
+---
 
 ### Praktična Primena
 
@@ -115,7 +121,7 @@ POSLE Dan 5:
 
 ---
 
-## 🚀 Gde Ide Dalje?
+## 🚀 Šta Ide Dalje?
 
 ### Dan 6-7: Pathlib + Testing
 
@@ -130,6 +136,8 @@ data = csv_file.read_text()
 def test_load_csv():
     assert len(load_csv(...)) > 0
 ```
+
+---
 
 ### Dan 8+: Web Scraper sa Tipima
 
@@ -150,7 +158,7 @@ def test_scrape():
 
 ---
 
-## 💪 Štagaa Sada Mogao da Uradiš?
+## 💪 Šta Sada Možeš da Uradiš?
 
 ### ✅ Mogu da
 
@@ -190,7 +198,9 @@ def load_csv(path):
 -   Linter se žali
 -   IDE ne zna šta sugeri
 
-### CSV Code — Posle (Sa Tipima)
+---
+
+### CSV Code — Posle (Sa Tipovima)
 
 ```python
 from typing import TypedDict
