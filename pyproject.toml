@@ -14,9 +14,10 @@ quote-style = "double"
 indent-style = "space"
 
 [tool.pytest.ini_options]
-addopts = "-q --import-mode=importlib --cov=. --cov-report=term-missing"
+addopts = "-q --import-mode=importlib --cov=. --cov-report=term-missing --cov-report=html"
 testpaths = [
-  "projects/01-web-scraper/tests"
+  "projects/01-web-scraper/tests",
+  "sandbox/basics/tests"
 ]
 python_files = ["test_*.py"]
 

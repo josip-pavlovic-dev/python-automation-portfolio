@@ -241,21 +241,20 @@ class UserRecord(TypedDict):
     city: str
 
 # 2. Helper funkcija za čitanje
-def load_users(filepath: Path) -> list[UserRecord]:
-    """Učitaj korisnike iz CSV fajla sa type safety-jem"""
+def load_users(file_path: Path) -> list[UserRecord]:
+    """Učitaj korisnike iz CSV fajla kao listu UserRecord."""
     users: list[UserRecord] = []
-
-    with open(filepath, newline='', encoding='utf-8') as f:
+    with file_path.open(newline="", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for row in reader:
-            if row is not None:  # DictReader može vratiti None za prazne redove
+            # ✅ Provera da li red ima sadržaj (nije prazan)
+            if row and row.get("name"):  # Ako row postoji I ima 'name' polje
                 user: UserRecord = {
-                    'name': row['name'],
-                    'age': row['age'],
-                    'city': row['city']
+                    "name": row["name"],
+                    "age": row["age"],
+                    "city": row["city"],
                 }
                 users.append(user)
-
     return users
 
 # 3. Main
@@ -266,7 +265,7 @@ def main() -> None:
     users = load_users(csv_file)
 
     for user in users:
-        print(f"{user['name']} ({user['age']}) iz {user['city']}")
+        print(f"{user['name']} ({user['age']}) iz {user['city']}a")
 
 if __name__ == "__main__":
     main()
@@ -292,7 +291,7 @@ mypy sandbox/basics/csv_with_types.py
 
 ---
 
-## 2.2 | CSV Writer sa Tipima
+## 2.2 | CSV Writer sa Type Annotations
 
 Kreiraj `sandbox/basics/csv_write_with_types.py`:
 
@@ -322,12 +321,16 @@ def save_people(people: list[PersonRecord], output_path: Path) -> None:
 def main() -> None:
     # Pripremi podatke
     people: list[PersonRecord] = [
-        {'ime': 'Jole', 'godine': '30', 'grad': 'Beograd'},
-        {'ime': 'Ana', 'godine': '28', 'grad': 'Novi Sad'},
-        {'ime': 'Stefan', 'godine': '35', 'grad': 'Niš'},
+        {'ime': 'Jole', 'godine': '40', 'grad': 'Novi Sad'},
+        {'ime': 'Jovana', 'godine': '42', 'grad': 'Novi Sad'},
+        {'ime': 'Bojan', 'godine': '11', 'grad': 'Sremska Mitrovica'},
+        {'ime': 'Danijel', 'godine': '30', 'grad': 'Đurđevo'},
+        {'ime': 'Danica', 'godine': '67', 'grad': 'Ruma'},
+        {'ime': 'Bojana', 'godine': '30', 'grad': 'Laćarak'},
+        {'ime': 'Nena', 'godine': '65', 'grad': 'Sremska Mitrovica'},
     ]
 
-    # Sačuva
+    # Sačuvaj
     output_dir = Path(__file__).parent / "type_exercises_data"
     output_dir.mkdir(exist_ok=True)
     output_file = output_dir / "output_people.csv"

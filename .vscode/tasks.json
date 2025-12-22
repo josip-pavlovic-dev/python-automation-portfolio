@@ -24,7 +24,10 @@
             "type": "shell",
             "command": "ruff check .",
             "options": {
-                "cwd": "${workspaceFolder}"
+                "cwd": "${workspaceFolder}",
+                "env": {
+                    "PYTHONPATH": "${workspaceFolder}/projects/01-web-scraper"
+                }
             },
             "problemMatcher": ["$python"]
         },
@@ -40,9 +43,19 @@
         {
             "label": "Test (pytest)",
             "type": "shell",
-            "command": "source venv/bin/activate && python -m pytest",
+            "command": "source ${workspaceFolder}/projects/01-web-scraper/venv/bin/activate && python -m pytest",
             "options": {
-                "cwd": "${workspaceFolder}/projects/01-web-scraper"
+                "cwd": "${workspaceFolder}"
+            },
+            "group": "test",
+            "problemMatcher": ["$python"]
+        },
+        {
+            "label": "Test (repo - sandbox)",
+            "type": "shell",
+            "command": "python -m pytest -q -o addopts='' sandbox/basics/tests/test_csv_with_conversion_extended.py",
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "group": "test",
             "problemMatcher": ["$python"]

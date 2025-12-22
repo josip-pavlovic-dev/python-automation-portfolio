@@ -1,0 +1,23 @@
+[run]
+branch = True
+source = .
+parallel = False
+omit =
+    */tests/*
+    */venv/*
+    */.venv/*
+    */.pytest_cache/*
+    */__pycache__/*
+
+[report]
+show_missing = True
+skip_covered = False
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:  # entrypoints
+    if TYPE_CHECKING:           # typing-only blocks
+    raise NotImplementedError
+
+[html]
+directory = htmlcov
+title = Coverage Report — python-automation-portfolio
