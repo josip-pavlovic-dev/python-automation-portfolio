@@ -14,11 +14,15 @@ status: post_session
 -   [ ] FAZA 3: Globbing + filters
 -   [ ] FAZA 4: Integracija + tests
 
+---
+
 ## 💡 Naučeno (bullet form)
 
 -   ...
 -   ...
 -   ...
+
+---
 
 ## 🧪 Testovi
 
@@ -27,10 +31,14 @@ status: post_session
 -   Coverage (opcioni): ...
 -   Log assertions (caplog): ...
 
+---
+
 ## 🚧 Blokeri
 
 -   ...
 -   ...
+
+---
 
 ## 🎯 Sledeći korak
 

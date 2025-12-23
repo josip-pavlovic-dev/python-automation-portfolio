@@ -91,3 +91,5 @@ milestone: pathlib_mastery
 -   `tasks.md` sve čekirano
 -   Manualno test: pokreni skriptu koja čita i piše fajl u `sandbox/basics/pathlib_playground/`
 -   Logovi pregledani (da sadrže putanje)
+
+---

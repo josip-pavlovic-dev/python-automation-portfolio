@@ -5,7 +5,7 @@ date: 2025-12-23
 status: draft
 ---
 
-# 🧾 Pytest Cheatsheet (Serbian objašnjenja, English code)
+# 🧾 Pytest Cheatsheet
 
 ## Basic layout
 
@@ -17,6 +17,8 @@ def test_add():
 
 Run: `pytest -q`
 
+---
+
 ## Parametrize
 
 ```python
@@ -25,6 +27,8 @@ import pytest
 def test_to_int(raw, expected):
     assert int(raw) == expected
 ```
+
+---
 
 ## Fixtures
 
@@ -39,12 +43,16 @@ def test_read(sample_path: Path):
     assert sample_path.read_text(encoding="utf-8") == "hi"
 ```
 
+---
+
 ## Monkeypatch
 
 ```python
 def test_env(monkeypatch):
     monkeypatch.setenv("API_KEY", "test")
 ```
+
+---
 
 ## caplog / capsys
 
@@ -53,6 +61,8 @@ def test_logs(caplog):
     logger.info("hello")
     assert "hello" in caplog.text
 ```
+
+---
 
 ## Markers
 
@@ -65,14 +75,20 @@ def test_big():
 
 Run subset: `pytest -m "not slow"`
 
+---
+
 ## Failure patterns
 
 -   Arrange/Act/Assert jasno
 -   Jedan assert po ideji (više je ok ako je vezano)
 -   Bez print u testu
 
+---
+
 ## Coverage quick
 
 ```
 pytest --maxfail=1 -q --cov=sandbox --cov=projects/01-web-scraper
 ```
+
+---

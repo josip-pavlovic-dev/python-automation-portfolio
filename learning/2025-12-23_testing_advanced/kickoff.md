@@ -15,6 +15,8 @@ blocks: 4
 3. 14:00-16:00 — FAZA 3: Monkeypatch/mocking + error cases
 4. 16:15-18:15 — FAZA 4: Integracija na Web Scraper + coverage
 
+---
+
 ## 🎯 Deliverables
 
 -   FAZA 1: `tests/test_basics.py` sa 5+ assert primera
@@ -22,11 +24,15 @@ blocks: 4
 -   FAZA 3: `tests/test_scraper_errors.py` sa monkeypatch i fake responses
 -   FAZA 4: `pytest -q` prolazi + `coverage` kratki izveštaj
 
+---
+
 ## 🧭 Koraci za početak
 
 -   Aktiviraj venv: `source projects/01-web-scraper/venv/bin/activate`
 -   `pip install -r projects/01-web-scraper/requirements.txt` ako treba
 -   Otvori `cheatsheet.md`, zatim `testing_complete_exercises.md`
+
+---
 
 ## 🔄 Loop kad zaglaviš (15+ min)
 
@@ -35,6 +41,8 @@ blocks: 4
 3. Proveri fixtures u `conftest.py` (kreiraj ako nedostaje)
 4. Pogledaj pytest docs snippet u `cheatsheet.md`
 
+---
+
 ## ✅ Checkpointi
 
 -   Posle FAZA 1: znaš osnovni naming i asserts
@@ -42,8 +50,12 @@ blocks: 4
 -   Posle FAZA 3: monkeypatch request/session i proveravaš log/error
 -   Posle FAZA 4: 80%+ pokrivenost utility modula
 
+---
+
 ## 📝 Napomene
 
 -   Testovi nemaju `print`; koriste `assert` i eventualno `caplog`/`capsys`
 -   Fajl sistem testovi uvek idu kroz `tmp_path`
 -   Markiraj spore testove `@pytest.mark.slow`
+
+---

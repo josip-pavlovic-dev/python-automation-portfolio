@@ -23,8 +23,8 @@ status: ready
 NEDELJA 1 (Dan 1-7):
 ├─ ✅ Dan 1-2: Terminal + Git
 ├─ ✅ Dan 3-4: CSV + Logging + CLI
-├─ 🔴 Dan 5: FILE TYPES + ANNOTATIONS (SADA!)
-├─ ⏳ Dan 6: Pathlib + File I/O
+├─ ✅ Dan 5: FILE TYPES + ANNOTATIONS
+├─ 🔴 Dan 6: Pathlib + File I/O (SADA!)
 └─ ⏳ Dan 7: Pytest + Error Handling
 
 NEDELJA 2 (Dan 8-14):
@@ -43,7 +43,7 @@ NEDELJA 3-4 (Dan 15-30):
 
 ---
 
-## 🗺️ VAŽI ODREDNICE: Šta Si Naučio Po Danu
+## 🗺️ VAŽNE ODREDNICE: Šta Si Naučio Po Danu
 
 ### ✅ Dan 0-4: FOUNDATION COMPLETE
 
@@ -62,9 +62,9 @@ NEDELJA 3-4 (Dan 15-30):
 
 ---
 
-### 🔴 Dan 5: FILE TYPES + TYPE ANNOTATIONS (TODAY)
+### ✅ Dan 5: FILE TYPES + TYPE ANNOTATIONS
 
-**Što Ćeš Naučiti:**
+**Što Si Naučio:**
 
 1. **Type Annotations Osnove**
 
@@ -101,11 +101,11 @@ NEDELJA 3-4 (Dan 15-30):
     mypy script.py
     ```
 
-**Rezultat:** Tvoj kod će biti type-safe + linter će biti tih!
+**Rezultat:** Tvoj kod je type-safe + linter je tih!
 
 ---
 
-### ⏳ Dan 6-7: PATHLIB + TESTING (Next Week)
+### ⏳ Dan 6-7: PATHLIB + TESTING (This Week -> Today!)
 
 **Što Će Se Pokrivati:**
 
@@ -206,6 +206,8 @@ learning/
     └── PLANNED_KICKOFF.md
 ```
 
+---
+
 ### sandbox/ za Praksu (Your Playground)
 
 ```
@@ -222,12 +224,14 @@ sandbox/basics/
 └── cli_with_types.py
 ```
 
+---
+
 ### scratch/ Referenca
 
 ```
 scratch/docs/
-├── cheatsheet_csv_annotations.md ← Pročitaj pre početka!
-├── cheatsheet_modern_mypy_pylance.md ← Pročitaj pre početka!
+├── cheatsheet_csv_annotations.md
+├── cheatsheet_modern_mypy_pylance.md
 └── python_testing_guide.md ← Za Dan 6-7
 ```
 
@@ -243,6 +247,8 @@ scratch/docs/
 -   **Logging** — `logger` umesto `print` u produkciji
 -   **Git** — Commit nakon svakog feature-a
 
+---
+
 ### TIER 2: VERY USEFUL (Svake Nedelje)
 
 -   **TypedDict** — Za redove iz CSV/JSON
@@ -251,7 +257,9 @@ scratch/docs/
 -   **f-strings** — Umesto `.format()` ili `%`
 -   **Context managers** — `with` za sve fajl operacije
 
-### TIER 3: BONUS (Malo Vreme)
+---
+
+### TIER 3: BONUS (Kasnije Kada Si Spreman))
 
 -   **Generic tipovi** — `TypeVar`, `Generic`
 -   **Async** — Nakon što znaš sync
@@ -351,9 +359,11 @@ if __name__ == "__main__":
 -   [x] CSV read/write
 -   [x] CLI sa argparse
 -   [x] Logging system
--   [x] **Type Annotations (DAN 5 — TODAY)**
--   [ ] Pathlib (Dan 6)
+-   [x] Type Annotations
+-   [ ] Pathlib (Dan 6) <!-- To radiš sada! -->
 -   [ ] Pytest (Dan 7)
+
+---
 
 ### ⏳ NEDELJA 2 READY
 
@@ -363,23 +373,14 @@ if __name__ == "__main__":
 -   [ ] Error handling
 -   [ ] Documentation
 
+---
+
 ### 🎯 NEDELJA 3+ POTENTIAL
 
 -   [ ] CSV Cleaner
 -   [ ] Data Pipeline
 -   [ ] Portfolio
 -   [ ] First Client
-
----
-
-## 🎬 SADA
-
-**Kreni sa Dan 5 (TODAY!):**
-
-1. Otvori: [`learning/2025-12-18_file_types_annotations/kickoff.md`](./2025-12-18_file_types_annotations/kickoff.md)
-2. Čitaj: Cheatsheet fajlove (30 min)
-3. Kreni sa FAZA 1 (8h praksa)
-4. Commitment: **Završi sve FAZE 1-8 do kraja dana!**
 
 ---
 

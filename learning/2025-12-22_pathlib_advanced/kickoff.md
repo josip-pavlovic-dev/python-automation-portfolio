@@ -64,3 +64,5 @@ status: init
 -   Ne koristi `os.path` osim poređenja (legacy only)
 -   Validiraj korisničke putanje (suffix, exists) pre rada
 -   U testovima uvek koristi `tmp_path`/`caplog`; ne piši u repo
+
+---

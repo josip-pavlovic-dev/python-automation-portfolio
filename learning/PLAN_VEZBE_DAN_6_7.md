@@ -41,7 +41,7 @@ status: active
 
 ### ⏰ FAZA 1 (2h) — Refaktorisanje path_basics.py
 
-**Zadatak:** Pretvori sve print() funkcije u path_basics.py u funkcije koje vraćaju vrednosti i piši testove za njih.
+**Zadatak:** Pretvori sve `print()` funkcije iz `path_basics.py` u funkcije koje vraćaju vrednosti i napiši testove za njih.
 
 **Koraci:**
 
@@ -848,3 +848,5 @@ xdg-open htmlcov/index.html  # Pogledaj coverage u browser
 -   Spremnost za Dan 8: Web Scraper projekat
 
 **Srećno! 🚀**
+
+---

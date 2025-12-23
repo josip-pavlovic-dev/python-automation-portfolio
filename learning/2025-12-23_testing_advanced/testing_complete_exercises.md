@@ -51,6 +51,8 @@ def list_files(directory: Path, pattern: str = "*") -> list[Path]:
     return list(directory.glob(pattern))
 ```
 
+---
+
 ### Zadatak 1.2: Kreiraj test_path_basics.py (60min)
 
 **Lokacija:** `sandbox/basics/tests/test_path_basics.py`
@@ -234,6 +236,8 @@ def cleanup_old_files(directory: Path, days: int, pattern: str = "*.log") -> int
     return deleted
 ```
 
+---
+
 ### Zadatak 2.2: Kreiraj test_file_operations.py (60min)
 
 **Lokacija:** `sandbox/basics/tests/test_file_operations.py`
@@ -403,6 +407,8 @@ def empty_csv(tmp_path: Path) -> Path:
     csv_path.write_text("name,age,city\n", encoding="utf-8")
     return csv_path
 ```
+
+---
 
 ### Zadatak 3.2: Piši test_csv_cleaner.py (90min)
 
@@ -690,3 +696,5 @@ Nakon uspešnog završetka:
 4. Pripremi se za Dan 8: Web Scraper projekat
 
 **Srećno! 🚀**
+
+---

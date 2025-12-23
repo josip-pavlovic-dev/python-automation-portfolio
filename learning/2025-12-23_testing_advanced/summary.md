@@ -18,15 +18,23 @@ status: post_session
 
 -   ...
 
+---
+
 ## 🧪 Testovi
 
 -   Komanda: `pytest --maxfail=1 -q --cov=projects/01-web-scraper --cov=sandbox/basics`
 -   Rezultat: ...
 
+---
+
 ## 🚧 Blokeri
 
 -   ...
 
+---
+
 ## 🎯 Sledeći korak
 
 -   Dan 8: Web Scraper implementacija
+
+---

@@ -18,7 +18,7 @@ duration: 6 hours
 
 ---
 
-## 📦 ŠTAGENERIŠEM?
+## 📦 ŠTA GENERIŠEM?
 
 ### Primarna Dokumentacija
 
@@ -55,6 +55,8 @@ duration: 6 hours
 -   ✅ REPL praksa sa primere
 -   ✅ Type errors demo
 
+---
+
 ### FAZA 2: CSV sa Type Annotations (1.5h)
 
 -   ✅ TypedDict osnove
@@ -63,12 +65,16 @@ duration: 6 hours
 -   ✅ Konverzija tipova (str → int)
 -   ✅ Test CSV fajl za praksu
 
+---
+
 ### FAZA 3: Argparse + CLI sa Tipima (1.5h)
 
 -   ✅ Protocol klase za args
 -   ✅ Type-safe handler funkcije
 -   ✅ cast() umesto type: ignore
 -   ✅ Refaktorisanje `basic_cli.py`
+
+---
 
 ### FAZA 4-5: JSON + Kompleksne Tipizacije (1.5h)
 
@@ -78,12 +84,16 @@ duration: 6 hours
 -   ✅ Literal za ograničene vrednosti
 -   ✅ Generic tipovi sa TypeVar
 
+---
+
 ### FAZA 6: Integracija sa Tvojim Projektima (1.5h)
 
 -   ✅ Refaktorisanje `basic_cli.py` (model)
 -   ✅ Refaktorisanje `subcommands_cli.py` (model)
 -   ✅ Integracija u projects/01-web-scraper
 -   ✅ Tipiziranje config.py
+
+---
 
 ### FAZA 7-8: Best Practices + Vežbe (1h)
 
@@ -146,6 +156,8 @@ duration: 6 hours
 -   ✅ Refaktorisanje existujućeg koda (100%)
 -   ✅ Best practices (100%)
 
+---
+
 ### Format Kvalitet
 
 -   ✅ Copy-paste ready (sve kod je tested)
@@ -155,6 +167,8 @@ duration: 6 hours
 -   ✅ Fajlovi za praksu pripremljeni
 -   ✅ Test podaci pripremljeni
 -   ✅ Mypy provere uključene
+
+---
 
 ### Sveobuhvatnost
 
@@ -168,7 +182,7 @@ duration: 6 hours
 
 ## 🎯 KAKO SE KORISTI?
 
-### Za Studenta (Jole)
+### Za Junior Dev (Jole)
 
 ```
 Dan 1 (21. Decembar):
@@ -183,6 +197,8 @@ Referencing:
 ├─ Koristi chatlog.md ako ima Q
 └─ Koristi summary.md posle dana
 ```
+
+---
 
 ### Za AI Mentora (Mene)
 
@@ -204,7 +220,7 @@ Reference:
 
 ## 📈 IMPACT & OUTCOMES
 
-### Štagaaaa Će Jole Biti Sposoban Posle?
+### Za Šta Će Jole Biti Sposoban Posle?
 
 ✅ **Razume Type Annotations potpuno** — Nije više "nelagoda"
 ✅ **Mypy je njegov prijatelj** — Ne neprijatelj
@@ -213,7 +229,9 @@ Reference:
 ✅ **Refaktorisanje je jednostavno** — Zna šta treba
 ✅ **Spreman za Web Scraper** — Sa tipskom sigurnošću
 
-### Štagaaaa Se Promenilo?
+---
+
+### Šta Se Promenilo?
 
 **Kod PRE:**
 
@@ -241,25 +259,27 @@ def load_csv(path: Path) -> list[UserRecord]:
 
 ### Inovativne Karakteristike
 
-1. **Personalizacija** — Sve je vezano sa Jole-ovim stvarnim kodom
+1. **Personalizacija** — Sve je vezano sa tvojim stvarnim kodom
 2. **Sekvencijalni redosled** — FAZA 1-8 prirodno gradi na prethodnim
 3. **Model rešenja** — Ako zaglavim, vidim primer
 4. **Tri nivoa učenja** — Theory → Praksa → Integracija
 5. **Comprehensive reference** — cheatsheet.md pokriva sve
 6. **Support struktura** — tasks.md ima "ako zaglavim" sekcije
 
+---
+
 ### Copy-Paste Ready
 
 -   Svi primeri mogu biti direktno pokrenuti
 -   Sve putanje su korektne
 -   Sve import-i su moderni (3.10+)
--   Sve podatke su prijedgoveni
+-   Sve podaci su pripremljeni i pristupačni
 
 ---
 
 ## 📞 SUPPORT & HANDOFF
 
-### Štagaaa Je Jole Trebalo da Radi?
+### Šta Bi Sada Trebalo da Radiš?
 
 1. **Pročitaj sve fajlove** (osim exercise.md je main)
 2. **Kreni sa FAZA 1** (praksa kroz dan)
@@ -267,7 +287,9 @@ def load_csv(path: Path) -> list[UserRecord]:
 4. **Proveri tasks.md** za checklist
 5. **Reportaj problem** ako zaglavim 15+ min
 
-### Štagaa Ja Trebalo da Radim?
+---
+
+### Šta Ja (Mentor) Treba da Radim?
 
 1. **Q&A support** tokom Dana 5
 2. **Error debugging** (mypy greške)
@@ -291,7 +313,7 @@ ls -la sandbox/basics/*typed*.py
 # Razumevanje validated
 - Mogu da napravim TypedDict
 - Mogu da napravim Protocol
-- Mogu da refaktorisem kod sa tipima
+- Mogu da refaktorisem kod sa tipovima
 - mypy je spreman
 ```
 
@@ -301,15 +323,19 @@ ls -la sandbox/basics/*typed*.py
 
 ### Immediate (Do Sutra)
 
--   ✅ Sve materijale su kreirane
--   ✅ Sve su linkane i organizovane
--   ✅ Sve su ready za upotrebu
+-   ✅ Svi materijali su kreirani
+-   ✅ Svi su indeksirani i organizovani
+-   ✅ Svi su ready za upotrebu
+
+---
 
 ### Sutra (Dan 5)
 
--   ⏳ Jole počinja sa README.md
--   ⏳ Jole praktikovuje FAZA 1-8
+-   ⏳ Junior počinje sa README.md
+-   ⏳ Junior praktikuje FAZA 1-8
 -   ⏳ Ja: Q&A support tokom dana
+
+---
 
 ### Posle (Dan 6+)
 
@@ -321,15 +347,15 @@ ls -la sandbox/basics/*typed*.py
 
 ## ✅ FINAL CHECKLIST
 
--   [x] file_types_annotation_complete_exercises.md kreiiran (5000+ linija)
--   [x] README.md kreirian (overview + brzi start)
--   [x] kickoff.md kreirian (plan + timeline)
--   [x] cheatsheet.md kreirian (quick reference)
--   [x] tasks.md kreirian (checklist + validation)
--   [x] INDEX.md kreirian (navigacija)
--   [x] chatlog.md kreirian (Q&A + tehnički detalji)
--   [x] summary.md kreirian (lessons + outcomes)
--   [x] PLANNED_KICKOFF.md kreirian (Dan 6-7 plan)
+-   [x] file_types_annotation_complete_exercises.md kreiran (5000+ linija)
+-   [x] README.md kreiran (overview + brzi start)
+-   [x] kickoff.md kreiran (plan + timeline)
+-   [x] cheatsheet.md kreiran (quick reference)
+-   [x] tasks.md kreiran (checklist + validation)
+-   [x] INDEX.md kreiran (navigacija)
+-   [x] chatlog.md kreiran (Q&A + tehnički detalji)
+-   [x] summary.md kreiran (lessons + outcomes)
+-   [x] PLANNED_KICKOFF.md kreiran (Dan 6-7 plan)
 -   [x] MASTER_PLAN_WEEKS_1_4.md ažuriran (kompletna struktura)
 -   [x] Sve je linkano sa postojećim materijalom
 -   [x] Sve je linkano sa Jole-ovim stvarnim kodom
@@ -357,7 +383,7 @@ ls -la sandbox/basics/*typed*.py
 
 ## 🎯 FINALNA PORUKA
 
-> "Through this comprehensive exercise collection, you'll master Type Annotations in 8 hours. From 'nelagoda' to 'mypy je moj prijatelj'. Your code will be self-documenting, type-safe, and production-ready. You're ready for Web Scraper!"
+> "Through this comprehensive exercise collection, you'll master Type Annotations in 8 hours. Od 'nelagode' do 'mypy je moj prijatelj'. Your code will be self-documenting, type-safe, and production-ready. You're ready for Web Scraper!"
 
 ---
 
@@ -368,3 +394,5 @@ ls -la sandbox/basics/*typed*.py
 **Duration: 8 hours**
 
 **Outcome: Type Annotations Mastery ✅**
+
+---

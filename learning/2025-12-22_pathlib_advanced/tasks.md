@@ -48,3 +48,30 @@ status: active
 
 -   [ ] `summary.md` popunjen (šta naučeno, test output)
 -   [ ] Komanda zabeležena: `python -m pytest -q -k pathlib`
+
+---
+
+## 🔗 Gde radiš
+
+-   Primary: `learning/2025-12-22_pathlib_advanced/`
+-   Playground: `sandbox/basics/pathlib_playground/`
+-   Project hook: `projects/01-web-scraper/`
+-   Testovi: `learning/2025-12-22_pathlib_advanced/test_paths.py`
+-   Deliverables: `path_basics.py`, `file_io_safe.py`, `glob_filters.py`
+-   Cheatsheet: `cheatsheet.md`
+-   Exercises: `pathlib_complete_exercises.md`
+-   Tasks: `tasks.md`
+-   Summary: `summary.md`
+-   Chatlog: `chatlog.md`
+-   Kickoff: `kickoff.md`
+-   Prerequisites: `README.md`
+-   Project tests: `projects/01-web-scraper/tests/`
+-   Project config: `projects/01-web-scraper/config.py`
+-   Project scraper: `projects/01-web-scraper/scraper.py`
+-   Project venv: `projects/01-web-scraper/venv/`
+-   Project log dir: `projects/01-web-scraper/logs/`
+-   Project output dir: `projects/01-web-scraper/output/`
+-   Project data dir: `projects/01-web-scraper/data/`
+-   Project helpers: `projects/01-web-scraper/utils/`
+
+---
