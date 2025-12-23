@@ -1,0 +1,20 @@
+{
+  "version": "1.0",
+  "people": [
+    {
+      "name": "Ana",
+      "age": 28,
+      "email": "ana@example.com"
+    },
+    {
+      "name": "Marko",
+      "age": 35,
+      "email": null
+    },
+    {
+      "name": "Jelena",
+      "age": 22,
+      "email": "jelena@example.com"
+    }
+  ]
+}

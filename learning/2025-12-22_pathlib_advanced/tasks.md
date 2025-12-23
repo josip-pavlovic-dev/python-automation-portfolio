@@ -12,7 +12,7 @@ status: active
 
 ## FAZA 1 — Osnove Path
 
--   [ ] `path_basics.py` napravljen (12+ primera cwd/home/resolve/parents/relative_to/expanduser)
+-   [x] `path_basics.py` napravljen (12+ primera cwd/home/resolve/parents/relative_to/expanduser)
 -   [ ] `ensure_dir(path: Path)` radi i testiran sa `tmp_path`
 -   [ ] Demo join za `data/users.csv`, `logs/app.log` bez `os.path`
 

@@ -625,7 +625,7 @@ python3 sandbox/basics/json_with_types.py
 
 ---
 
-## 4.2 | Pisanje JSON sa Tipima
+## 4.2 | Pisanje JSON sa Tipizacijama
 
 Kreiraj `sandbox/basics/json_write_with_types.py`:
 
@@ -692,6 +692,7 @@ Kompleksnije tipizacije
 """
 from typing import Literal, Union
 from pathlib import Path
+from collections.abc import Callable
 
 # 1. UNION — više mogućih tipova
 def process_data(data: str | int | list[str]) -> str:
@@ -713,7 +714,6 @@ def apply_operation(a: int, b: int, op: Callable[[int, int], int]) -> int:
     """Prihvata funkciju kao argument"""
     return op(a, b)
 
-from typing import Callable
 
 def test() -> None:
     # OK
@@ -786,28 +786,28 @@ if __name__ == "__main__":
 
 # 🔗 FAZA 6: INTEGRACIJA SA TVOJIM PROJEKTIMA (1.5 sata)
 
-## 6.1 | Refaktoriši basic_cli.py sa Tipima
+## 6.1 | Refaktoriši basic_cli.py sa Tipe Annotations
 
 Kreiraj `sandbox/basics/cli_logging_practice/scripts/basic_cli_typed.py`:
 
 ```python
 """
-Refaktorisani basic_cli.py sa type annotations
+Refaktorisan basic_cli.py koristeći Type Annotations
 """
+
 from __future__ import annotations
 
 import argparse
 import logging
-from typing import Optional
 
-# Logger setup
+# Konfiguriši logger
 logger = logging.getLogger("basic_cli")
 
 def positive_int(value: str) -> int:
-    """Validator — vrednost mora biti pozitivan broj"""
+    """Validator: Provera da li je vrednost pozitivan ceo broj."""
     ivalue = int(value)
-    if ivalue < 0:
-        raise argparse.ArgumentTypeError("Age must be non-negative")
+    if ivalue <= 0:
+        raise argparse.ArgumentTypeError(f"{value} nije pozitivan ceo broj")
     return ivalue
 
 def configure_logging(verbose: int) -> None:
@@ -825,7 +825,7 @@ def configure_logging(verbose: int) -> None:
     )
     logger.debug("Logger configured")
 
-def main(argv: Optional[list[str]] = None) -> int:
+def main(argv: list[str] | None = None) -> int:
     """Glavna funkcija sa tipskom sigurnošću"""
     parser = argparse.ArgumentParser(
         prog="basic_cli",
@@ -833,7 +833,7 @@ def main(argv: Optional[list[str]] = None) -> int:
     )
 
     parser.add_argument("-v", "--verbose", action="count", default=0,
-                        help="Verbosity (-v, -vv)")
+    help="Verbosity (-v, -vv)")
     parser.add_argument("name", help="Your name")
     parser.add_argument("age", type=positive_int, help="Your age (>= 0)")
 
@@ -1057,7 +1057,7 @@ if __name__ == "__main__":
 
 ---
 
-## 7.2 | Checklista — Pre nego što Commitaš
+## 7.2 | Checklista — Pre nego što Commit-uješ
 
 Kreiraj `sandbox/basics/type_check_checklist.md`:
 
@@ -1118,7 +1118,9 @@ U `sandbox/basics/python_refresh.py` (ili novi fajl `sandbox/basics/csv_helpers_
 -   [ ] Dodaj TypedDict za tvoj specifičan CSV format
 -   [ ] Pokreni `mypy` — sve treba biti OK
 
-### Zadatak 2: Refaktoriši csv_cleaner.py sa Tipima
+---
+
+### Zadatak 2: Refaktoriši csv_cleaner.py sa Type Annotations
 
 U `sandbox/basics/csv_cleaner.py`:
 
@@ -1127,6 +1129,8 @@ U `sandbox/basics/csv_cleaner.py`:
 -   [ ] Kreiraj TypedDict za unispan red
 -   [ ] Dodaj `-> None` za main()
 -   [ ] Proveri sa mypy
+
+---
 
 ### Zadatak 3: Tipizuj web scraper config
 
@@ -1137,7 +1141,9 @@ U `projects/01-web-scraper/config.py`:
 -   [ ] Dodaj `Optional` gde treba
 -   [ ] Proveri sa mypy
 
-### Zadatak 4: Mini Projekat — File Processor sa Tipima
+---
+
+### Zadatak 4: Mini Projekat — File Processor sa Type Annotations
 
 Kreiraj `sandbox/basics/file_processor_typed.py`:
 
@@ -1159,14 +1165,14 @@ Pravi tako da `mypy --strict` prođe bez greške!
 
 Označi kada završiš:
 
--   [ ] 1.1-1.3: Osnove Type Annotations (30 min)
--   [ ] 1.2-1.3: Type Errors Demo (15 min)
--   [ ] 2.1-2.3: CSV sa Tipima (45 min)
--   [ ] 3.1-3.2: Argparse sa Tipima (45 min)
--   [ ] 4.1-4.2: JSON sa Tipima (60 min)
--   [ ] 5.1-5.2: Kompleksne Tipizacije (60 min)
--   [ ] 6.1-6.2: Integracija sa Tvojim Projektima (90 min)
--   [ ] 7.1-7.2: Best Practices (60 min)
+-   [x] 1.1-1.3: Osnove Type Annotations (30 min)
+-   [x] 1.2-1.3: Type Errors Demo (15 min)
+-   [x] 2.1-2.3: CSV sa Tipima (45 min)
+-   [x] 3.1-3.2: Argparse sa Tipima (45 min)
+-   [x] 4.1-4.2: JSON sa Tipima (60 min)
+-   [x] 5.1-5.2: Kompleksne Tipizacije (60 min)
+-   [x] 6.1-6.2: Integracija sa Tvojim Projektima (90 min)
+-   [x] 7.1-7.2: Best Practices (60 min)
 -   [ ] 8.1: Zadaci za Vežbanje (60 min)
 
 **TOTAL: 8 sati**
