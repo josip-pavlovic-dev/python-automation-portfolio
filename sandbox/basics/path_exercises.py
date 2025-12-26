@@ -1,5 +1,8 @@
 import csv
+import shutil
 import tempfile  # za privremene fajlove i direktorijume
+import time
+from asyncio.log import logger
 from datetime import datetime
 from pathlib import Path
 
@@ -11,6 +14,8 @@ from pathlib import Path
 cwd = Path.cwd()
 print(f"Trenutni radni direktorijum: {cwd}")
 print("✅ Done ...")
+# Alternativno: Path(".").resolve()
+# Trenutni radni dir je mesto odakle je pokrenut Python skript ili interaktivna sesija!
 
 # Home dir korisnika
 home = Path.home()
@@ -44,10 +49,27 @@ print("✅ Done ...")
 # ================================================================================
 
 # Resolve: konvertuje relativnu u apsolutnu putanju u odnosu na cwd
-abs_path = Path("../data/sample.txt").resolve()
+abs_path = Path("./data/products.csv").resolve()
 print(f"Resolved putanja: {abs_path}")
-print("Resolve: konvertuje relativnu u apsolutnu putanju u  odnosu na cwd!")
+print("Resolve: konvertuje relativnu u apsolutnu putanju u odnosu na cwd!")
 print("✅ Done ...")
+# NAPOMENA: resolve() takođe uklanja . i .. iz putanje
+relative_path = Path("./home/user/../user/documents/./file.txt").resolve()
+print(f"Normalized putanja: {relative_path}")
+print("Resolve: uklanja . i .. iz putanje!")
+print("✅ Done ...")
+# NAPOMENA: resolve() može baciti grešku ako delovi putanje ne postoje na fajl sistemu
+# `Path("/home/users/users/ ../user/documents/./file.txt").resolve()`
+# Output -> 'Normalized putanja: /home/user/documents/file.txt
+# `Path("./home/user/../user/documents/./file.txt").resolve()`
+# Output -> '/current/working/dir/home/user/documents/file.txt'
+# Gde je /current/working/dir trenutni radni direktorijum (cwd)! Ovo je bitno razumeti!
+# Ako želite da normalizujete putanju bez obzira na cwd -> .absolute() umesto .resolve()
+normalized_path = Path("./home/user/../user/documents/./file.txt").absolute()
+print(f"Absolute putanja: {normalized_path}")
+print("Absolute: konvertuje relativnu u apsolutnu putanju bez obzira na cwd!")
+print("✅ Done ...")
+
 
 # Expanduser: konvertuje ~ u home dir
 docs = Path("~/documents/report.txt").expanduser()
@@ -55,16 +77,19 @@ print(f"Expanded user path: {docs}")
 print("Expanduser: konvertuje ~ u home dir!")
 print("✅ Done ...")
 
+
 # Kombinovano (best practice za user input)
 def normalize_path(raw: str) -> Path:
     return Path(raw).expanduser().resolve()
+
+
 normalized = normalize_path("~/../some/relative/path.txt")
 print(f"Normalized putanja: {normalized}")
 print("✅ Done ...")
 
 # Relative to: dobij relativnu putanju
-home = Path.home() #/ "/home/user"
-current = Path.cwd() #/ "/home/user/projects"
+home = Path.home()  # / "/home/user"
+current = Path.cwd()  # / "/home/user/projects"
 rel = current.relative_to(home)  # npr. "code/project"
 print(f"Relativna putanja od home do cwd: {rel}")
 print("Relative to: dobij relativnu putanju u odnosu na neki drugi direktorijum!")
@@ -78,26 +103,26 @@ path = data_file
 print(f"Putanja: {path}")
 
 # Proveri da li putanja postoji
-exists = path.exists() # True ako postoji
+exists = path.exists()  # True ako postoji
 print(f"Postoji: {exists}")
 
-is_file = path.is_file() # True ako je fajl
+is_file = path.is_file()  # True ako je fajl
 print(f"Fajl: {is_file}")
 
-is_dir = path.is_dir() # True ako je direktorijum
+is_dir = path.is_dir()  # True ako je direktorijum
 print(f"Direktorijum: {is_dir}")
 
-is_symlink = path.is_symlink() # True ako je simbolički link
+is_symlink = path.is_symlink()  # True ako je simbolički link
 print(f"Simbolički link: {is_symlink}")
 
-size = path.stat().st_size # Veličina fajla u bajtovima
+size = path.stat().st_size  # Veličina fajla u bajtovima
 print(f"Veličina: {size} bajtova")
 
-modified_time = path.stat().st_mtime # Vreme poslednje izmene
+modified_time = path.stat().st_mtime  # Vreme poslednje izmene
 print(f"Vreme poslednje izmene: {modified_time}")
 # Output: Vreme poslednje izmene: 1697041234.56789
 
-created_time = path.stat().st_ctime # Vreme kreiranja fajla
+created_time = path.stat().st_ctime  # Vreme kreiranja fajla
 print(f"Vreme kreiranja: {created_time}")
 # Output: Vreme kreiranja: 1697031234.56789
 
@@ -110,30 +135,30 @@ print()
 # Možete koristiti datetime.fromtimestamp() za čitljiv format
 
 # Imena fajlova i ekstenzije
-filename = path.name # Ime fajla sa ekstenzijom
+filename = path.name  # Ime fajla sa ekstenzijom
 print(f"Ime fajla: {filename}")
 
-stem = path.stem # Ime fajla bez ekstenzije
+stem = path.stem  # Ime fajla bez ekstenzije
 print(f"Ime fajla bez ekstenzije: {stem}")
 
-suffix = path.suffix # Ekstenzija fajla (npr. .txt)
+suffix = path.suffix  # Ekstenzija fajla (npr. .txt)
 print(f"Ekstenzija fajla: {suffix}")
 
-suffixes = path.suffixes # Sve ekstenzije (npr. .tar.gz)
+suffixes = path.suffixes  # Sve ekstenzije (npr. .tar.gz)
 print(f"Sve ekstenzije fajla: {suffixes}")
 print()
 
 # Meta podaci o putanji
-parent = path.parent # Roditeljski direktorijum
+parent = path.parent  # Roditeljski direktorijum
 print(f"Roditeljski direktorijum (direktorijum u kojem se fajl nalazi): {parent}")
 
-parts = path.parts # Svi delovi putanje kao tuple
+parts = path.parts  # Svi delovi putanje kao tuple
 print(f"Svi delovi putanje: {parts}")
 
-absolute = path.resolve() # Apsolutna putanja
+absolute = path.resolve()  # Apsolutna putanja
 print(f"Apsolutna putanja: {absolute}")
 
-relative = path.relative_to(home) # Relativna putanja od home
+relative = path.relative_to(home)  # Relativna putanja od home
 
 # Sažetak meta podataka o putanji
 print(f"Relativna putanja od home: {relative}")
@@ -143,36 +168,36 @@ print(f"Parent direktorijum trenutnog fajla: {parent}")
 print()
 
 # Meta podaci o fajlu
-stat = path.stat() # Ukupna statistika fajla
+stat = path.stat()  # Ukupna statistika fajla
 print(f"Statistika fajla: {stat}")
 
-mode = stat.st_mode # Dozvole fajla
+mode = stat.st_mode  # Dozvole fajla
 print(f"Mode (dozvole): {mode}")
 # NAPOMENA: mode je u oktalnom formatu, može se koristiti za provere dozvola
 # '33188' je decimalni prikaz oktalnog '0o100644'- regularni fajl sa rw-r--r-- dozvolama
 
-inode = stat.st_ino # Inode broj
+inode = stat.st_ino  # Inode broj
 print(f"Inode broj: {inode}")
 # NAPOMENA: inode je jedinstveni identifikator fajla na fajl sistemu
 # '202646' je primer inode broja za fajl i predstavlja lokaciju fajla na disku
 
-device = stat.st_dev # Uređaj na kojem je fajl
+device = stat.st_dev  # Uređaj na kojem je fajl
 print(f"Uređaj (device) broj: {device}")
 # NAPOMENA: device identifikuje fizički uređaj (disk) na kojem se fajl nalazi
 # '2096' je primer device broja koji predstavlja određeni disk ili particiju
 
-nlink = stat.st_nlink # Broj hard linkova na fajl
+nlink = stat.st_nlink  # Broj hard linkova na fajl
 print(f"Broj hard linkova: {nlink}")
 # NAPOMENA: nlink pokazuje koliko imena (linkova) ukazuje na isti inode
 # '1' znači da postoji samo jedan link za ovaj fajl u fajl sistemu.
 # Veći od 1, fajl ima više linkova sto znači da više imena ukazuje na isti sadržaj fajla
 
-uid = stat.st_uid # User ID vlasnika fajla
+uid = stat.st_uid  # User ID vlasnika fajla
 print(f"UID vlasnika: {uid}")
 # NAPOMENA: 'uid' identifikuje korisnika koji je vlasnik fajla
 # '1000' je primer 'uid' broja koji predstavlja određenog korisnika na sistemu
 
-gid = stat.st_gid # Group ID vlasnika fajla
+gid = stat.st_gid  # Group ID vlasnika fajla
 print(f"GID vlasnika: {gid}")
 # NAPOMENA: 'gid' identifikuje grupu koja je vlasnik fajla
 # '1000' je primer 'gid' broja koji predstavlja određenu grupu na sistemu
@@ -186,16 +211,16 @@ print()
 stat = path.stat()
 print(f"Statistika fajla: {stat}")
 
-size = stat.st_size # Veličina fajla u bajtovima
+size = stat.st_size  # Veličina fajla u bajtovima
 print(f"Veličina fajla: {size} bajtova")
 
-atime = stat.st_atime # Vreme poslednjeg pristupa
+atime = stat.st_atime  # Vreme poslednjeg pristupa
 print(f"Vreme poslednjeg pristupa: {atime}")
 
-mtime = stat.st_mtime # Vreme poslednje izmene
+mtime = stat.st_mtime  # Vreme poslednje izmene
 print(f"Vreme poslednje izmene: {mtime}")
 
-ctime = stat.st_ctime # Vreme kreiranja fajla
+ctime = stat.st_ctime  # Vreme kreiranja fajla
 print(f"Vreme kreiranja fajla: {ctime}")
 
 permissions = stat.st_mode  # Dozvole fajla
@@ -217,11 +242,12 @@ print()
 # ================================================================================
 
 # 1. Textualno čitanje celog fajla
-content= path.read_text(encoding="utf-8")
+content = path.read_text(encoding="utf-8")
 print(f"Sadržaj fajla:\n{content}")
 # NAPOMENA: Ova metoda čita ceo tekstualni fajl u memoriju kao string.
 # Pogodna je za male do srednje velike fajlove gde je potrebno brzo čitanje.
 print("✅ Done ...")
+
 
 # 2. Text fajl sa error handling-om (provera postojanja)
 def read_text_safely(file_path: Path) -> str:
@@ -229,22 +255,28 @@ def read_text_safely(file_path: Path) -> str:
     if not file_path.exists():
         raise FileNotFoundError(f"Fajl ne postoji: {file_path}")
     return file_path.read_text(encoding="utf-8")
+
+
 read_text_safely(path)
 # NAPOMENA: Ova metoda čita fajl samo ako postoji, inače baca grešku.
 # Korisno za izbegavanje grešaka prilikom čitanja nepostojećih fajlova.
 print("✅ Done ...")
+
 
 # 3. Čitanje fajla liniju po liniju (generator, memory efficient)
 def read_file_lines(file_path: Path) -> None:
     """Čitanje fajla liniju po liniju"""
     with file_path.open("r", encoding="utf-8") as f:
         for line in f:
-            print(line.strip()) # strip() uklanja whitespace i nove linije
+            print(line.strip())  # strip() uklanja whitespace i nove linije
+
+
 read_file_lines(path)
 # NAPOMENA: Ova metoda je memory efficient jer ne učitava ceo fajl u memoriju odjednom.
 # Umesto toga, čita fajl liniju po liniju, što je korisno za velike fajlove.
 # Možete prilagoditi obradu svake linije unutar petlje prema potrebama.
 print("✅ Done ...")
+
 
 # 4. Čitanje fajla u blokovima (chunking)
 def read_file_in_chunks(file_path: Path, chunk_size: int = 1024) -> None:
@@ -255,6 +287,8 @@ def read_file_in_chunks(file_path: Path, chunk_size: int = 1024) -> None:
             if not chunk:
                 break
             print(chunk)
+
+
 read_file_in_chunks(path, chunk_size=50)
 # NAPOMENA: Ova metoda je korisna za veoma velike fajlove gde je potrebno
 # čitanje u manjim delovima (chunkovima) kako bi se smanjila potrošnja memorije.
@@ -263,16 +297,20 @@ read_file_in_chunks(path, chunk_size=50)
 # Funkcionise za tekstualne fajlove, ali može se prilagoditi i za binarne fajlove.
 print("✅ Done ...")
 
+
 # 5. Čitanje binarnog fajla sa error handling-om
 def read_binary_safely(file_path: Path) -> bytes:
     """Čitanje binarnog fajla sa proverom postojanja"""
     if not file_path.exists():
         raise FileNotFoundError(f"Fajl ne postoji: {file_path}")
     return file_path.read_bytes()
+
+
 read_binary_safely(path)
 # NAPOMENA: Ova metoda čita fajl u binarnom modu i vraća sadržaj kao bytes objekat.
 # Korisno za čitanje slika, PDF-ova i drugih binarnih fajlova. (ne tekstualni fajlovi)
 print("✅ Done ...")
+
 
 # 6. CSV čitanje fajla sa Pathlib i DictReader-om
 def read_csv_file(file_path: Path) -> None:
@@ -281,16 +319,21 @@ def read_csv_file(file_path: Path) -> None:
         reader = csv.DictReader(f)
         for row in reader:
             print(row)
+
+
 read_csv_file(path)
 # NAPOMENA: Ova metoda koristi csv modul za čitanje CSV fajlova.
 # csv.DictReader vraća svaku liniju kao rečnik gde su ključevi nazivi kolona.
 # Ovo olakšava pristup podacima po imenu kolone umesto po indeksu.
 print("✅ Done ...")
 
+
 # 7. Čitanje fajla sa specificiranim encoding-om
 def read_file_with_encoding(file_path: Path, encoding: str = "utf-8") -> str:
     """Čitanje fajla sa specificiranim encoding-om"""
     return file_path.read_text(encoding=encoding)
+
+
 read_file_with_encoding(path, encoding="utf-8")
 # NAPOMENA: Ova metoda omogućava čitanje fajlova sa različitim encoding-ima.
 # Podrazumevani encoding je "utf-8", ali možete navesti i druge kao "latin-1", "utf-16".
@@ -330,6 +373,7 @@ print(f"Dodat tekst na kraj fajla: {new_file}")
 # Obavezno koristite "a" mod za dodavanje, a ne "w" koji prepisuje fajl.
 print("✅ Done ...")
 
+
 # 4. Safe overwrite sa backup-om
 def safe_overwrite(file_path: Path, content: str) -> None:
     """Sigurno prepisivanje fajla sa backup-om"""
@@ -338,6 +382,8 @@ def safe_overwrite(file_path: Path, content: str) -> None:
         file_path.rename(backup_path)
         print(f"Napravljen backup fajla: {backup_path}")
     file_path.write_text(content, encoding="utf-8")
+
+
 safe_overwrite(new_file, "Tekst koji se prepisuje preko postojećeg fajla.")
 print(f"Sigurno kreiran novi fajl: {new_file}")
 # NAPOMENA: Ova metoda pravi backup postojećeg fajla pre prepisivanja.
@@ -345,15 +391,18 @@ print(f"Sigurno kreiran novi fajl: {new_file}")
 # Ovo je korisno kada želite sačuvati prethodnu verziju fajla pre izmene.
 print("✅ Done ...")
 
+
 # 5. Safe append sa kreiranjem backup-a starih podataka
 def safe_append(file_path: Path, content: str) -> None:
     """Sigurno dodavanje teksta uz backup originala."""
     if file_path.exists():
         backup_path = file_path.with_suffix(file_path.suffix + ".bak")
-        backup_path.write_bytes(file_path.read_bytes()) # Pravi tačnu kopiju fajla
+        backup_path.write_bytes(file_path.read_bytes())  # Pravi tačnu kopiju fajla
         print(f"Napravljen backup fajla pre dodavanja: {backup_path}")
     with file_path.open("a", encoding="utf-8") as f:
         f.write(content)
+
+
 safe_append(new_file, "\nJoš jedna linija dodata sa backup-om.")
 print(f"Sigurno dodat tekst na kraj fajla: {new_file}")
 # NAPOMENA: Ova metoda pravi backup postojećeg fajla pre dodavanja novog sadržaja.
@@ -364,12 +413,15 @@ print(f"Sigurno dodat tekst na kraj fajla: {new_file}")
 # Fajl ima i tekstualni i binarni sadržaj -> bytes metode su sigurnije za tačnu kopiju!
 print("✅ Done ...")
 
+
 # 6. CSV zapisivanje fajla sa Pathlib-om i csv.writer-om
 def write_csv_file(file_path: Path, rows: list[list[str]]) -> None:
     """Zapisivanje CSV fajla koristeći pathlib i csv.writer"""
     with file_path.open("w", encoding="utf-8", newline="") as f:
         writer = csv.writer(f)
         writer.writerows(rows)
+
+
 csv_file = Path(__file__).parent / "data" / "output.csv"
 rows = [["name", "age"], ["Ana", "28"], ["Marko", "35"], ["Jelena", "22"]]
 write_csv_file(csv_file, rows)
@@ -395,11 +447,14 @@ print(f"Kreiran direktorijum: {new_dir}")
 # parents=True znači da će se kreirati svi roditeljski direktorijumi ako ne postoje.
 print("✅ Done ...")
 
+
 # 2. Helper funkcija za kreiranje direktorijuma
 def ensure_dir(path: Path) -> Path:
     """Kreiraj dir ako ne postoji, vrati Path."""
     path.mkdir(parents=True, exist_ok=True)
     return path
+
+
 ensured_dir = ensure_dir(Path(__file__).parent / "data" / "temp")
 print(f"Kreiran ili osiguran direktorijum: {ensured_dir}")
 # NAPOMENA:
@@ -470,5 +525,287 @@ print(f"Pronađeni CSV fajlovi: {csv_files}")
 # Korisno za brzo pronalaženje fajlova po tipu ili obrascu imena
 print("✅ Done ...")
 
-# 3.
+# 3. Rekurzivno globovanje fajlova po šablonu ("**/*.json")
+json_files = list(Path("data").rglob("**/*.json"))
+for json_file in json_files:
+    if json_file.is_file():
+        print(f"JSON fajl pronađen rekurzivno: {json_file}")
+    else:
+        print(f"Nije pronađen JSON fajl: {json_file}")
+
+# NAPOMENA:
+# Ova metoda pronalazi sve fajlove koji se poklapaju sa šablonom rekurzivno!
+# Pretražuje sve poddirektorijume unutar datog direktorijuma.
+# Korisno za pretragu fajlova u dubokim hijerarhijama direktorijuma.
+# '*.json' i '**/*.json' su primeri šablona koji se mogu koristiti.
+# '**' označava rekurzivno pretraživanje kroz sve poddirektorijume.
+print("✅ Done ...")
+
+# 4. Filtriranje po veličini fajla (mali fajlovi < 1KB)
+small_files = [
+    f for f in Path("data").rglob("*") if f.is_file() and f.stat().st_size < 1024
+]
+# # rglob("*") za rekurzivno pretraživanje svih fajlova!
+# Konverzija comprehension u standardni for loop za bolju čitljivost
+# Napomena : Ovo je samo primer za čitljivost!
+# Kod iznad je ekvivalentan sledećem kodu:
+# small_files = []
+# for f in Path("data").rglob("*"): # Prolazak kroz sve fajlove rekurzivno
+#     if f.is_file() and f.stat().st_size < 1024:
+#         small_files.append(f)
+# Za svaki mali fajl, ispiši ime i veličinu
+# for f in small_files:
+#     print(f"Fajlovi (<1KB): {f} - Veličina: {f.stat().st_size} bajtova")
+
+for small_file in small_files:
+    print(
+        f"Fajlovi (<1KB): {small_file} - Veličina: {small_file.stat().st_size} bajtova"
+    )
+# NAPOMENA:
+# Ova metoda koristi rglob("*") za rekurzivno pretraživanje svih fajlova.
+# Filtrira fajlove koji su manji od 1KB koristeći stat().
+# Korisno za pronalaženje malih fajlova u direktorijumu i poddirektorijumima.
+print("✅ Done ...")
+
+# 5. Filtriranje fajlova po veličini (> 1KB)
+large_files = [
+    f for f in data_dir.rglob("*") if f.is_file() and f.stat().st_size > 1024
+]
+# Konverzija comprehension u standardni for loop za bolju čitljivost
+# Napomena : Ovo je samo primer za čitljivost!
+# Kod iznad je ekvivalentan sledećem kodu:
+# large_files = []
+# for f in data_dir.rglob("*"): # Prolazak kroz sve fajlove rekurzivno
+#     if f.is_file() and f.stat().st_size > 1024:
+#         large_files.append(f)
+# Za svaki veliki fajl, ispiši ime i veličinu
+# for f in large_files:
+#     print(f"Fajlovi (>1KB): {f} - Veličina: {f.stat().st_size} bajtova")
+
+for large_file in large_files:
+    print(
+        f"Fajl (>1KB): {large_file} - Veličina: {large_file.stat().st_size} bajtova"
+    )
+# NAPOMENA:
+# Ova metoda koristi rglob za rekurzivno pretraživanje svih fajlova.
+# Filtrira fajlove koji su veći od 1KB koristeći stat().
+# Korisno za pronalaženje velikih fajlova u direktorijumu i poddirektorijumima.
+print("✅ Done ...")
+
+# 6. Filtriranje po mtime (novije od X sekundi)
+# cutoff = time.time() - 60  # poslednji minut
+cutoff = time.time() - 7 * 24 * 60 * 60   # poslednjih 7 dana
+recent = [f for f in Path("logs").glob("*.log") if f.stat().st_mtime > cutoff]
+for recent_file in recent:
+    print(f"Nedavno izmenjeni log fajl: {recent_file}")
+# NAPOMENA:
+# Ova metoda koristi glob za pronalaženje svih .log fajlova u "logs" direktorijumu.
+# Filtrira fajlove koji su izmenjeni u poslednjih 60 sekundi koristeći stat().st_mtime.
+# Možete prilagoditi cutoff vreme prema potrebama.
+# Računanje je u sekundama od epoch vremena.
+# 7 dana = 7 * 24 * 60 * 60 sekundi.
+# Poslednjih 2 sata = 2 * 60 * 60 sekundi.
+# Nedavno izmenjeni fajlovi, oni čije je vreme poslednje izmene veće od cutoff vremena.
+# Ovo je korisno za praćenje nedavnih izmena u log fajlovima.
+print("✅ Done ...")
+
+# 7. Sortiranje putanja po imenu fajla
+sorted_files = sorted(Path("data").glob("*.csv"), key=lambda p: p.name)
+for sorted_file in sorted_files:
+    print(f"Sortirani fajl: {sorted_file}")
+# NAPOMENA:
+# Ova metoda koristi glob za pronalaženje svih .csv fajlova u "data" direktorijumu.
+# Sortira fajlove po imenu koristeći sorted() funkciju sa lambda funkcijom kao ključem.
+# Možete prilagoditi ključ sortiranja prema potrebama (npr. po veličini, vremenu, itd.).
+# Ovo je korisno za organizaciju fajlova pre daljih operacija.
+#
+print("✅ Done ...")
+
+# ================================================================================
+# Copy, Move, Delete fajlova
+# ================================================================================
+
+# 1. Copy (read_bytes + write_bytes)
+src = Path("data/sample.csv")
+dst = Path("backup/in.csv")
+dst.parent.mkdir(parents=True, exist_ok=True)
+dst.write_bytes(src.read_bytes())
+print(f"Kopiran fajl: {src} → {dst}")
+# NAPOMENA:
+# Koristimo read_bytes() za čitanje binarnog sadržaja iz izvornog fajla
+# i write_bytes() za pisanje tog sadržaja u odredišni fajl.
+# Ova metoda kopira fajl čitajući ceo sadržaj iz izvornog fajla.
+# A zatim piše sadržaj u odredišni fajl.
+# Koristi se za kopiranje bilo kog tipa fajla (tekstualni, binarni, slike, itd.).
+# Može biti neefikasno za velike fajlove jer učitava ceo fajl u memoriju.
+# Alternativno, možete koristiti shutil.copy2(src, dst) za efikasniju kopiju.
+# shutil.copy2 čuva i meta podatke fajla (vremena, dozvole).
+# Primer:
+# import shutil
+# src = Path("data/sample.csv")
+# dst = Path("backup/in.csv")
+# dst.parent.mkdir(parents=True, exist_ok=True)
+# shutil.copy2(src, dst)
+# print(f"Kopiran fajl koristeći shutil: {src} → {dst}")
+print("✅ Done ...")
+
+# 2. Copy sa error handling-om i logging-om
+# Definirajte logger (pretpostavimo da je već definisan negde u kodu)
+def safe_copy(src: Path, dst: Path) -> None:
+    try:
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        dst.write_bytes(src.read_bytes())
+    except Exception as e:
+        logger.exception(f"Copy failed: {src} → {dst}, error: {e}")
+        raise
+src = Path("data/products.csv")
+dst = Path("backup/safe_in.csv")
+safe_copy(src, dst)
+# NAPOMENA:
+# Ova funkcija pokušava da kopira fajl sa izvora na odredište.
+# Ako dođe do greške tokom kopiranja, hvata izuzetak i loguje grešku.
+# Logger mora biti prethodno definisan.
+# Zatim ponovo baca izuzetak kako bi ga pozivajući kod mogao obraditi.
+# Ovo je korisno za robustno kopiranje fajlova sa obradom grešaka.
+print("✅ Done ...")
+
+# 3. Rename/Move fajl
+old = Path("data/products.csv")
+new = Path("data/new.csv")
+old.rename(new)
+print(f"Preimenovan/Moved fajl: {old} → {new}")
+# NAPOMENA:
+# Ova metoda preimenuje ili premesti fajl sa stare putanje na novu.
+# Ako su stara i nova putanja na različitim fajl sistemima, može doći do greške.
+# Za premještanje između različitih fajl sistema, koristite shutil.move(old, new).
+# Primer:
+# import shutil
+# old = Path("data/products.csv")
+# new = Path("data/moved/products.csv")
+# new.parent.mkdir(parents=True, exist_ok=True)
+# shutil.move(old, new)
+# print(f"Moved fajl koristeći shutil: {old} → {new}")
+print("✅ Done ...")
+
+# 4. Delete fajl
+path = Path("data/old_file.txt") # primer fajla za brisanje
+path.unlink() # baca gresku ako ne postoji
+path.unlink(missing_ok=True)  # tiho ignoriše
+print(f"Obrisan fajl: {path}")
+# NAPOMENA:
+# 'unlink()' briše fajl na datoj putanji.
+# Ako fajl ne postoji, baca FileNotFoundError.
+# Koristeći missing_ok=True, greška se ignoriše ako fajl ne postoji.
+print("✅ Done ...")
+
+# 5. Delete prazan direktorijum
+path = Path("data/empty_dir") # primer praznog dir za brisanje
+# Kreiraj prazan dir za primer
+path.mkdir(parents=True, exist_ok=True)
+# Sada obriši prazan dir
+path.rmdir()
+print(f"Obrisan prazan direktorijum: {path}")
+# NAPOMENA:
+# Ova metoda briše prazan direktorijum na datoj putanji.
+# Ako direktorijum nije prazan, baca OSError.
+print("✅ Done ...")
+
+# 6. Delete dir sa sadržajem (koristi shutil)
+shutil.rmtree(path)
+print(f"Obrisan direktorijum sa sadržajem: {path}")
+# NAPOMENA:
+# Ova metoda briše direktorijum i sav njegov sadržaj rekurzivno.
+# Koristi se za brisanje direktorijuma koji nisu prazni.
+# Budite oprezni jer ova operacija ne može biti poništena!
+print("✅ Done ...")
+
+# ================================================================================
+# Symbolički linkovi (Symlinks)
+# ================================================================================
+
+# 1. Kreiranje simboličkog linka
+link = Path("logs/latest.log") # putanja do linka
+# ciljna putanja, ne mora da postoji!
+target = Path("cli_logging_practice/logs/app_2025-12-23.log")
+if link.exists() or link.is_symlink():
+    link.unlink()  # ukloni postojeći link ili fajl
+link.symlink_to(target)
+print(f"Kreiran simbolički link: {link} → {target}")
+# NAPOMENA:
+# Ova metoda kreira simbolički link na datu putanju.
+# Link pokazuje na ciljnu putanju.
+# Koristi se za kreiranje prečica ili referenci na fajlove/direktorijume.
+print("✅ Done ...")
+real_path=link.resolve()
+print(f"Stvarna putanja na koju link pokazuje: {real_path}")
+print("Resolve: dobij stvarnu putanju iz simboličkog linka!")
+print("✅ Done ...")
+
+# 2. Symlink Helper (safe update + check)
+def update_symlink(link: Path, target: Path, *, relative: bool = True) -> None:
+    """
+    Create/update symlink at `link` pointing to `target`.
+    - Removes ONLY existing symlinks, not regular files.
+    - Uses relative target by default (more robust when moving the project).
+    """
+    # VAŽNO: Obriši SAMO symlink, ne regularni fajl!
+    if link.is_symlink():
+        link.unlink()
+    elif link.exists():
+        raise FileExistsError(
+            f"Cannot overwrite regular file: {link}. "
+            f"If you want to replace it, delete it manually first."
+        )
+
+    if relative:
+        # Snimi relativnu putanju kada je moguće
+        # (npr., logs/latest.log -> app_2025-12-26.log)
+        try:
+            target_rel = target.relative_to(link.parent)
+        except ValueError:
+            # Ako cilj nije unutar link.parent, koristi apsolutnu putanju
+            target_rel = target
+        link.symlink_to(target_rel)
+    else:
+        link.symlink_to(target)
+
+update_symlink(link, target, relative=True)
+print(f"Ažuriran simbolički link: {link} → {target} (relative=True)")
+# NAPOMENA:
+# Ova funkcija kreira ili ažurira simbolički link.
+# Uklanja postojeći link ili fajl pre kreiranja novog linka.
+# Podrazumevano koristi relativnu putanju za cilj.
+# Ako je relativna putanja nemoguća, koristi apsolutnu putanju.
+# Ovo je korisno za održavanje simboličkih linkova u projektu.
+print("✅ Done ...")
+
+# 3. Symlink proverava da li link pokazuje na cilj
+def symlink_points_to(link: Path, target: Path) -> bool:
+    """Return True if `link` resolves to `target` (strict check)."""
+    try:
+        return link.resolve(strict=True) == target.resolve(strict=True)
+    except FileNotFoundError:
+        return False
+points = symlink_points_to(link, target)
+print(f"Link {link} pokazuje na cilj {target}: {points}")
+# NAPOMENA:
+# Ova funkcija proverava da li simbolički link pokazuje na dati cilj.
+# Koristi resolve(strict=True) za dobijanje stvarne putanje.
+# Vraća True ako link pokazuje na cilj, inače False.
+print("✅ Done ...")
+
+# 4. Kombinacija: Kreiranje i provera symlinka
+link = Path("logs/latest.log")
+target = Path("cli_logging_practice/logs/app_2025-12-26.log")
+
+# Update symlink; koristi relativni target unutar logs/
+update_symlink(link, target)
+
+# Preskoči ako već ukazuje na isti target
+if not symlink_points_to(link, target):
+    update_symlink(link, target)
+
+# Resolve i koristi
+real_path = link.resolve()  # strict=False
+update_symlink(link, target, relative=True)
 
