@@ -247,7 +247,7 @@ e3a8c1d Initial setup
 
 ---
 
-## 🎉 ČESTITAM!
+## 🎉 ČESTITAM
 
 Ako si sve završio, sada imaš:
 

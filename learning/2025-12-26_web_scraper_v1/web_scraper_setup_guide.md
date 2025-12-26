@@ -330,7 +330,7 @@ if __name__ == "__main__":
     print(f"All settings are correctly configured!")
 ```
 
-### Testiranje config.py u REPL-u:
+### Testiranje config.py u REPL-u
 
 ```bash
 python3
@@ -530,7 +530,7 @@ if __name__ == "__main__":
         print(f"Error: {e}")
 ```
 
-### Testiranje scraper.py u REPL-u:
+### Testiranje scraper.py u REPL-u
 
 ```bash
 python3
@@ -595,7 +595,7 @@ def setup_logging():
 logger = setup_logging()
 ```
 
-### Testiranje logging-a:
+### Testiranje logging-a
 
 ```bash
 python3
@@ -866,7 +866,7 @@ class TestLogging:
         assert "Timeout" in caplog.text or "error" in caplog.text.lower()
 ```
 
-### Pokretanje Testova:
+### Pokretanje Testova
 
 ```bash
 # Pokreni sve testove
@@ -908,7 +908,7 @@ open htmlcov/index.html  # Pogledaj u browseru
 
 ---
 
-## 🎉 FAZA 4 DONE!
+## 🎉 FAZA 4 DONE
 
 Sada bi trebalo:
 
@@ -982,7 +982,7 @@ FINALIZACIJA:
 
 ---
 
-## 📞 Ako Zaglavim...
+## 📞 Ako Zaglavim
 
 ### Problem: "ModuleNotFoundError: No module named 'requests'"
 

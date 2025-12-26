@@ -12,7 +12,7 @@ Ovde vidis sve dostupne materijale za Dan 8 i kako se koriste.
 
 ## 📚 Fajlovi Objašnjeni
 
-### 1. 🎯 [README.md](./README.md) — START HERE!
+### 1. 🎯 [README.md](./README.md) — START HERE
 
 **Šta je to?** Pregled celog dana + očekivani rezultati
 
