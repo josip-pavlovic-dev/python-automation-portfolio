@@ -723,9 +723,23 @@ print("✅ Done ...")
 # Symbolički linkovi (Symlinks)
 # ================================================================================
 
-# 1. Kreiranje simboličkog linka
+link = Path("logs/latest.log")
+
+# 1. Proveri da li je symlink
+print(f"Da li je symlink? {link.is_symlink()}")
+
+# 2. Vidi TARGET putanju (resolve prateći link)
+target = link.resolve()
+print(f"Target putanja: {target}")
+
+# 3. Čitaj readlink (raw symlink target bez resolving-a)
+print(f"Raw symlink pokazuje na: {link.readlink()}")
+
+# 1. Kreiranje simboličkog linka(radi samo na Unix sistemima i Windows sa admin pravima)
 link = Path("logs/latest.log") # putanja do linka
-# ciljna putanja, ne mora da postoji!
+# ciljna putanja, ne mora da postoji ali ce logs/latest.log baciti gresku ako ne postoji
+# Greška se javlja samo kada se pokusa pristupiti fajlu logs/latest.log!
+# Fajl logs/latest.log je obrisan ili ne postoji!
 target = Path("cli_logging_practice/logs/app_2025-12-23.log")
 if link.exists() or link.is_symlink():
     link.unlink()  # ukloni postojeći link ili fajl
@@ -772,7 +786,7 @@ def update_symlink(link: Path, target: Path, *, relative: bool = True) -> None:
 update_symlink(link, target, relative=True)
 print(f"Ažuriran simbolički link: {link} → {target} (relative=True)")
 # NAPOMENA:
-# Ova funkcija kreira ili ažurira simbolički link.
+# Ova funkcija kreira ili ažurira simbolički link ako
 # Uklanja postojeći link ili fajl pre kreiranja novog linka.
 # Podrazumevano koristi relativnu putanju za cilj.
 # Ako je relativna putanja nemoguća, koristi apsolutnu putanju.
@@ -790,7 +804,7 @@ points = symlink_points_to(link, target)
 print(f"Link {link} pokazuje na cilj {target}: {points}")
 # NAPOMENA:
 # Ova funkcija proverava da li simbolički link pokazuje na dati cilj.
-# Koristi resolve(strict=True) za dobijanje stvarne putanje.
+# Koristi `resolve(strict=True)` za dobijanje stvarne putanje.
 # Vraća True ako link pokazuje na cilj, inače False.
 print("✅ Done ...")
 
@@ -808,4 +822,12 @@ if not symlink_points_to(link, target):
 # Resolve i koristi
 real_path = link.resolve()  # strict=False
 update_symlink(link, target, relative=True)
+print(f"Kreiran i potvrđen simbolički link: {link} → {target}")
+# NAPOMENA:
+# Ovaj kod kombinuje kreiranje i proveru simboličkog linka.
+# Prvo ažurira link koristeći relativni cilj.
+# Zatim proverava da li link već pokazuje na isti cilj.
+# Ako ne pokazuje, ponovo ažurira link.
+# Na kraju, koristi `resolve()` za dobijanje stvarne putanje.
+print("✅ Done ...")
 
