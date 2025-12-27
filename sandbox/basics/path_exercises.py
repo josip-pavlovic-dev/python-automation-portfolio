@@ -1,10 +1,51 @@
 import csv
+import json
+import logging
 import shutil
 import tempfile  # za privremene fajlove i direktorijume
 import time
-from asyncio.log import logger
 from datetime import datetime
 from pathlib import Path
+
+# Module-level application logger (do not import asyncio's internal logger)
+logger = logging.getLogger(__name__)
+
+def setup_logging(
+    *,
+    level: int = logging.INFO,
+    to_file: bool = True,
+    file_path: Path | str | None = None,
+) -> logging.Logger:
+    """Configure module logger with console and optional file handler.
+
+    - level: logging level for this module's logger
+    - to_file: when True, also logs to 'logs/latest.log' under this script folder
+    - file_path: override log file path; by default uses sandbox/basics/logs/latest.log
+    """
+    logger.setLevel(level)
+
+    # Avoid duplicating handlers if called multiple times
+    if not logger.handlers:
+        fmt = logging.Formatter("%(asctime)s %(levelname)s %(name)s: %(message)s")
+
+        # Console handler
+        sh = logging.StreamHandler()
+        sh.setFormatter(fmt)
+        logger.addHandler(sh)
+
+        # Optional file handler (points to the symlink by default)
+        if to_file:
+            if file_path is None:
+                # Default to the project's sandbox/basics/logs/latest.log
+                base = Path(__file__).parent
+                file_path = base / "logs" / "latest.log"
+            fp = Path(file_path)
+            fp.parent.mkdir(parents=True, exist_ok=True)
+            fh = logging.FileHandler(fp, encoding="utf-8")
+            fh.setFormatter(fmt)
+            logger.addHandler(fh)
+
+    return logger
 
 # ================================================================================
 # Kreiranje i navigacija sa Path
@@ -808,6 +849,7 @@ print(f"Link {link} pokazuje na cilj {target}: {points}")
 # Vraća True ako link pokazuje na cilj, inače False.
 print("✅ Done ...")
 
+
 # 4. Kombinacija: Kreiranje i provera symlinka
 link = Path("logs/latest.log")
 target = Path("cli_logging_practice/logs/app_2025-12-26.log")
@@ -819,7 +861,7 @@ update_symlink(link, target)
 if not symlink_points_to(link, target):
     update_symlink(link, target)
 
-# Resolve i koristi
+# Resolve i uzmi stvarnu putanju
 real_path = link.resolve()  # strict=False
 update_symlink(link, target, relative=True)
 print(f"Kreiran i potvrđen simbolički link: {link} → {target}")
@@ -830,4 +872,133 @@ print(f"Kreiran i potvrđen simbolički link: {link} → {target}")
 # Ako ne pokazuje, ponovo ažurira link.
 # Na kraju, koristi `resolve()` za dobijanje stvarne putanje.
 print("✅ Done ...")
+
+
+# 5. Pytest primer
+
+def test_update_symlink(tmp_path: Path):
+    logs = tmp_path / "logs"
+    logs.mkdir()
+    target = logs / "app_2025-12-23.log"
+    target.write_text("data", encoding="utf-8")
+    link = logs / "latest.log"
+
+    # First create
+    update_symlink(link, target)
+    assert link.is_symlink()
+    assert link.resolve(strict=True) == target
+
+    # Update to a new target
+    new_target = logs / "app_2025-12-24.log"
+    new_target.write_text("new", encoding="utf-8")
+    update_symlink(link, new_target)
+    assert link.resolve(strict=True) == new_target
+
+
+def test_symlink_points_to(tmp_path: Path):
+    base = tmp_path
+    t1 = base / "file1.txt"
+    t1.write_text("one", encoding="utf-8")
+    t2 = base / "file2.txt"
+    t2.write_text("two", encoding="utf-8")
+    link = base / "latest.txt"
+    update_symlink(link, t1)
+
+    assert symlink_points_to(link, t1) is True
+    assert symlink_points_to(link, t2) is False
+# NAPOMENA:
+# Ovi testovi koriste pytest tmp_path fixture za kreiranje privremenih direktorijuma
+# Testiraju funkcije za kreiranje i proveru simboličkih linkova.
+# Osiguravaju da funkcije rade ispravno u izolovanom okruženju.
+print("✅ Done ...")
+
+# 6. # Testing sa tmp_path fixture
+def test_write_read_roundtrip(tmp_path: Path):
+    """Test pisanje i čitanje fajla."""
+    file = tmp_path / "test.txt"
+    file.write_text("Hello", encoding="utf-8")
+    assert file.read_text(encoding="utf-8") == "Hello"
+
+def test_mkdir_creates_parents(tmp_path: Path):
+    """Test da mkdir kreira sve roditelje."""
+    nested = tmp_path / "a" / "b" / "c"
+    nested.mkdir(parents=True, exist_ok=True)
+    assert nested.exists()
+    assert nested.is_dir()
+
+def test_glob_filters_by_extension(tmp_path: Path):
+    """Test glob pattern filtriranje."""
+    (tmp_path / "file1.csv").touch()
+    (tmp_path / "file2.txt").touch()
+    (tmp_path / "file3.csv").touch()
+
+    csv_files = list(tmp_path.glob("*.csv"))
+    assert len(csv_files) == 2
+    assert all(f.suffix == ".csv" for f in csv_files)
+# NAPOMENA:
+# Ovi testovi koriste pytest tmp_path fixture za kreiranje privremenih direktorijuma
+# Testiraju osnovne operacije sa fajlovima i direktorijumima koristeći pathlib metode.
+# Osiguravaju da funkcije rade ispravno u izolovanom okruženju.
+print("✅ Done ...")
+
+# ================================================================================
+# Logging sa Path
+# ================================================================================
+logger = logging.getLogger(__name__)
+
+def process_file(path: Path) -> None:
+    """Process fajl sa logovanjem."""
+    logger.info(f"Processing file: {path.resolve()}")
+
+    if not path.exists():
+        logger.error(f"File not found: {path}")
+        raise FileNotFoundError(path)
+
+    try:
+        content = path.read_text(encoding="utf-8")
+        logger.debug(f"Read {len(content)} chars from {path.name}")
+    except Exception:
+        logger.exception(f"Failed to read {path}")
+        raise
+    # Dalja obrada fajla...
+    logger.info(f"Successfully processed file: {path.name}")
+test_path = Path("data/sample.csv")
+process_file(test_path)
+# NAPOMENA:
+# Ova funkcija demonstrira korišćenje logging modula sa pathlib.
+# Loguje različite nivoe informacija tokom obrade fajla.
+# Koristi resolve() za dobijanje apsolutne putanje fajla u logovima.
+# Logovanje pomaže u praćenju toka izvršavanja i grešaka.
+print("✅ Done ...")
+
+# ================================================================================
+# Error Handling patterns
+# ================================================================================
+
+def read_config(path: Path) -> dict[str, str]:
+    """Čitaj config sa jasnim error porukama."""
+    if not path.exists():
+        raise FileNotFoundError(f"Config not found: {path.resolve()}")
+
+    if not path.is_file():
+        raise ValueError(f"Expected file, got directory: {path}")
+
+    if path.suffix != ".json":
+        raise ValueError(f"Expected .json file, got: {path.suffix}")
+
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Invalid JSON in {path}: {e}") from e
+
+def get_latest_backup(backup_dir: Path) -> Path | None:
+    """Najnoviji backup fajl ili None."""
+    if not backup_dir.exists():
+        return None
+
+    backups = list(backup_dir.glob("backup_*.csv"))
+    if not backups:
+        return None
+
+    return max(backups, key=lambda p: p.stat().st_mtime)
 

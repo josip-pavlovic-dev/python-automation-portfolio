@@ -2,8 +2,13 @@ from pathlib import Path
 
 # from datetime import datetime
 
+# === 1. ODREDI RADNI DIREKTORIJUM ===
+# Skripta treba da se pokreće iz sandbox/basics/ direktorijuma
+script_dir = Path(__file__).parent
+print(f"📁 Script dir: {script_dir}")
+
 # === 2. PROVERI POSTOJEĆI SYMLINK ===
-link = Path("logs/latest.log").resolve()
+link = script_dir / "logs/latest.log"  # ✅ Apsolutna putanja od script_dir
 print(f"\n📂 Link putanja: {link}")
 print(f"🔗 Da li je symlink? {link.is_symlink()}")
 print(f"📁 Link postoji? {link.exists()}")
@@ -17,7 +22,7 @@ if link.is_symlink():
     print(f"✅ Target postoji? {resolved.exists()}")
 
 # === 4. KREIRAJ TESTNE LOG FAJLOVE ===
-log_dir = Path("cli_logging_practice/logs").resolve()
+log_dir = script_dir / "cli_logging_practice/logs"  # ✅ Apsolutna putanja
 log_dir.mkdir(parents=True, exist_ok=True)
 
 # Kreiraj nekoliko dnevnih log fajlova
