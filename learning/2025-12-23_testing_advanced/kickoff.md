@@ -2,7 +2,9 @@
 type: kickoff
 date: 2025-12-23
 linked_to: 2025-12-23_testing_advanced
-status: planned
+status: published
+title: Kickoff — Dan 7: Testing + Pytest (8h)
+summary: Raspored i koraci za Dan 7: Testing + Pytest (8h)
 blocks: 4
 ---
 
@@ -30,7 +32,7 @@ blocks: 4
 
 -   Aktiviraj venv: `source projects/01-web-scraper/venv/bin/activate`
 -   `pip install -r projects/01-web-scraper/requirements.txt` ako treba
--   Otvori `cheatsheet.md`, zatim `testing_complete_exercises.md`
+-   Otvori [`cheatsheet.md`](cheatsheet.md), zatim [`testing_complete_exercises.md`](testing_complete_exercises.md)
 
 ---
 
@@ -39,7 +41,8 @@ blocks: 4
 1. Smanji scope: napiši najkraći test koji pukne
 2. Uključi `-vv -k <pattern>` da izoluješ
 3. Proveri fixtures u `conftest.py` (kreiraj ako nedostaje)
-4. Pogledaj pytest docs snippet u `cheatsheet.md`
+4. Pogledaj pytest docs snippet u [`cheatsheet.md`](cheatsheet.md)
+5. Ako i dalje ne ide, nastavi dalje i vrati se kasnije
 
 ---
 
@@ -49,10 +52,11 @@ blocks: 4
 -   Posle FAZA 2: koristiš `@pytest.mark.parametrize` i `tmp_path`
 -   Posle FAZA 3: monkeypatch request/session i proveravaš log/error
 -   Posle FAZA 4: 80%+ pokrivenost utility modula
+-   Na kraju dana: popuni [`summary.md`](summary.md)
 
 ---
 
-## 📝 Napomene
+## 📝 Notes
 
 -   Testovi nemaju `print`; koriste `assert` i eventualno `caplog`/`capsys`
 -   Fajl sistem testovi uvek idu kroz `tmp_path`

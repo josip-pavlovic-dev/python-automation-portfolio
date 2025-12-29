@@ -108,37 +108,33 @@
 
 ### 🕐 SADA (Sledeći 60 min)
 
-```
-[ ] 5 min  → Čitaj START_HERE.md
+[ ] 5 min → Čitaj START_HERE.md
 [ ] 10 min → Čitaj SUMMARY_DAN_03.md
 [ ] 30 min → Čitaj BAZA_POTREBNA.md
 [ ] 15 min → Pregledaj FOUNDATION_14_DAYS.md
 
-REZULTAT: Razumeš šta se dešava i gde si u sistemu
-```
+REZULTAT: Razumeš šta se dešava i gde si u sistemu ✅
+
+---
 
 ### 🌙 SUTRA (2 sata praktično)
 
-```
 [ ] Otvori DAY_03_CSV_BASICS.md
 [ ] 30 min (FAZA 1) → Setup test CSV fajlove
 [ ] 45 min (FAZA 2) → Eksperimenti sa Sniffer
 [ ] 45 min (FAZA 3) → Napravi detect_dialect() funkciju
 
 REZULTAT: detect_dialect() radi savršeno ✅
-```
 
 ---
 
 ### 📚 SLEDEĆIH 6 SATI (Through Week)
 
-```
 [ ] Koristi csv_repl_exercises.md DEO 1 (2h)
 [ ] Koristi csv_repl_exercises.md DEO 2 (2h)
 [ ] Koristi csv_repl_exercises.md DEO 3 (2h)
 
-REZULTAT: Kompletan csv_cleaner.py sa testovima
-```
+REZULTAT: Kompletan csv_cleaner.py sa testovima ✅
 
 ---
 
@@ -215,7 +211,7 @@ REZULTAT: Spreman za bilo šta! 🚀
 
 ## 🎓 ZNANJE KOJE ĆEŠ IMATI
 
-### Posle Sutra (2h)
+### Sutra
 
 -   ✅ Razumem Dialect
 -   ✅ Mogu da koristim Sniffer
@@ -224,16 +220,19 @@ REZULTAT: Spreman za bilo šta! 🚀
 
 ---
 
-### Posle Nedelje (14h)
+### Posle 7 dana
 
--   ✅ Čitam CSV bilo kog formata
+-   ✅ Čitam CSV u bilo kom formatu
+-   ✅ Razumem fallback mehanizam
 -   ✅ Pišem standardan CSV sa csv.excel
 -   ✅ Imam kompletan csv_cleaner.py
--   ✅ Imam testove za kod
+-   ✅ Imam testove za kod, uključujući edge case-ove
+-   ✅ Mogu da eksperimentišem sa različitim CSV fajlovima
+-   ✅ Razumem kako da koristim ove tehnike u budućim projektima
 
 ---
 
-### Posle 14 Dana (38h)
+### Posle 14 Dana
 
 -   ✅ Znam sve 4 Tiers znanja
 -   ✅ Mogu da kreiram nove projekte

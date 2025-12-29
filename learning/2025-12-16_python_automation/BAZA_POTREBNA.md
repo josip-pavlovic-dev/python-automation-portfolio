@@ -52,12 +52,12 @@ find . -name "*.csv"
 
 ### ✅ CSV Module | Osnove
 
--   [ ] `csv.reader` i `csv.writer`
--   [ ] **Dialect** - recept za format
--   [ ] **Sniffer** - detektuj format
--   [ ] **csv.excel** - fallback
--   [ ] `newline=""` - parametar
--   [ ] `encoding="utf-8"` - parametar
+-   [x] `csv.reader` i `csv.writer`
+-   [x] **Dialect** - recept za format
+-   [x] **Sniffer** - detektuj format
+-   [x] **csv.excel** - fallback
+-   [x] `newline=""` - parametar
+-   [x] `encoding="utf-8"` - parametar
 
 **Zašto?** CSV je osnova za sve automatizacije. Ako ne razumeš csv.Dialect, gubiš vreme.
 

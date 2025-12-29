@@ -21,7 +21,7 @@
 
 ```bash
 cd /home/jole-pavlovic-dev/code/python-automation-lab/python-automation-portfolio/sandbox/basics
-pwd  # Proverite gde ste
+pwd  # Provera da si u pravom folderu
 ```
 
 ---
@@ -29,7 +29,7 @@ pwd  # Proverite gde ste
 ## 1.2 Kreiraj `data/` folder i test CSV fajlove
 
 ```bash
-mkdir -p data
+mkdir -p data # Kreiraj data/ folder
 ```
 
 ---

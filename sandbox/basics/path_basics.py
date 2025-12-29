@@ -71,9 +71,11 @@ def get_parent_directory() -> Path:
         Path: Putanja do parent direktorijuma.
 
     Napomena:
-        - `.parent` daje jedan nivo unatrag
-        - Za više nivoa, koristi `.parents`
-        - Primena: pronalaženje podataka relativno na skriptu
+        - `.parent` daje jedan nivo iznad trenutnog fajla
+        - Za više nivoa, koristi `.parents` iterator
+        - `.parents[1]` za dva nivoa iznad fajla, `.parents[2]` za tri, itd.
+        - Primena: pronalaženje putanje direktorijuma u kom se nalazi skripta
+        - Selektuj testove: pytest -k "test_get_parent_directory"
     """
     return Path(__file__).resolve().parent
 
@@ -99,13 +101,14 @@ def get_all_parent_directories() -> list[Path]:
     Napomena:
         - `.parents` je iterator, zato koristimo `list()` za konverziju
         - Redosled je od bližeg ka daljem roditeljskom direktorijumu
+        - Može se koristiti za navigaciju kroz hijerarhiju direktorijuma
+        - Selektuj testove: pytest -k "test_get_all_parent_directories"
     """
     return list(Path(__file__).resolve().parents)
 
-
 def get_absolute_path(relative_path: str) -> Path:
     """
-    Konvertuj relativnu putanju u apsolutnu.
+    Konvertuj relativnu putanju u apsolutnu na osnovu lokacije trenutne skripte.
 
     Args:
         relative_path: Relativna putanja (primer: "../data/file.txt").
@@ -133,6 +136,12 @@ def get_relative_path_from_home() -> Path | None:
         Ako je home /home/user i skripta je u /home/user/projects/script.py:
         >>> get_relative_path_from_home()
         Path('projects/script.py')
+
+    Napomena:
+        - Koristi `relative_to()` za dobijanje relativne putanje
+        - Baca ValueError ako skripta nije unutar home direktorijuma
+        - U tom slučaju vraća None umesto greške
+        - Selektuj testove: pytest -k "test_get_relative_path_from_home"
     """
     try:
         home = Path.home()
@@ -156,28 +165,36 @@ def expand_home_path(path_with_tilde: str) -> Path:
     Primer:
         >>> expand_home_path("~/documents/file.txt")
         Path('/home/user/documents/file.txt')
+
+    Napomena:
+        - `expanduser()` automatski detektuje home direktorijum
+        - Radi na svim operativnim sistemima
+        - Koristi se za korisnički unete putanje koje počinju sa `~`
+        - Selektuj testove: pytest -k "test_expand_home_path"
     """
     return Path(path_with_tilde).expanduser()
-
 
 def join_paths(base: str, *parts: str) -> Path:
     """
     Spoji više putanja koristeći `/` operator (cross-platform safe).
 
     Args:
-        base: Bazna putanja.
-        *parts: Dodatne putanje za spajanje.
+        base: Bazna putanja kao string.
+        *parts: Dodatne (string) putanje za spajanje sa baznom putanjom.
+        *parts: Varijabilan broj string argumenata koji predstavljaju delove putanje.
+        *parts: Svaki deo može biti direktorijum ili fajl.
 
     Returns:
-        Path: Spojena putanja.
+        Path: Spojena putanja kao Path objekat.
 
     Primer:
-        >>> join_paths("data", "output", "results.csv")
-        Path('data/output/results.csv')
+        >>> join_paths("data", "input", "2025-12", "users.csv")
+        Path('data/input/2025-12/users.csv')
 
     Napomena:
         - `/` operator automatski prilagođava separatore za svaki OS
         - Bolji je nego `os.path.join()` jer radi sa Path objektima
+        - Selektuj testove: pytest -k "test_join_paths"
     """
     result = Path(base)
     for part in parts:
@@ -208,6 +225,11 @@ def get_file_metadata(file_path: str) -> dict[str, str | list[str]]:
         '.gz'
         >>> meta['suffixes']
         ['.tar', '.gz']
+
+    Napomena:
+        - Koristi `Path` objekte za rad sa putanjama
+        - Radi za fajlove sa višestrukim suffix-ima (npr. .tar.gz)
+        - Selektuj testove: pytest -k "test_get_file_metadata"
     """
     path = Path(file_path)
     return {
@@ -216,6 +238,7 @@ def get_file_metadata(file_path: str) -> dict[str, str | list[str]]:
         "suffixes": path.suffixes,  # Svi suffiksi (['.tar', '.gz'])
         "name": path.name,          # Ime fajla (report.tar.gz)
     }
+
 
 
 def get_file_info(file_path: str) -> dict[str, bool | int | str]:
@@ -234,6 +257,11 @@ def get_file_info(file_path: str) -> dict[str, bool | int | str]:
         True
         >>> info['size_bytes']
         1024
+
+    Napomena:
+        - Vraća veličinu fajla u bajtovima ako fajl postoji, inače 0
+        - Koristi `expanduser()` i `resolve()` za sigurnost putanje
+        - Selektuj testove: pytest -k "test_get_file_info"
     """
     path = Path(file_path).expanduser().resolve()
     return {
@@ -252,13 +280,15 @@ def get_file_info(file_path: str) -> dict[str, bool | int | str]:
 
 def ensure_directory_exists(dir_path: Path) -> Path:
     """
-    Proverite direktorijum, kreiraj ga ako ne postoji, vrati putanju.
+    Proverari te da li postoji zadata putanja za direktorijum.
+    Kreiraj direktorijum ako zadata putanja ne postoji.
+    Vrati putanju do kreiranog direktorijuma.
 
     Args:
         dir_path: Putanja do direktorijuma.
 
     Returns:
-        Path: Putanja do direktorijuma (sada garantovano postoji).
+        Path: Putanja do kreiranog direktorijuma (sada garantovano postoji).
 
     Primer:
         >>> path = ensure_directory_exists(Path("output/data"))
@@ -269,7 +299,8 @@ def ensure_directory_exists(dir_path: Path) -> Path:
 
     Napomena:
         - `parents=True` pravi sve parent direktorijume
-        - `exist_ok=True` ne bacaj grešku ako direktorijum već postoji
+        - `exist_ok=True` ne baca grešku ako direktorijum već postoji
+        - Selektuj testove: pytest -k "test_ensure_directory_exists"
     """
     if not dir_path.exists():
         dir_path.mkdir(parents=True, exist_ok=True)
@@ -297,6 +328,7 @@ def normalize_path(path_string: str) -> Path:
     Napomena:
         - Koristi se za validaciju putanja sa filenames
         - Baca ValueError ako je direktorijum umesto fajla
+        - Selektuj testove: pytest -k "test_normalize_path"
     """
     path = Path(path_string).expanduser().resolve()
     if not path.suffix:
@@ -323,6 +355,7 @@ def list_directory_contents(dir_path: Path, pattern: str = "*") -> list[Path]:
     Napomena:
         - Koristi `.glob()` umesto `.iterdir()` za filtriranje
         - Za rekurzivno pretraživanje, koristi `rglob()`: dir_path.rglob("*.py")
+        - Selektuj testove: pytest -k "test_list_directory_contents"
     """
     if not dir_path.exists():
         return []

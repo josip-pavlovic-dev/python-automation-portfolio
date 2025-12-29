@@ -67,20 +67,23 @@
 
 ---
 
-## 🔥 TOP 3 STVARI KOJE TREBAŠ ZAPAMTITI
+## 🔥 TOP 3 STVARI KOJE TREBA ZAPAMTITI
 
 ### 1️⃣ Dialect = Recept za CSV
 
-```python
 CSV fajl može biti:
-- name,age,city        (comma)
-- name;age;city        (semicolon)
-- name\tage\tcity      (tabs)
+
+-   name,age,city (comma)
+-   name;age;city (semicolon)
+-   name\tage\tcity (tabs)
 
 Ako koristiš POGREŠAN Dialect:
 → POGREŠNI REZULTATI bez greške! ⚠️
 
-Rešenje: csv.Sniffer().sniff(sample)
+Rešenje:
+
+```python
+dialect = csv.Sniffer().sniff(sample)
 ```
 
 ---
@@ -91,7 +94,7 @@ Rešenje: csv.Sniffer().sniff(sample)
 try:
     dialect = csv.Sniffer().sniff(sample)
 except Exception:
-    dialect = csv.excel  # ← Nikad padni
+    dialect = csv.excel  # ← Nikad ne koristiš pogrešan Dialect!
 ```
 
 ---

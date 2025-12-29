@@ -1,6 +1,6 @@
 # 🎬 VIZUELNI PREGLED — Šta sam Kreirio za Tebe
 
-Dobro jutro! Evo kompletnog pregleda **5 dokumenata** koji su kreirani za tebe danes:
+Dobro jutro! Evo kompletnog pregleda **5 dokumenata** koji su kreirani za tebe danas:
 
 ---
 
@@ -48,8 +48,8 @@ sandbox/
 📚 [`FOUNDATION_14_DAYS.md`](./FOUNDATION_14_DAYS.md)
 
 -   Piramida znanja (Foundation → Projects)
--   14-danac plan sa danima i resultata
--   Resursi po nivou
+-   14-dnevni plan sa danima i rezultatima
+-   Resursi po nivou znanja
 
 ## 4️⃣ SADA (10 min čitanja)
 
@@ -107,12 +107,12 @@ sandbox/
 📋 Šta je TIER 3 (LATER)
 📋 Šta je TIER 4 (NIKAD SADA!)
 ⚠️ Najveće greške početnika
-📋 Tvoj 14-danac plan (konkretno)
+📋 Tvoj 14-dnevni plan (konkretno)
 🔍 Validacija - Kako da znaš da si gotov
 ```
 
-**Za:** Sistematski pregled - šta trebaš i u kom redosledu
-**Čitaj kada:** Osećaš se zbunjeno; trebaš struktura
+**Za:** Sistematski pregled - šta treba da znaš i u kom redosledu
+**Čitaj kada:** Osećaš se zbunjeno; tražiš strukturu
 
 ---
 
@@ -126,13 +126,13 @@ sandbox/
 📋 Nivo 3: MODULES (csv, json, pathlib...)
 📋 Nivo 4: FRAMEWORKS (requests, bs4...)
 📋 Nivo 5: PROJECTS
-📅 14-danac plan (nedelja po nedelja)
+📅 14-dnevni plan (nedelja po nedelju)
 🔍 Kako da znaš da si spreman?
 📚 Resursi po svakom TIER-u
 ```
 
-**Za:** Viši nivo arhitekture
-**Čitaj kada:** Trebaš da vidim "big picture"
+**Korisno za:** Viši nivo arhitekture
+**Čitaj kada:** Treba da vidim "big picture"
 
 ---
 
@@ -152,8 +152,8 @@ sandbox/
 💡 Key Takeaways
 ```
 
-**Za:** Reference + Repetition
-**Čitaj kada:** Trebaš da ponovi što si naučio
+**Korisno za:** Reference + Repetition
+**Čitaj kada:** Treba da ponoviš šta si naučio
 
 ---
 
@@ -163,15 +163,15 @@ sandbox/
 🎯 Šta ćeš sutra raditi (3 Faze)
 🚀 FAZA 1 (30 min): Setup test CSV fajlove
 📖 FAZA 2 (45 min): Teorija kroz terminal
-💻 FAZA 3 (45 min): Praktika - napravi detect_dialect()
+💻 FAZA 3 (45 min): Praksa - napravi detect_dialect()
 ✅ Checklist za dan
 📝 Šta da zapamtiš
 🔗 Sledeći korak
 💡 Ako se zaglaviš
 ```
 
-**Za:** Konkretne instrukcije - korak po korak
-**Čitaj kada:** Trebaš da znaš tačno šta da radiš
+**Korisno za:** Konkretne instrukcije - korak po korak
+**Čitaj kada:** Treba da znaš tačno šta da radiš
 
 ---
 
@@ -180,14 +180,14 @@ sandbox/
 ```
 🎯 DEO 1: OSNOVE (2h)
    1.1 Teorija: Šta je Dialect?
-   1.2 Praktika: Kreiraj test CSV fajlove
+   1.2 Praksa: Kreiraj test CSV fajlove
    1.3 Problem: Pogrešan Dialect
    1.4 Rešenje: csv.excel
    1.5 Kreiraj custom Dialect
 
 🎯 DEO 2: SNIFFER (2h)
    2.1 Teorija: Šta je Sniffer?
-   2.2 Praktika: Eksperimenti
+   2.2 Praksa: Eksperimenti
    2.3 Real world: Sa pravi fajlom
    2.4 Edge case: Ako Sniffer neuspe
    2.5 Integration: detect_dialect() funkcija
@@ -198,8 +198,8 @@ sandbox/
    3.3 Testiranje i debugging
 ```
 
-**Za:** Detaljno učenje sa svim teorija + praksa
-**Čitaj kada:** Spreman za 6h intenzivnog učenja
+**Korisno za:** Detaljno učenje sa svim (teorija + praksa)
+**Čitaj kada:** Spreman si za 6h intenzivnog učenja
 
 ---
 
@@ -240,7 +240,7 @@ DAN 3-7:
 
 ---
 
-# 💾 Download/Čuvar Ove Fajlove
+# 💾 Download/Čuva Ove Fajlove
 
 Svi fajlovi su u projektu:
 
@@ -289,13 +289,13 @@ Ako pokreneš DAY_03 bez čitanja BAZA_POTREBNA:
 
 -   Znaš što da radiš (kako)
 -   ALI NE znaš zašto (kontekst)
--   → Zaboravaš se brže
+-   → Zaboravlja se brže
 
 **Ako prvo čitaš BAZA_POTREBNA:**
 
 -   Razumeš strukturu (zašto)
 -   Razumeš kako se sve gradi (gde se ja nalazim)
--   Zaboravaš se sporije → Duži retention
+-   Zaboravlja se sporije → Duži retention
 
 **Redosled:** SUMMARY → BAZA_POTREBNA → FOUNDATION → DAY_03
 
@@ -303,4 +303,6 @@ Ako pokreneš DAY_03 bez čitanja BAZA_POTREBNA:
 
 **Spreman? Počni sa [`SUMMARY_DAN_03.md`](./SUMMARY_DAN_03.md)! 🚀**
 
-P.S. Materijali su detaljni namerno - trebá ti jaća osnova i to ćeš dobiti ovde.
+P.S. Materijali su detaljni namerno - treba ti jača osnova i to ćeš dobiti ovde. Srećno!
+
+---

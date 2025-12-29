@@ -2,13 +2,16 @@
 type: day_overview
 linked_to: 2025-12-23_testing_advanced
 date: 2025-12-23
-status: planned
+status: published
+title: Dan 7 — Testing + Pytest (8h)
+summary: Nauči da pišeš pouzdane testove za automation skripte: pytest osnove, fixtures, parametrizacija, tmp_path, mocking, coverage signal.
+tags: testing, pytest, tdd, automation, python
 language: bilingual
 ---
 
 # 🧪 Dan 7 — Testing + Pytest (8h)
 
-## 🎯 Cilj (Serbian)
+## 🎯 Cilj
 
 Nauči da pišeš pouzdane testove za automation skripte: pytest osnove, fixtures, parametrizacija, tmp_path, mocking, coverage signal.
 
@@ -27,7 +30,7 @@ Nauči da pišeš pouzdane testove za automation skripte: pytest osnove, fixture
 ## ✅ Rezultat dana
 
 -   `tests/` folder sa 3+ fajla u `sandbox/basics/` ili `projects/01-web-scraper`
--   4x2h blokovi odrađeni sa zadacima u `testing_complete_exercises.md`
+-   4x2h blokovi odrađeni sa zadacima u [`testing_complete_exercises.md`](testing_complete_exercises.md)
 -   10+ testova koji prolaze; osnovni markers (`slow`, `unit`)
 
 ---
@@ -50,12 +53,12 @@ Nauči da pišeš pouzdane testove za automation skripte: pytest osnove, fixture
 
 ## 🗂️ Struktura fajlova danas
 
--   `kickoff.md` — raspored 4x2h
--   `testing_complete_exercises.md` — glavne vežbe
--   `cheatsheet.md` — pytest primeri
--   `tasks.md` — checklist
--   `summary.md` — popuni na kraju
--   `chatlog.md` — beleške Q&A
+-   [`kickoff.md`](kickoff.md) — raspored 4x2h
+-   [`testing_complete_exercises.md`](testing_complete_exercises.md) — glavne vežbe
+-   [`cheatsheet.md`](cheatsheet.md) — pytest primeri
+-   [`tasks.md`](tasks.md) — checklist
+-   [`summary.md`](summary.md) — popuni na kraju
+-   [`chatlog.md`](chatlog.md) — beleške Q&A
 
 ---
 
@@ -70,9 +73,21 @@ Nauči da pišeš pouzdane testove za automation skripte: pytest osnove, fixture
 
 ## 🚀 Quick start
 
-1. Otvori `kickoff.md` (5 min)
-2. Prođi `cheatsheet.md` (10 min)
-3. Radi FAZA 1-4 u `testing_complete_exercises.md`
+1. Otvori [`kickoff.md`](kickoff.md) (5 min)
+2. Prođi [`cheatsheet.md`](cheatsheet.md) (10 min)
+3. Radi FAZA 1-4 u [`testing_complete_exercises.md`](testing_complete_exercises.md)
 4. `pytest -q` posle svake faze
+
+---
+
+## 📝 Notes
+
+-   Testovi nemaju `print`; koriste `assert` i eventualno `caplog`/`capsys`
+-   Fajl sistem testovi uvek idu kroz `tmp_path`
+-   Markiraj spore testove `@pytest.mark.slow`
+-   Za izolaciju testova koristi `-k <pattern>` i `-m <marker>`
+-   Coverage pokrećeš sa `coverage run -m pytest` i `coverage report -m`
+-   Za mocking koristiš `monkeypatch` fixture iz pytest-a
+-   Dokumentacija: [https://docs.pytest.org/en/stable/](https://docs.pytest.org/en/stable/)
 
 ---

@@ -70,7 +70,7 @@
 -   [ ] `git status`, `git log`
 -   [ ] `.gitignore`
 
-**Zašto?** Trebate verzionisati kod, a kasnije koristiš CI/CD
+**Zašto?** Treba verzionisati kod, a kasnije koristiš CI/CD
 
 ---
 
