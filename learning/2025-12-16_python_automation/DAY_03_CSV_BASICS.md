@@ -2,12 +2,12 @@
 
 **Datum:** 2025-12-17
 **Cilj:** Razumeti Dialect i Sniffer kroz praktične vežbe
-**Rezultat:** Samstalno korišćenje csv.Dialect bez paničnog guglovanja
+**Rezultat:** Samostalno korišćenje `csv.Dialect` bez paničnog guglanja
 **Trajanje:** ~2h
 
 ---
 
-# 🎯 Šta ćeš sutra raditi?
+## 🎯 Šta ćeš sutra raditi?
 
 1. **FAZA 1 (30 min):** Setup - kreiraj test CSV fajlove
 2. **FAZA 2 (45 min):** Teorija kroz terminal - eksperimentuj sa Sniffer
@@ -15,9 +15,9 @@
 
 ---
 
-# 🚀 FAZA 1: Setup (30 min)
+## 🚀 FAZA 1: Setup (30 min)
 
-## 1.1 Navigacija do `sandbox/basics/`
+### 1.1 Navigacija do `sandbox/basics/`
 
 ```bash
 cd /home/jole-pavlovic-dev/code/python-automation-lab/python-automation-portfolio/sandbox/basics
@@ -26,7 +26,7 @@ pwd  # Provera da si u pravom folderu
 
 ---
 
-## 1.2 Kreiraj `data/` folder i test CSV fajlove
+### 1.2 Kreiraj `data/` folder i test CSV fajlove
 
 ```bash
 mkdir -p data # Kreiraj data/ folder
@@ -34,7 +34,7 @@ mkdir -p data # Kreiraj data/ folder
 
 ---
 
-## 1.3 Pokreni Python terminal
+### 1.3 Pokreni Python terminal
 
 ```bash
 python3
@@ -44,7 +44,7 @@ python
 
 ---
 
-## 1.4 Kopirati PRVI kod iz `csv_repl_exercises.md` - DEO 1.2
+### 1.4 Kopirati PRVI kod iz `csv_repl_exercises.md` - DEO 1.2
 
 ```python
 # Zameni sadržaj ispod:
@@ -95,7 +95,7 @@ Fajlovi u data/:
 
 ---
 
-## 1.5 Provera: Pročitaj fajlove sa `cat`
+### 1.5 Provera: Pročitaj fajlove sa `cat`
 
 ```bash
 # Exit iz Python terminal
@@ -109,9 +109,9 @@ cat data/format_tabs.csv
 
 ---
 
-# 📖 FAZA 2: Teorija - Problem & Rešenje (45 min)
+## 📖 FAZA 2: Teorija - Problem & Rešenje (45 min)
 
-## 2.1 Problem: Pogrešan Dialect
+### 2.1 Problem: Pogrešan Dialect
 
 Vrati se u Python:
 
@@ -161,7 +161,7 @@ with open("data/format_semicolon.csv", newline="") as f:
 
 ---
 
-## 2.2 Rešenje 1: csv.excel Dialect
+### 2.2 Rešenje 1: csv.excel Dialect
 
 ```python
 import csv
@@ -201,7 +201,7 @@ Atributi csv.excel Dialect-a:
 
 ---
 
-## 2.3 Rešenje 2: csv.Sniffer - Automatska detekcija
+### 2.3 Rešenje 2: csv.Sniffer - Automatska detekcija
 
 ```python
 import csv
@@ -254,9 +254,9 @@ M...
 
 ---
 
-# 💻 FAZA 3: Praktika - Napravi detect_dialect() (45 min)
+## 💻 FAZA 3: Praktika - Napravi detect_dialect() (45 min)
 
-## 3.1 Šablonica
+### 3.1 Šablon za `detect_dialect()`
 
 ```python
 import csv
@@ -333,7 +333,9 @@ TESTIRANJE detect_dialect()
    Header: ['name', 'age', 'city']
 ```
 
-## 3.2 Bonus: Test sa Fallback
+---
+
+### 3.2 Bonus: Test sa Fallback
 
 ```python
 # Kreiraj "čudan" fajl koji će zbuniti Sniffer
@@ -360,7 +362,7 @@ EDGE CASE: Šta ako Sniffer ne uspe?
 
 ---
 
-# 🎯 Checklist za Dan 3
+## 🎯 Checklist za Dan 3
 
 -   [x] **FAZA 1:** Kreiraj test CSV fajlove u `data/` folder
 -   [x] **FAZA 2:** Razumem razliku između pogrešnog i ispravljenog readera
@@ -371,7 +373,7 @@ EDGE CASE: Šta ako Sniffer ne uspe?
 
 ---
 
-# 📝 Šta da zapamtiš
+## 📝 Šta da zapamtiš
 
 ```python
 # 1. CSV može biti u BILO KOJEM formatu:
@@ -394,18 +396,18 @@ except Exception:
 
 ---
 
-# 🔗 Sledeći korak (Dan 4)
+## 🔗 Sledeći korak (Dan 4)
 
 Sutra ćeš:
 
 -   Naučiti `read_rows()` i `clean_rows()` funkcije
--   Integrirati `detect_dialect()` u kompletan workflow
+-   Integrisati `detect_dialect()` u kompletan workflow
 -   Pisati i čitati CSV fajlove sa različitim formatima
--   **Rezultat:** Kompletan `csv_cleaner.py` kod
+-   **Rezultat:** Kompletan `csv_cleaner.py` kod će raditi samostalno!
 
 ---
 
-# 💡 Ako se zaglaviš
+## 💡 Ako se zaglaviš
 
 **Pitanja koja bi trebalo sebi da postaviš:**
 
@@ -434,5 +436,14 @@ python3
 ```
 
 **Kreni! 🚀**
+
+---
+
+## 📚 Dodatni Resursi
+
+-   [csv module dokumentacija](https://docs.python.org/3/library/csv.html)
+-   [csv.Sniffer primeri](https://docs.python.org/3/library/csv.html#csv.Sniffer)
+-   [Razumevanje CSV Dialects](https://realpython.com/python-csv/#custom-csv-dialects)
+-   [Handling Different CSV Formats](https://www.dataquest.io/blog/python-csv-tutorial/)
 
 ---
