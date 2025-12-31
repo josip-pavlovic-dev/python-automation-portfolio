@@ -104,7 +104,7 @@ python3
 Ako dobijash grešku `python3: command not found`:
 
 -   Linux/Mac: `brew install python3` ili skini sa python.org
--   Windows: Skini Python sa https://python.org i markiraj "Add to PATH"
+-   Windows: Skini Python sa <https://python.org> i markiraj "Add to PATH"
 
 ### Editor Setup
 
@@ -308,7 +308,7 @@ Spremi se!
 
 ---
 
-## 🚀 LET'S GO!
+## 🚀 LET'S GO
 
 Prvo čitaj: **START_HERE.md**
 

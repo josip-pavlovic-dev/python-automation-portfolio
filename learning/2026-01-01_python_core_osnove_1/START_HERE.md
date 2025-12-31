@@ -294,7 +294,7 @@ if x is None:       # ISPRAVNO
 
 ---
 
-## ✋ Ako Se Zaglavim...
+## ✋ Ako Se Zaglavim
 
 **Q: Šta znači "SyntaxError: unexpected indent"?**
 A: Mešaš tabove i razmake. Otvori Settings → Tab Size: 4 i koristi samo razmake.

@@ -73,7 +73,7 @@ print(type(x))     # <class 'dict'>
 
 Python **dinamički** određuje tip tokom izvršavanja koda.
 
-### Kako to da izgleda u drugim jezicima (statičko tipiziranje):
+### Kako to da izgleda u drugim jezicima (statičko tipiziranje)
 
 ```java
 // Java - moraš prvo reći tip
@@ -351,7 +351,7 @@ False      # boolean False
 True       # boolean True
 ```
 
-### Praktični primeri:
+### Praktični primeri
 
 ```python
 # ❌ Loše - eksplicitno

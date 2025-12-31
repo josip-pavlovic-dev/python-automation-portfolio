@@ -177,7 +177,7 @@ TIER 4 (Posle 8h)
 
 ---
 
-## 🤝 Ako se zaglavim...
+## 🤝 Ako se zaglavim
 
 **Šta da uradim ako ne razumem nešto:**
 
@@ -193,10 +193,10 @@ TIER 4 (Posle 8h)
 
 ## 📖 Dodatni Resursi (opsiono)
 
--   Python official: https://python.org/
--   Real Python: https://realpython.com/ (EN)
--   Learn Python the Hard Way: https://learnpythonthehardway.com/ (EN)
--   Automate the Boring Stuff: https://automatetheboringstuff.com/ (EN)
+-   Python official: <https://python.org/>
+-   Real Python: <https://realpython.com/> (EN)
+-   Learn Python the Hard Way: <https://learnpythonthehardway.com/> (EN)
+-   Automate the Boring Stuff: <https://automatetheboringstuff.com/> (EN)
 
 ---
 

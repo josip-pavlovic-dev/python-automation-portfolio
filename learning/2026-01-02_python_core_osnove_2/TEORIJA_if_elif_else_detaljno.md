@@ -30,12 +30,12 @@ if USLOV:
 
 **Komponente:**
 
-| Deo     | Šta je                         | Primer           |
-| ------- | ------------------------------ | ---------------- |
-| `if`    | Ključna reč                    | `if`             |
-| `USLOV` | Nešto što može biti True/False | `x > 5`          |
-| `:`     | Dvotačka (OBAVEZNA!)           | `:`              |
-| Blok    | Indentirano                    | `    print(...)` |
+| Deo     | Šta je                         | Primer       |
+| ------- | ------------------------------ | ------------ |
+| `if`    | Ključna reč                    | `if`         |
+| `USLOV` | Nešto što može biti True/False | `x > 5`      |
+| `:`     | Dvotačka (OBAVEZNA!)           | `:`          |
+| Blok    | Indentirano                    | `print(...)` |
 
 **Tok izvršavanja:**
 
