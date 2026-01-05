@@ -20,7 +20,8 @@ Ovaj folder sadrži **obiman materijal** za prvi dan učenja Python Core osnova.
 2. **Sintaksa bez zagrada** — Uvlaka, dvotačka, indentation
 3. **Dinamičko tipiziranje** — Šta znači da tipovi nisu deklarisani
 4. **REPL vežbe** — Praktična iskustva u Python interpretatoru
-5. **Sigurne putanje ka produbljivanju** — Kako se izbjegavaju greške početnika
+5. **Sigurne putanje ka produbljivanju** — Kako se izbegavaju početničke greške
+6. **Mini problemi** — Jednostavni zadaci za vežbu naučenog
 
 ---
 
@@ -49,9 +50,9 @@ Do kraja ovog dana trebao bi da:
 
 ✅ Razumeš **zašto** Python koristi uvlaku (ne zagrade)
 ✅ Znaš koja je razlika između `None`, `0`, `''`, `[]`
-✅ Možeš da prediš šta će kod ispisati BEZ pokretanja
+✅ Možeš da predvidiš šta će kod ispisati BEZ pokretanja
 ✅ Znaš što je `truthy` i `falsy` vrednovanje
-✅ Možeš da pokrneš Python REPL i pisaš jednostavan kod
+✅ Možeš da pokreneš Python REPL i pišeš jednostavan kod
 ✅ Razumeš `snake_case` konvenciju
 
 ---
@@ -167,13 +168,13 @@ TIER 4 (Posle 8h)
 
 ## 📋 Checklist pre nego što kreneš
 
--   [ ] Instalirao sam Python 3.10+
--   [ ] Terminal se pokreće bez greške
--   [ ] Vidim Python verziju: `python --version`
--   [ ] Mogu da otvorim REPL: `python` (ili `python3`)
--   [ ] Mogu da izađem iz REPL-a: `exit()`
--   [ ] Razumem šta je folder `learning/`
--   [ ] Spreman sam za 8 sati intenzivnog učenja
+-   [x] Instalirao sam Python 3.10+
+-   [x] Terminal se pokreće bez greške
+-   [x] Vidim Python verziju: `python --version`
+-   [x] Mogu da otvorim REPL: `python` (ili `python3`)
+-   [x] Mogu da izađem iz REPL-a: `exit()`
+-   [x] Razumem šta je folder `learning/`
+-   [x] Spreman sam za 8 sati intenzivnog učenja
 
 ---
 
@@ -181,11 +182,11 @@ TIER 4 (Posle 8h)
 
 **Šta da uradim ako ne razumem nešto:**
 
-1. **Prvo:** Ponovi lekciju (čitaj sporije, učini pauzu)
-2. **Drugo:** Uradi MINI_PROBLEME slične na vežbi
+1. **Prvo:** Ponovi lekciju (čitaj sporije, napravi pauzu)
+2. **Drugo:** Uradi primere iz materijala ponovo
 3. **Treće:** Otvori Python REPL i eksperimentiši
 4. **Četvrto:** Pitaj Copilota ali sa specifičnim primerom
-5. **Peto:** Odedi na sledeću lekciju (ponekad razumevanje dolazi kasnije)
+5. **Peto:** Pređi na sledeću lekciju (ponekad razumevanje dolazi kasnije)
 
 **Nema žurbe - bolje je biti siguran nego brz.**
 
@@ -219,8 +220,8 @@ MESEC:             "Python Core je moj! Spreman sam za module."
 Ako imate pitanja ili sugestije za poboljšanje materijala:
 
 -   Napomeni u `chatlog.md`
--   Napravi issue u projektu
--   Pokrenite diskusiju sa mentorem
+-   Napravi issue na GitHub repozitorijumu
+-   Pokrenite diskusiju sa mentorom na copilot platformi
 
 ---
 

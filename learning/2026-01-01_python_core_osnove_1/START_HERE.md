@@ -79,7 +79,7 @@ String name = "Ana";
 x = 5              # Python zna: ovo je int
 name = "Ana"       # Python zna: ovo je str
 
-# Čak i možeš da promenil tip (ne preporučuje se):
+# Čak i možeš da promeni tip (ne preporučuje se za početnike):
 x = 5              # int
 x = "pet"          # sada je str
 ```
